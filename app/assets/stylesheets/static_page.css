@@ -7,6 +7,7 @@ div {
 .main-title {
 	padding-top: 10%;
 	font-family: 'Pacifico', cursive;
+	-webkit-font-smoothing: antialiased
 }
 
 .mix-tape-parent {
@@ -21,5 +22,6 @@ div {
 	left: 235px;
 	bottom: 242px;
 	font-family: 'Patrick Hand SC', cursive;
+	-webkit-font-smoothing: antialiased
 }
 
