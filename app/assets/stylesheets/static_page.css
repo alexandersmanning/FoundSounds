@@ -1,0 +1,25 @@
+div {
+	text-align: center;	
+	width: 900px;
+	margin: 0 auto;
+}
+
+.main-title {
+	padding-top: 10%;
+	font-family: 'Pacifico', cursive;
+}
+
+.mix-tape-parent {
+	display: inline-block;
+	position: relative;
+	z-index: -100
+}
+
+
+.coming-soon {
+	position: absolute;
+	left: 235px;
+	bottom: 242px;
+	font-family: 'Patrick Hand SC', cursive;
+}
+
