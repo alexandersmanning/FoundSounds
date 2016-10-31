@@ -1,6 +1,8 @@
 # Found Sounds
-- [FoundSounds live][heroku]
-- [Trello Project][trello]
+[FoundSounds Heroku Link][heroku]
+
+[Trello Project][trello]
+
 [heroku]: https://found-sounds.herokuapp.com
 [trello]: https://trello.com/b/EJuJeIXY/found-sounds
 
@@ -21,37 +23,37 @@ Found Sounds is a full-stack web application that looks to visualize local conce
 * [DB schema][schema]
 * [Sample State][sample-state]
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[api-endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-[sample-state]: docs/sample-state.md
+[wireframes]: wireframes/
+[components]: component-hierarchy.md
+[api-endpoints]: api-endpoints.md
+[schema]: schema.md
+[sample-state]: sample-state.md
 
 ## Implementation Timeline
 
 ### Phase 1: Backend setup an Front End User Authentication (2 days)
 
-** Objective:** Functioning rails project with front-end authentication
+**Objective:** Functioning rails project with front-end authentication
 
 ## Phase 2: AreaShows (Sidebar) component, Show API, Jam Base API (2 days)
 
-** Objective:** Show lists can be viewed by date, through rails API, with information pulled from Jam Base
+**Objective:** Show lists can be viewed by date, through rails API, with information pulled from Jam Base
 
 ## Phase 3: Google Map API, ShowInformation component, (2 days)
 
-** Objective: ** Display show information on google map, with markers, and the ShowInformation component displayed within the marker modal
+**Objective:** Display show information on google map, with markers, and the ShowInformation component displayed within the marker modal
 
 ## Phase 4: PreviousShows, LikedShows, AttendingShows (1 day)
-** Objective: ** Create Components that modify the API calls used in Area shows to pull data depending on route. Add buttons to show information component
+**Objective:** Create Components that modify the API calls used in Area shows to pull data depending on route. Add buttons to show information component
 
 ## Phase 5: About, Contact components and modal forms (1 day)
-** Objective: ** Create Components for About and Contact modals that can be accessed in the footer
+**Objective:** Create Components for About and Contact modals that can be accessed in the footer
 
 ## Phase 6: Styling for Navigation, Footer, and SidebarComponent (1 day)
-** Objective: ** Advanced styling of the navigation, footer, and sidebar components
+**Objective:** Advanced styling of the navigation, footer, and sidebar components
 
 ## Phase 7: Styling for Maps and Show information Component (1 day)
-** Objective: ** Advanced styling of the Maps and Show information component
+**Objective:** Advanced styling of the Maps and Show information component
 
 ##Future Directions and Additional Features
 - [ ] User profile with pictures and information (favorite bands, etc.)
