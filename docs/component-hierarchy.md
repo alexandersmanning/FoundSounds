@@ -24,7 +24,7 @@
  - AuthForm
   + Modal
    
-## Sidebar Components 
+### Sidebar Components 
 
 **AreaShowsContainer**
  - SidebarComponent
@@ -50,7 +50,7 @@
  + ShowsList
  	+ ShowInformation
   
-## Root Component 
+### Root Component 
 
 **RootContainer**
  - MainPage
