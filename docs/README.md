@@ -31,7 +31,7 @@ Found Sounds is a full-stack web application that looks to visualize local conce
 
 ## Implementation Timeline
 
-### Phase 1: Backend setup an Front End User Authentication (2 days)
+## Phase 1: Backend setup an Front End User Authentication (2 days)
 
 **Objective:** Functioning rails project with front-end authentication
 
@@ -55,7 +55,7 @@ Found Sounds is a full-stack web application that looks to visualize local conce
 ## Phase 7: Styling for Maps and Show information Component (1 day)
 **Objective:** Advanced styling of the Maps and Show information component
 
-##Future Directions and Additional Features
+## Future Directions and Additional Features
 - [ ] User profile with pictures and information (favorite bands, etc.)
 - [ ] View Other User's Upcoming and Past Shows
 - [ ] BandCamp's API to Allow Users To Listen to the bands
