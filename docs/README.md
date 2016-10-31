@@ -1,18 +1,18 @@
 # Found Sounds
-[FoundSounds live][heroku]
-[Trello Project][trello]
+- [FoundSounds live][heroku]
+- [Trello Project][trello]
 [heroku]: https://found-sounds.herokuapp.com
 [trello]: https://trello.com/b/EJuJeIXY/found-sounds
 
 ## Minimum Viable Product
 Found Sounds is a full-stack web application that looks to visualize local concerts/music shows in the San Francisco area, allowing for last minute concert plans! It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React Redux front end.
-- [  ] Hosting on Heroku
-- [  ] New account creation, login, and guest/demo login
-- [  ] List of Upcoming Shows, pulled from JamBase and saved to database
-- [  ] Posting shows' locations on an interactive map using Google Maps
-- [  ] Presentation of Show information Through Google Maps Markers
-- [  ] List of Past and Future Shows by User
-- [  ] Production README
+- [ ] Hosting on Heroku
+- [ ] New account creation, login, and guest/demo login
+- [ ] List of Upcoming Shows, pulled from JamBase and saved to database
+- [ ] Posting shows' locations on an interactive map using Google Maps
+- [ ] Presentation of Show information Through Google Maps Markers
+- [ ] List of Past and Future Shows by User
+- [ ] Production README
 
 ## Design Docs
 * [View Wireframes][wireframes]
