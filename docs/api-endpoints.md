@@ -1,6 +1,6 @@
 # API Endpoints
 ## HTML API
- ### Root
+### Root
  - `GET /` - loads React web app
 
 ## JSON API
