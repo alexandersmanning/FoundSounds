@@ -5,17 +5,12 @@ import SignUpForm from './sign_up_form'
 class SessionForm extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = this.props.session || { email: "", password: "", password_confirmation: "" }
-	}
-
-	componentWillUpdate() {
-
 	}
 
 	render() {
-		return (<div>
-					<LoginForm props={this.props}/>
-					<SignUpForm props={this.props}/>
+		return (<div className="session-form">
+					<LogInForm errors={this.props.errors} login={this.props.login}/>
+					<SignUpForm errors={this.props.errors} signup={this.props.signup}/>
 				</div>)
 	}
 

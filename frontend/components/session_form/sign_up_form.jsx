@@ -16,7 +16,7 @@ class SignUpForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.signup(this.state);
+		this.props.signup({user: this.state });
 	}
 
 	renderErrors() {
@@ -35,7 +35,6 @@ class SignUpForm extends React.Component {
 		return (
 			<div className="signup-form-container">
 				<form onSubmit={this.handleSubmit} className="signup-form-box">
-					{this.renderErrors()}
 					<div className="signup-form">
 						<br/>
 						<label> Email:

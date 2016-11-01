@@ -3,7 +3,7 @@ import SessionForm from './session_form';
 import { login, sigup } from '../../actions/session_actions'
 
 const mapStateToProps = state => ({
-	errors: session.errors
+	errors: state.session.errors
 });
 
 const mapDispatchToProps = dispatch => ({

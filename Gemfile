@@ -38,6 +38,10 @@ group :development, :test do
   gem 'annotate'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'guard', require: false
+  gem 'guard-livereload', require: false
+  gem 'rack-livereload'
+  gem 'rb-fsevent', require: false
 end
 
 group :development do

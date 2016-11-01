@@ -16,7 +16,7 @@ class LogInForm extends React.Component {
 	handleSubmit(e) {
 		e.preventDefault();
 		const user = this.state;
-		this.props.login(this.state);
+		this.props.login({user: this.state });
 	}
 
 	renderErrors() {

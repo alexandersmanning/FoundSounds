@@ -1,0 +1,84 @@
+html {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	width: 80%;
+	margin: 0 auto;
+	font-family: $serif;
+	font-size: 12px;
+	text-align: center;
+
+}
+
+/*div {
+		
+	width: 900px;
+	;
+}*/
+
+input {
+	border: 1px solid black;
+	text-align: left;
+}
+.main-title {
+	padding-top: 10%;
+	margin-bottom: 0;
+	font-size: 3em;
+	font-family: 'Pacifico', cursive;
+	/*-webkit-font-smoothing: antialiased;*/
+}
+
+.mix-tape-parent {
+	display: inline-block;
+	position: relative;
+	z-index: -100
+}
+
+
+.coming-soon {
+	position: absolute;
+	left: 235px;
+	bottom: 242px;
+	color: #333333;
+	font-family: 'Patrick Hand SC', cursive;
+	/*-webkit-font-smoothing: antialiased*/
+}
+
+
+ .ReactModal__Content--after-open {
+		width: 500px;
+	 	height: 500px;
+	 	margin: 0 auto;
+ }
+
+
+ /*.ReactModal__Overlay, .ReactModal__Overlay--after-open {
+ 	width: 80%;
+ 	height: 80%;
+ 	text-align: center;
+ }
+
+ .ReactModalPortal {
+ 	text-align: center;
+ 	margin: 0 auto;
+ 	width: 80%;
+ }*/
+
+ .login-form-container {
+ 	width: 500px;
+ 	display: block;
+ 	text-align: center;
+ }
+
+ .signup-form-container {
+ 	width: 500px;
+ }
+
+ .session-form-container {
+ 	width: 500px;
+ }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
+
