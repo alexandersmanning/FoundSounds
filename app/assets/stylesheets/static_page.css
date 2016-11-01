@@ -9,7 +9,7 @@ div {
 	margin-bottom: 0;
 	font-size: 3em;
 	font-family: 'Pacifico', cursive;
-	-webkit-font-smoothing: antialiased;
+	/*-webkit-font-smoothing: antialiased;*/
 }
 
 .mix-tape-parent {
@@ -25,6 +25,8 @@ div {
 	bottom: 242px;
 	color: #333333;
 	font-family: 'Patrick Hand SC', cursive;
-	-webkit-font-smoothing: antialiased
+	/*-webkit-font-smoothing: antialiased*/
 }
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 
