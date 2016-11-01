@@ -63,6 +63,7 @@
 |Path   | Component   |
 |-------|-------------|
 | "/"   | "RootContainer", "AreaShowsContainer" (IndexRoute) |
+| "/?dateState=11-11-2016&dateEnd=11-15-2016 | "RootContainer", "AreaShowsContainer" (IndexRoute) sending params to api call|
 | "/attending" | "AttendingShowsContainer" |
 | "/attending?dateState=11-11-2016&dateEnd=11-15-2016 | "AttendingShowsContainer" sending params to api call|
 | "/liked"		 | "LikedShowsContainer"		 |
