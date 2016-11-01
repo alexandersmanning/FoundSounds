@@ -64,9 +64,13 @@
 |-------|-------------|
 | "/"   | "RootContainer", "AreaShowsContainer" (IndexRoute) |
 | "/attending" | "AttendingShowsContainer" |
+| "/attending?dateState=11-11-2016&dateEnd=11-15-2016 | "AttendingShowsContainer" sending params to api call|
 | "/liked"		 | "LikedShowsContainer"		 |
+| "/likes?dateState=11-11-2016&dateEnd=11-15-2016 | "LikedShowsContainer" sending params to api call
 | "/previous"  | "PreviousShowsContainer"  |
-
+| "/previous?dateState=11-11-2016&dateEnd=11-15-2016 | "PreviousShowsContainer" sending params to api call
+| "/show/:showId | "ShowInformationContainer|
+| "/show/:venueId | "ShowInformationContainer |
 
 
 
