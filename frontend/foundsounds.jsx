@@ -1,11 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-
-document.addEventListener("DOMContentLoaded", () => {
-	const root = document.getElementById("root");
-	ReactDOM.render(<h1>Hello</h1>, root)
-=======
+import ReactDOM from 'react-dom'
 import { login, signup, logout } from './actions/session_actions'
 import configureStore from './store/store';
 import Root from './components/root'
@@ -25,5 +19,5 @@ document.addEventListener("DOMContentLoaded", () => {
 	window.store = store;
 	const root = document.getElementById("root");
 	ReactDOM.render(<Root store={store}/>, root)
->>>>>>> front-end-auth
+
 });
