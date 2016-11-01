@@ -34,7 +34,10 @@ gem 'puma'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry-rails'
+  gem 'annotate'
+  gem 'binding_of_caller'
+  gem 'better_errors'
 end
 
 group :development do

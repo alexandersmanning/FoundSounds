@@ -1,4 +1,12 @@
-<div id="root">
+<script id="bootstrap-current-user" type="text/javascript">
+  <% if logged_in? %>
+  	window.currentUser = <%= render("api/users/user.json.jbuilder",
+  		user: current_user).html_safe %>
+  <% end %>
+</script>
+
+<div>
+	<div id="root"></div>
 	<h2 class="main-title">Welcome to Found Sounds!</h2>
 	<content class="mix-tape-parent clrfix">
 		<img class="mix-tape" src="https://img1.etsystatic.com/006/1/5174672/il_570xN.385989055_nvp7.jpg">
