@@ -16,7 +16,7 @@ const Root = ( {store} ) => {
       //load LoginForm
     }
   };
-
+  // move search container to app, and then sidebar for IndexRoute
    return (
     <Provider store={store}>
       <Router history={hashHistory}>
