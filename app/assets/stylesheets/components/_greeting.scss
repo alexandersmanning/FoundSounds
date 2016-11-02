@@ -1,0 +1,44 @@
+.main-nav-bar {
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-between;
+ 	height: 55px;
+ 	width: 100%;
+ 	background: white;
+ 	align-items: center;
+ 	bottom-border: grey;
+ 	box-shadow: 2px 2px .5px #888888;
+ }
+
+ .main-nav-bar .header-link {
+
+ 		padding-left: 15px;
+ 		font-family: 'Pacifico', cursive;
+ 		font-size: 25px;
+ }
+
+ .header-group {
+ 	display: block;
+ 	
+ 	/*justify-content: space-between;*/
+ 	/*min-width: 350px;*/
+ }
+
+ .header-name {
+ 	display: block;
+ 	float: left;
+ 	padding-right: 8px;
+ 	font-family: 'Sailec Regular', sans-serif;
+ 	font-size: 15px;
+ 	margin-top: 2.3%;
+ }
+
+ .header-button {
+ 	display: block;
+ 	float: left;
+ 	border-left: 1px solid grey;
+ 	padding-left: 8px;
+ 	padding-right: 8px;
+ 	font-family: 'Pacifico', cursive;
+ 		font-size: 16px;
+ }

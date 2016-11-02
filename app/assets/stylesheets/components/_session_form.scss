@@ -1,0 +1,95 @@
+.login-form-container {
+ 	width: 500px;
+ 	display: block;
+ 	text-align: center;
+ }
+
+ .signup-form-container {
+ 	width: 500px;
+ }
+
+ .session-form {
+ 	width: 500px;	
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 600px;
+  text-align: center; 
+ }
+
+ .login-input {
+ 	margin: 6px;
+ 	padding-left: 4px;
+ 	padding-top: 2px;
+	border: 1px solid white;
+ 	border-top-left-radius: 4px;
+ 	border-top-right-radius: 4px;
+ 	background-color: white;
+ 	border-bottom: 1px solid $border-grey;
+ 	text-align: left;
+ 	height: 25px;
+ 	width: 270px;
+ 	font-size: 15px;
+ 	font-family: 'Sailec Regular';
+ 	background-size: 0;
+ }
+
+
+.input-border {
+  display:block;
+  width:0px;
+  height: 2px;
+  background: $light-purple;
+  position: relative;
+  top:-8px;
+  left: 112px;
+  -webkit-transition: all ease-in-out .30s;
+  -o-transition: all ease-in-out .30s;
+  transition: all ease-in-out .30s;
+  margin: 0;
+}
+
+.login-input:focus+.input-border{
+  width:276px;
+}
+
+.login-input:focus::-webkit-input-placeholder {
+  color: white;
+}
+
+.login-input::-webkit-input-placeholder {
+  color: $border-grey;
+}
+
+.login-form-title {
+	font-family: 'Pacifico', cursive;
+	font-size: 20px;
+	margin-bottom: .5em;
+}
+
+.login-button {
+	width: 125px;
+	margin: 5px;
+	padding: 7px;
+	font-size: 15px;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+	color: white;
+	background-color: $light-purple;
+	font-family: 'Sailec Regular', sans-serif;
+	
+}
+
+ 
+ .login-signup button{
+ 		font-family: 'Pacifico', cursive;
+ 		font-size: 16px;
+ 		padding-right: 8px;
+ 		white-space: nowrap;
+ }
+
+ .login-signup {
+ 	display: flex;
+ 	justify-content: space-between;
+ 	padding-right: 15px;
+ }
