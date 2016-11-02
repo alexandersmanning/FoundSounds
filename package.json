@@ -19,6 +19,13 @@
   "bugs": {
     "url": "https://github.com/alexandersmanning/FoundSounds/issues"
   },
+  "engines": {
+    "node": "4.1.1",
+    "npm": "2.1.x"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/.bin/webpack"
+  },
   "homepage": "https://github.com/alexandersmanning/FoundSounds#readme",
   "dependencies": {
     "babel-core": "^6.18.0",
