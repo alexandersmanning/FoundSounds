@@ -36,11 +36,19 @@ body {
 	/*-webkit-font-smoothing: antialiased*/
 }
 
-
+#map-container {
+	// width: 800px;
+	height: calc(100vh - 56px);
+}
 
 
 .mix-tape-icon {
 	width: 10%;
+}
+
+.interactive-map-container {
+	position: relative;
+	top: 2px;
 }
 
 
