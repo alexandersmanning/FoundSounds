@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	width: 80%;
+	/*width: 80%;*/
 	margin: 0 auto;
 	font-family: $serif;
 	font-size: 12px;
@@ -49,9 +49,11 @@ input {
 
  .ReactModal__Content--after-open {
 		width: 500px;
-	 	height: 500px;
+	 	height: 625px;
 	 	margin: 0 auto;
+	 	margin-top: 50px;
  }
+
 
 
  /*.ReactModal__Overlay, .ReactModal__Overlay--after-open {
@@ -77,8 +79,85 @@ input {
  }
 
  .session-form-container {
- 	width: 500px;
+ 	width: 500px;	
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  height: 600px;
+  text-align: center; 
  }
+
+ .login-form {
+
+ }
+
+ .login-form label{
+ 	text-align: left;
+ }
+
+ .main-nav-bar {
+ 	display: flex;
+ 	flex-direction: row;
+ 	justify-content: space-between;
+ 	height: 55px;
+ 	width: 100%;
+ 	background: white;
+ 	align-items: center;
+ 	bottom-border: grey;
+ 	box-shadow: 2px 2px .5px #888888;
+ }
+
+ .main-nav-bar .header-link {
+
+ 		padding-left: 15px;
+ 		font-family: 'Pacifico', cursive;
+ 		font-size: 25px;
+ }
+
+ .header-group {
+ 	display: block;
+ 	
+ 	/*justify-content: space-between;*/
+ 	/*min-width: 350px;*/
+ }
+
+ .header-name {
+ 	display: block;
+ 	float: left;
+ 	padding-right: 8px;
+ 	font-family: 'Patrick Hand SC', cursive;
+ 	font-size: 16px;
+ 	margin-top: 1.5%;
+ }
+
+ .header-button {
+ 	display: block;
+ 	float: left;
+ 	border-left: 1px solid grey;
+ 	padding-left: 8px;
+ 	padding-right: 8px;
+ 	font-family: 'Pacifico', cursive;
+ 		font-size: 16px;
+ }
+
+ .login-signup button{
+ 		font-family: 'Pacifico', cursive;
+ 		font-size: 16px;
+ 		padding-right: 8px;
+ 		white-space: nowrap;
+ }
+
+ .login-signup {
+ 	display: flex;
+ 	justify-content: space-between;
+ 	padding-right: 15px;
+ }
+
+.mix-tape-icon {
+	width: 10%;
+}
+
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 
