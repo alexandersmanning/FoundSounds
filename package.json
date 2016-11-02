@@ -7,7 +7,7 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -23,9 +23,6 @@
     "node": "4.1.1",
     "npm": "2.1.x"
   },
-  "scripts": {
-    "postinstall": "./node_modules/.bin/webpack"
-  },
   "homepage": "https://github.com/alexandersmanning/FoundSounds#readme",
   "dependencies": {
     "babel-core": "^6.18.0",
@@ -35,6 +32,7 @@
     "material-ui": "^0.16.1",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
     "react-tap-event-plugin": "^1.0.0",
