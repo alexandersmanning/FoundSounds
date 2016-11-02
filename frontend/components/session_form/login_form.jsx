@@ -34,18 +34,17 @@ class LogInForm extends React.Component {
 	render() {
 		return (
 			<div className="login-form-container">
-				<h3 className="login-form-title">Login In</h3>
+				<h3 className="login-form-title">Log In</h3>
 				<form onSubmit={this.handleSubmit} className="login-form-box">
 					{this.renderErrors()}
 					<div className="login-form">
-						<br/>
 						<label for="login-email" hidden> Email</label>
 						<input className="login-text" id="login-email" type="text"
 							value={this.state.email}
 							onChange={this.update("email")}
 							className="login-input"
 							placeholder="email" />
-						<br/>
+						<span className="input-border"/>
 						<label for="login-password" hidden>Password</label>
 							<input className="login-text" type="password"
 								value={this.state.password}
@@ -53,6 +52,7 @@ class LogInForm extends React.Component {
 								className="login-input" 
 								placeholder="password"
 							/>
+						<span className="input-border"/>
 						<br/>
 						<input className="login-button" type="submit" value="log in" />
 					</div>

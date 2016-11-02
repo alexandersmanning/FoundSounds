@@ -37,7 +37,6 @@ class SignUpForm extends React.Component {
 				<h3 className="login-form-title">Sign Up</h3>
 				<form onSubmit={this.handleSubmit} className="signup-form-box">
 					<div className="login-form">
-						<br/>
 						<label for="signup-email" hidden>Email</label>
 							<input type="text" id="signup-email"
 								value={this.state.email}
@@ -45,7 +44,6 @@ class SignUpForm extends React.Component {
 								className="login-input"
 								placeholder="email" />
 							<span className="input-border"/>
-						<br/>
 						<label for="signup-password" hidden>Password </label>
 							<input type="password" id="signup-password"
 								value={this.state.password}
@@ -53,7 +51,7 @@ class SignUpForm extends React.Component {
 								className="login-input" 
 								placeholder="password"
 								/>
-						<br/>
+								<span className="input-border"/>
 						<label for="signup-confirm" hidden>Confirm Password</label>
 							<input type="password"
 								value={this.state.password_confirmation}
@@ -61,6 +59,7 @@ class SignUpForm extends React.Component {
 								className="login-input" 
 								placeholder="confirm password"
 								/>
+								<span className="input-border"/>
 						<br/>
 						<input className="login-button" type="submit" value="sign up" />
 					</div>
