@@ -101,9 +101,9 @@ body {
   transition: all ease-in-out .15s;
 }
 
-.login-input:focus+.input-border{
+/*.login-input:focus+.input-border{
   width:100%;
-}
+}*/
 
 .login-input:focus::-webkit-input-placeholder {
   color: #FFFFFF;
