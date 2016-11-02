@@ -12,16 +12,6 @@ body {
 
 }
 
-/*div {
-		
-	width: 900px;
-	;
-}*/
-
-input {
-	border: 1px solid black;
-	text-align: left;
-}
 .main-title {
 	padding-top: 10%;
 	margin-bottom: 0;
@@ -55,19 +45,6 @@ input {
  }
 
 
-
- /*.ReactModal__Overlay, .ReactModal__Overlay--after-open {
- 	width: 80%;
- 	height: 80%;
- 	text-align: center;
- }
-
- .ReactModalPortal {
- 	text-align: center;
- 	margin: 0 auto;
- 	width: 80%;
- }*/
-
  .login-form-container {
  	width: 500px;
  	display: block;
@@ -78,7 +55,7 @@ input {
  	width: 500px;
  }
 
- .session-form-container {
+ .session-form {
  	width: 500px;	
   display: flex;
   justify-content: space-around;
@@ -87,13 +64,73 @@ input {
   text-align: center; 
  }
 
- .login-form {
-
- }
-
- .login-form label{
+ .login-input {
+ 	margin: 6px;
+ 	padding-left: 4px;
+ 	padding-top: 2px;
+	border: 1px solid white;
+ 	border-top-left-radius: 4px;
+ 	border-top-right-radius: 4px;
+ 	background-color: white;
+ 	border-bottom: 1px solid #656565;
  	text-align: left;
+ 	height: 25px;
+ 	width: 270px;
+ 	font-size: 15px;
+ 	font-family: 'Sailec Regular';
+ 	background-size: 0;
  }
+
+ .login-input:focus {
+
+ 	background-color: #864D9A;
+ 	color: #FFFFFF;
+ 	transition: background-color .5s ease;
+ 	/*transition-property: sliding-vertically;*/
+ }
+
+.input-border {
+  display:inline-block;
+  width:0px;
+  height: 2px;
+  background: #FEC938;
+  position: relative;
+  top:-5px;
+  -webkit-transition: all ease-in-out .15s;
+  -o-transition: all ease-in-out .15s;
+  transition: all ease-in-out .15s;
+}
+
+.login-input:focus+.input-border{
+  width:100%;
+}
+
+.login-input:focus::-webkit-input-placeholder {
+  color: #FFFFFF;
+}
+
+.login-input::-webkit-input-placeholder {
+  color: #656565;
+}
+
+.login-form-title {
+	font-family: 'Pacifico', cursive;
+	font-size: 20px;
+	margin-bottom: .5em;
+}
+
+.login-button {
+	width: 125px;
+	margin: 5px;
+	padding: 7px;
+	font-size: 15px;
+	border: 1px solid lightgrey;
+	border-radius: 4px;
+	color: #FFFFFF;
+	background-color: #864D9A;
+	font-family: 'Sailec Regular', sans-serif;
+	/*background-color: #FB5353;*/
+}
 
  .main-nav-bar {
  	display: flex;
@@ -125,9 +162,9 @@ input {
  	display: block;
  	float: left;
  	padding-right: 8px;
- 	font-family: 'Patrick Hand SC', cursive;
- 	font-size: 16px;
- 	margin-top: 1.5%;
+ 	font-family: 'Sailec Regular', sans-serif;
+ 	font-size: 15px;
+ 	margin-top: 2.3%;
  }
 
  .header-button {
@@ -156,6 +193,7 @@ input {
 .mix-tape-icon {
 	width: 10%;
 }
+
 
 
 
