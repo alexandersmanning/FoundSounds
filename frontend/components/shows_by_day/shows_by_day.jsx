@@ -25,7 +25,6 @@ class ShowsByDay extends React.Component {
 	}
 
 	render () {
-		debugger
 		if (Object.keys(this.props.ShowsByDay).length === 0){
 			return <h1>Loading</h1>
 		}
@@ -35,8 +34,7 @@ class ShowsByDay extends React.Component {
 					{
 						 Object.keys(this.props.ShowsByDay).map( key => 
 							{
-								debugger
-								return <li>{key}</li>
+								return <li key={key} className="show-by-day-group">{key}</li>
 							})
 						}
 				</ul>

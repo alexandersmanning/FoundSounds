@@ -19,16 +19,11 @@ class SignUpForm extends React.Component {
 		this.props.signup({user: this.state });
 	}
 
-	renderErrors() {
-		return(
-			<ul>
-				{this.props.errors.map((error, i) => (
-					<li key={`error-${i}`}>
-						{error}
-					</li>
-				))}
-			</ul>
-		);
+	renderErrors(error, message) {
+		if (message) {
+			return `${error} ${message}`
+		}
+		return " "
 	}
 
 	render() {
@@ -44,7 +39,11 @@ class SignUpForm extends React.Component {
 								className="login-input"
 								placeholder="email" />
 							<span className="input-border"/>
+							<span className="errors">
+								{this.renderErrors("email", this.props.errors.email)}
+							</span>
 						<label for="signup-password" hidden>Password </label>
+						
 							<input type="password" id="signup-password"
 								value={this.state.password}
 								onChange={this.update("password")}
@@ -52,6 +51,9 @@ class SignUpForm extends React.Component {
 								placeholder="password"
 								/>
 								<span className="input-border"/>
+								<span className="errors">
+									{this.renderErrors("password", this.props.errors.password)}
+								</span>
 						<label for="signup-confirm" hidden>Confirm Password</label>
 							<input type="password"
 								value={this.state.password_confirmation}
@@ -60,6 +62,9 @@ class SignUpForm extends React.Component {
 								placeholder="confirm password"
 								/>
 								<span className="input-border"/>
+								<span className="errors">
+									{this.renderErrors("password confirmation", this.props.errors.password_confirmation)}
+								</span>
 						<br/>
 						<input className="login-button" type="submit" value="sign up" />
 					</div>

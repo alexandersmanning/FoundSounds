@@ -67,6 +67,27 @@
 	margin-bottom: .5em;
 }
 
+.log-in-button-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.guest-button {
+  width: 125px;
+  margin: 5px;
+  padding: 7px;
+  font-size: 15px;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
+  color: white;
+  background-color: $light-purple;
+  font-family: 'Sailec Regular', sans-serif;
+  cursor: pointer;
+}
+
 .login-button {
 	width: 125px;
 	margin: 5px;
@@ -80,6 +101,8 @@
 	
 }
 
+
+
  
  .login-signup button{
  		font-family: 'Pacifico', cursive;
@@ -92,4 +115,12 @@
  	display: flex;
  	justify-content: space-between;
  	padding-right: 15px;
+ }
+
+ .errors {
+   display:block;
+   color: $pastel-red;
+   font-size: 14px;
+   font-family: 'Sailec Regular', sans-serif;
+   margin: 1%;
  }

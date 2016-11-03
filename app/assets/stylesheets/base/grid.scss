@@ -25,7 +25,7 @@ with a class attribute containing 'col-' */
   width: 33%;
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 700px) {
   [class*='col-'] {
     width: 100%;
   }

@@ -8,11 +8,24 @@ class SessionLinks extends React.Component {
 		super(props);
 		this.openModal = this.openModal.bind(this);
 		this.closeModal = this.closeModal.bind(this);
+		this.logoutModal = this.logoutModal.bind(this);
+		this.leaveModal = this.leaveModal.bind(this);
 		this.state = { open: false }
 	}
 
 	componentWillMount() {
     Modal.setAppElement('body');
+ }
+
+ logoutModal() {
+ 	this.props.logout();
+ 	this.openModal()
+ };
+
+ leaveModal() {
+ 		// debugger
+ 		this.props.receiveErrors({errors: {}})
+ 		this.closeModal()
  }
 
 	openModal () { this.setState({open: true}); }
@@ -23,11 +36,12 @@ class SessionLinks extends React.Component {
 	 	let nav;
 
 		if (this.props.currentUser) {
+			debugger
 		 	nav = (
 		 		<nav className="login-signup">
 			 		 <h2 className="header-name">{this.props.currentUser.email}</h2>
 			   	 <button className="header-button" 
-			   	 				 onClick={this.props.logout}>Log Out</button>
+			   	 				 onClick={this.logoutModal}>Log Out</button>
 			   </nav>
 		 	)
 		} else {
@@ -36,7 +50,7 @@ class SessionLinks extends React.Component {
 					<button className="sign-up-button" 
 									onClick={this.openModal}>Login/Signup</button>
 	    		<Modal isOpen={this.state.open} 
-	    					 onRequestClose={this.closeModal}>
+	    					 onRequestClose={this.leaveModal}>
 	    			<SessionFormContainer />
 	    		</Modal>
     		</nav>

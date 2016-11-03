@@ -1,7 +1,7 @@
 shows_by_date = Hash.new { |h, k| h[k] = [] }
 
 @shows.each do |show|
-  shows_by_date[show.date] << show
+  shows_by_date[show.date.to_date] << show
 end
 
 shows_by_date.keys.each do |date|

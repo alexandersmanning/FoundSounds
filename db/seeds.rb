@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
 venues = Venue.create([
   {name:"Great American Music Hall", address:"859 O'Farrell St.", city:"San Francisco", state:"CA", zip_code:94109, url:"http://www.gamh.com", latitude:37.785125, longitude:-122.418851, api_id:109},
   {name:"The Fillmore", address:"1805 Geary Blvd", city:"San Francisco", state:"CA", zip_code:94115, url:"http://www.thefillmore.com", latitude:37.784229, longitude:-122.433092, api_id:727},
