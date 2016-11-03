@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom'
-import { login, signup, logout } from './actions/session_actions'
 import configureStore from './store/store';
 import Root from './components/root'
 
-window.login = login;
-window.signup = signup;
-window.logout = logout;
+
+//Test 
+import { fetchShows } from './util/shows_by_day_api_util';
+window.fetchShows = fetchShows
+
+//
+
 
 document.addEventListener("DOMContentLoaded", () => {
 	let store;

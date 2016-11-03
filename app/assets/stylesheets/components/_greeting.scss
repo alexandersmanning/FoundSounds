@@ -1,4 +1,6 @@
 .main-nav-bar {
+	z-index: 100;
+	position: fixed;
  	display: flex;
  	flex-direction: row;
  	justify-content: space-between;
@@ -6,8 +8,9 @@
  	width: 100%;
  	background: white;
  	align-items: center;
- 	bottom-border: grey;
- 	box-shadow: 2px 2px .5px #888888;
+ 	bottom-border: 1px solid #e7e7e7;
+ 	background-color: hsla(0,0%,100%,.95);
+ 	box-shadow: 0 2px 4px 0 rgba(73,73,73,.1);
  }
 
  .main-nav-bar .header-link {

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import SearchContainer from './search/search_container'
-
 
 // react router
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 // react components
 import App from './app';
+import ShowsByDayContainer from './shows_by_day/shows_by_day_container'
 
 const Root = ( {store} ) => {
 	const _ensureLoggedIn = (nextState, replace) => {
@@ -16,12 +15,16 @@ const Root = ( {store} ) => {
       //load LoginForm
     }
   };
+
+  const _fetchShows = () => {
+
+  }
   // move search container to app, and then sidebar for IndexRoute
    return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-        <IndexRoute component={SearchContainer}/>
+        <IndexRoute component={ShowsByDayContainer} />
         </Route>
       </Router>
     </Provider>
@@ -29,3 +32,5 @@ const Root = ( {store} ) => {
 }
 
 export default Root;
+
+// <IndexRoute component={}/>

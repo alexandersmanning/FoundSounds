@@ -27,7 +27,7 @@ class ConcertMap extends React.Component {
 
 	render() {
 		return(
-			<div id='map-container' className="col-2-3" ref='map'>
+			<div id='map-container' ref='map'>
 			</div>
 		)
 	}

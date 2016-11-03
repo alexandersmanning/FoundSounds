@@ -38,7 +38,7 @@ body {
 
 #map-container {
 	// width: 800px;
-	height: calc(100vh - 56px);
+	height: calc(100vh);
 }
 
 
@@ -47,8 +47,19 @@ body {
 }
 
 .interactive-map-container {
-	position: relative;
-	top: 2px;
+
+	// position: relative;
+	// top: 3px;
+	display: block;
+	float: left;
+}
+
+.shows-by-day-parent {
+	height: calc(100vh);
+	// position: relative;
+	// top: 2px;
+	display: block;
+	float: right;
 }
 
 

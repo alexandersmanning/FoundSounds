@@ -31,4 +31,13 @@ class Show < ActiveRecord::Base
   def maybe
     users.attending
   end
+
+  def self.find_shows_by_date(from_date = Date.today, to_date= 10.days.from_now)
+    if from_date.is_a?(String) || to_date.is_a?(String)
+      from_date = Time.parse(from_date)
+      to_date =  Time.parse(to_date)
+    end
+
+    Show.all.where("date BETWEEN ? AND ?", from_date, to_date)
+  end
 end
