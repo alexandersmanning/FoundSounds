@@ -50,15 +50,18 @@
 #   end
 
 shows_by_date = Hash.new { |h, k| h[k] = [] }
+shows_by_venue = Hash.new { |h, k| h[k] = [] }
 show_venues = Hash.new
 
 @shows.each do |show|
   shows_by_date[show.date.to_date] << show
   show_venues[show.venue_id] = show.venue
+  shows_by_venue[show.venue_id] << show
 end
 
 json.ShowList do
   json.ShowsByDate do
+    #possibly remove the below
     if shows_by_date.keys.empty?
       json.null!
     else
@@ -81,6 +84,16 @@ json.ShowList do
         json.address show_venues[venue_id].address
         json.lat show_venues[venue_id].latitude
         json.lng show_venues[venue_id].longitude
+        json.Shows do
+          shows_by_venue[venue_id].each do |show|
+            json.set! show.id do
+              json.showId show.id
+              json.date show.date
+              json.artists show.artists
+              json.showTicketsUrl show.url
+            end
+          end
+        end
       end
     end
   end

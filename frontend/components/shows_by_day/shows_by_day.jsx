@@ -29,7 +29,6 @@ class ShowsByDay extends React.Component {
 		// 	return <h1>Loading</h1>
 		// }
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
-
 		let showDisplay;
 		if (this.ShowsByDay) {
 			showDisplay = Object.keys(this.ShowsByDay).map(key => 
