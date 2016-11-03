@@ -26,11 +26,19 @@ class ShowsByDay extends React.Component {
 
 	render () {
 		debugger
+		if (Object.keys(this.props.ShowsByDay).length === 0){
+			return <h1>Loading</h1>
+		}
 		return (
 			<aside className="shows-by-day-parent col-1-3">
 				<ul className="date-list">
-					<li>Hey</li>
-					<li>Hello</li>
+					{
+						 Object.keys(this.props.ShowsByDay).map( key => 
+							{
+								debugger
+								return <li>{key}</li>
+							})
+						}
 				</ul>
 			</aside>
 		)
