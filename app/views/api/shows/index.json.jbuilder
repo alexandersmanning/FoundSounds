@@ -80,6 +80,7 @@ json.ShowList do
   json.ShowsByVenue do
     show_venues.keys.each do |venue_id|
       json.set! venue_id do
+        json.id venue_id
         json.name show_venues[venue_id].name
         json.address show_venues[venue_id].address
         json.lat show_venues[venue_id].latitude

@@ -15,15 +15,20 @@ class ConcertMap extends React.Component {
 			streetViewControl: false,
 			mapTypeControl: false
 		};
-
 		this.map = new google.maps.Map(mapDOMNode, mapOptions);
 		this.MarkerManager = new MarkerManager(this.map)
-		// this.MarkerManager.updateMarkers(this.props.benches)
+		// debugger
+		// this.MarkerManager.updateMarkers(this.props.ShowsByVenue)
 	}
 
-	// componentDidUpdate() {
-	// 	this.MarkerManager.updateMarkers(this.props.benches)	
+	// componentWillReceiveProps() {
+
+	// 	this.MarkerManager.updateMarkers(this.props.ShowsByVenue)	
 	// }
+
+	componentDidUpdate() {
+		this.MarkerManager.updateMarkers(this.props.ShowsByVenue)	
+	}
 
 	render() {
 		return(

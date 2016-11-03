@@ -1,9 +1,11 @@
 import { connect } from 'react-redux';
 import Search from './search';
 
-const mapStateToProps = state => ({
-	
-});
+const mapStateToProps = state => {
+	return ({
+		ShowsByVenue: state.ShowsByDay
+	})
+};
 
 const mapDispatchToProps = dispatch => ({
 	
