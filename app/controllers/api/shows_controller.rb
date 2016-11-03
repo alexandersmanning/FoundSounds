@@ -1,6 +1,6 @@
 class Api::ShowsController < ApplicationController
   def index
-    @shows = Show.find_shows_by_date(params[:date_from], params[:date_to])
+    @shows = Show.find_shows_by_date(params[:fromDate], params[:toDate])
   end
 
   def show

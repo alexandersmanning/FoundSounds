@@ -5,8 +5,8 @@ import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
 const mapStateToProps = (state, ownProps) => {
 	return ({
 		ShowsByDay: state.ShowsByDay,
-		toDate: ownProps.params.to_date,
-		fromDate: ownProps.params.from_date
+		toDate: ownProps.location.query.toDate,
+		fromDate: ownProps.location.query.fromDate
 	})
 }
 

@@ -1,47 +1,62 @@
 import React from 'react'
 import ShowsComponent from './shows_component'
-//This will be made up of 4 functional components
-// 1 form for date picker
-// This will display each date 
-// 2. Venue information
-	// 3. Band information
+import DatePickerForm from './date_picker_form'
+
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
 		super(props)
 	}
 
-	componentDidMount () {
-		//if the props are empty give default dates
-		let fromDate = this.props.fromDate;
-		let toDate = this.props.toDate;
+	// componentDidMount () {
+	// 	this._getShows()
+	// }
 
-		if (!fromDate || !toDate) {
-			fromDate = new Date()
-			toDate = new Date(+new Date + 12096e5)
-		}
+	// _getShows() {
+	// 	this.fromDate = this.props.fromDate;
+	// 	this.toDate = this.props.toDate;
 
-		this.props.fetchShowsByDate(fromDate, toDate)
-	}
+	// 	if (!this.fromDate || !this.toDate) {
+	// 		this.fromDate = new Date()
+	// 		this.toDate = new Date(+new Date + 12096e5)
+	// 	}
+
+	// 	this.props.fetchShowsByDate(this.fromDate, this.toDate)
+	// }
 
 	render () {
-		if (Object.keys(this.props.ShowsByDay).length === 0){
-			return <h1>Loading</h1>
-		}
+		// if (Object.keys(this.props.ShowsByDay).length === 0){
+		// 	return <h1>Loading</h1>
+		// }
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
+
+		let showDisplay;
+		if (this.ShowsByDay) {
+			showDisplay = Object.keys(this.ShowsByDay).map(key => 
+										{
+											return <li key={key} className="show-by-day-group">
+												{key}
+												<ShowsComponent shows={this.ShowsByDay[key].Shows}/>
+											</li>
+										})
+		} else {
+			showDisplay = [<li className="no-shows">No shows to display</li>]
+		}
+
 		return (
 			<aside className="shows-by-day-parent col-1-3">
-				<ul className="date-list">
-					{
-						 Object.keys(this.ShowsByDay).map( key => 
+				<content className="show-by-day-content">
+						<DatePickerForm 
+							fromDate={this.props.fromDate}
+							toDate={this.props.toDate}
+							fetchShowsByDate={this.props.fetchShowsByDate}
+						/>
+						<ul className="date-list">
 							{
-								return <li key={key} className="show-by-day-group">
-									{key}
-									<ShowsComponent shows={this.ShowsByDay[key].Shows}/>
-								</li>
-							})
-						}
-				</ul>
+								showDisplay
+							}
+						</ul>
+					</content>
 			</aside>
 		)
 	}

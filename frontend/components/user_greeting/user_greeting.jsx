@@ -23,8 +23,7 @@ class SessionLinks extends React.Component {
  };
 
  leaveModal() {
- 		// debugger
- 		// this.props.receiveErrors({errors: {}})
+ 		this.props.receiveErrors({errors: {}})
  		this.closeModal()
  }
 
@@ -63,8 +62,11 @@ class SessionLinks extends React.Component {
 	}
 }
 
-const UserGreeting = ({ currentUser, logout }) => (
-	<SessionLinks currentUser={currentUser} logout={logout}/>
+const UserGreeting = ({ currentUser, logout, receiveErrors }) => (
+	<SessionLinks 
+		currentUser={currentUser} 
+		logout={logout} 
+		receiveErrors={receiveErrors}/>
 	// currentUser ? personalGreeting(currentUser, logout) : <SessionLinks/>
 );
 

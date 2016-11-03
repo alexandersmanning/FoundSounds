@@ -1,6 +1,11 @@
 import { RECEIVE_SHOWS_BY_DATE } from '../actions/shows_by_day_actions'
 
-const _nullShowList = Object.freeze({})
+const _nullShowList = Object.freeze({
+	ShowList: {
+		ShowsByDate: {},
+		ShowsByVenue: {}
+	}
+})
 
 const ShowsByDayReducer = (state = _nullShowList, action) => {
 	Object.freeze(state)
