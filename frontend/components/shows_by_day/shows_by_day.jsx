@@ -1,5 +1,5 @@
 import React from 'react'
-
+import ShowsComponent from './shows_component'
 //This will be made up of 4 functional components
 // 1 form for date picker
 // This will display each date 
@@ -28,13 +28,17 @@ class ShowsByDay extends React.Component {
 		if (Object.keys(this.props.ShowsByDay).length === 0){
 			return <h1>Loading</h1>
 		}
+		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		return (
 			<aside className="shows-by-day-parent col-1-3">
 				<ul className="date-list">
 					{
-						 Object.keys(this.props.ShowsByDay).map( key => 
+						 Object.keys(this.ShowsByDay).map( key => 
 							{
-								return <li key={key} className="show-by-day-group">{key}</li>
+								return <li key={key} className="show-by-day-group">
+									{key}
+									<ShowsComponent shows={this.ShowsByDay[key].Shows}/>
+								</li>
 							})
 						}
 				</ul>

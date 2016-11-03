@@ -40,4 +40,10 @@ class Show < ActiveRecord::Base
 
     Show.all.where("date BETWEEN ? AND ?", from_date, to_date)
   end
+
+  def artists_list
+    self.artists.map do |artist|
+      artist.name
+    end
+  end
 end

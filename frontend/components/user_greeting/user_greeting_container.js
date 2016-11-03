@@ -7,7 +7,6 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  receiveErrors: (errors) => dispatch(receiveErrors(errors)),
   logout: () => dispatch(logout())
 });
 

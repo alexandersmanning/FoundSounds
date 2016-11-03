@@ -24,7 +24,7 @@ class SessionLinks extends React.Component {
 
  leaveModal() {
  		// debugger
- 		this.props.receiveErrors({errors: {}})
+ 		// this.props.receiveErrors({errors: {}})
  		this.closeModal()
  }
 
@@ -36,7 +36,6 @@ class SessionLinks extends React.Component {
 	 	let nav;
 
 		if (this.props.currentUser) {
-			debugger
 		 	nav = (
 		 		<nav className="login-signup">
 			 		 <h2 className="header-name">{this.props.currentUser.email}</h2>
