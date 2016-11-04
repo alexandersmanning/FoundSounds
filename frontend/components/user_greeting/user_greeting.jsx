@@ -54,8 +54,7 @@ class SessionLinks extends React.Component {
     		</nav>
     		)
 		}
-		   
-		//SessionFormContainer
+
 		return (
     	nav
 		)
@@ -67,7 +66,6 @@ const UserGreeting = ({ currentUser, logout, receiveErrors }) => (
 		currentUser={currentUser} 
 		logout={logout} 
 		receiveErrors={receiveErrors}/>
-	// currentUser ? personalGreeting(currentUser, logout) : <SessionLinks/>
 );
 
 export default UserGreeting;

@@ -3,31 +3,31 @@ export default class MarkerManager {
 		this.map = map;
 		this.markers = [];
 		this.handleClick = handleClick;
-		this._createMarkerFromConcert = this._createMarkerFromConcert.bind(this)
+		this._createMarkerFromVenue = this._createMarkerFromVenue.bind(this)
 		this._removeMarker = this._removeMarker.bind(this)
 		this._markersToRemove = this._markersToRemove.bind(this)
 		// this._createMarkerFromBench = this._createMarkerFromBench.bind(this);
 	}
 
-	_concertsToAdd() {
-		let currentConcerts = this.markers.map( marker => marker.concertId)
-		return this.concerts.filter( concerts => !currentConcerts.includes(concerts.id))
+	_venuesToAdd() {
+		let currentVenues = this.markers.map( marker => marker.venueId)
+		return this.venues.filter( venues => !currentVenues.includes(venues.id))
 	}
 
 	_markersToRemove() {
-		let currentConcerts = this.concerts.map( concerts => concerts.id)
-		return this.markers.filter(marker => !currentConcerts.includes(marker.concertId))
+		let currentVenues = this.venues.map( venues => venues.id)
+		return this.markers.filter(marker => !currentVenues.includes(marker.venueId))
 	}
 
-	_createMarkerFromConcert(concert) {
-		const pos = new google.maps.LatLng(concert.lat, concert.lng)
+	_createMarkerFromVenue(venue) {
+		const pos = new google.maps.LatLng(venue.lat, venue.lng)
 		const marker = new google.maps.Marker({
 			position: pos,
 			map: this.map,
-			concertId: concert.id
+			venueId: venue.id
 		});
 
-		// marker.addListener('click', () => this.handleClick(bench));
+		marker.addListener('click', () => this.handleClick(venue));
 		this.markers.push(marker)
 	}
 
@@ -37,17 +37,17 @@ export default class MarkerManager {
 		this.markers.splice(idx, 1);
 	}
 
-	updateMarkers(concerts) {
-		this.concerts = this._concertsToArray(concerts.ShowList.ShowsByVenue)
-		let concertsToCreate = this._concertsToAdd ()
-		concertsToCreate.forEach( concert => this._createMarkerFromConcert(concert) )
+	updateMarkers(venues) {
+		this.venues = this._venuesToArray(venues.ShowList.ShowsByVenue)
+		let venuesToCreate = this._venuesToAdd ()
+		venuesToCreate.forEach( venue => this._createMarkerFromVenue(venue) )
 
-		let concertsToRemove = this._markersToRemove ()
-		concertsToRemove.forEach(concert => this._removeMarker(concert))
+		let venuesToRemove = this._markersToRemove ()
+		venuesToRemove.forEach(venue => this._removeMarker(venue))
 	}
 
-	_concertsToArray(concerts) {
-		if (!concerts) { return [] }
-		return Object.keys(concerts).map(key => concerts[key])
+	_venuesToArray(venues) {
+		if (!venues) { return [] }
+		return Object.keys(venues).map(key => venues[key])
 	}
 }
