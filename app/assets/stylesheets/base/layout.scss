@@ -167,9 +167,9 @@ label {
 }
 
 .back-button:hover {
-	background-color: $pastel-red;
-	color: white;
-	transition: .5s
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	transition: .5s;
 }
 
 .venue-nav .title {

@@ -6,3 +6,12 @@ export const fetchShows = (fromDate, toDate, success, error) => {
 		error
 	});
 }
+
+export const fetchShowById = (id, success, error) => {
+	$.ajax({
+		type: "GET",
+		url: `api/shows/${id}`,
+		success,
+		error
+	});
+}

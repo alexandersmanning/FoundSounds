@@ -8,6 +8,9 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import ShowsByDayContainer from './shows_by_day/shows_by_day_container'
 import VenuesContainer from './venues/venues_container'
+import ShowContainer from './show/show_container'
+
+import { fetchShowById } from '../actions/show_actions'
 
 const Root = ( {store} ) => {
 	const _ensureLoggedIn = (nextState, replace) => {
@@ -17,8 +20,9 @@ const Root = ( {store} ) => {
     }
   };
 
-  const _fetchShows = () => {
-
+  const _fetchShowById = (nextState, replace) => {
+    let showId = nextState.params.showId;
+    store.dispatch(fetchShowById(showId));
   }
   // move search container to app, and then sidebar for IndexRoute
    return (
@@ -27,6 +31,7 @@ const Root = ( {store} ) => {
         <Route path="/" component={App}>
         <IndexRoute component={ShowsByDayContainer}/>
           <Route path="/venues/:venueId" component={VenuesContainer}/>
+          <Route path="/shows/:showId" component={ShowContainer} onEnter={_fetchShowById}/>
         </Route>
       </Router>
     </Provider>

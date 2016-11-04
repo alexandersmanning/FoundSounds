@@ -4,5 +4,6 @@ class Api::ShowsController < ApplicationController
   end
 
   def show
+    @show = Show.find(params[:id])
   end
 end
