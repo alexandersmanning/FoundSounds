@@ -8,7 +8,9 @@ import dateFormat from 'dateformat';
 class ShowsByDay extends React.Component {
 	constructor(props) {
 		super(props)
-	}
+  }
+
+  
 
 	render () {
 		
@@ -29,8 +31,8 @@ class ShowsByDay extends React.Component {
 
 		return (
 			<div className="main-container">
-				<aside className="shows-by-day-parent col-1-3">
-					<content className="show-by-day-content">
+				<aside className="side-bar-parent col-1-3">
+					<content className="side-bar-content">
 						<section className="date-picker-form-section">
 							<DatePickerForm 
 								fromDate={this.props.fromDate}
@@ -48,7 +50,6 @@ class ShowsByDay extends React.Component {
 						</section>
 					</content>
 				</aside>
-				<SearchContainer />
 			</div>
 		)
 	}

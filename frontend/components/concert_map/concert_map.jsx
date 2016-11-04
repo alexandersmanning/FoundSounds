@@ -2,6 +2,7 @@ import React from "react";
 import MarkerManager from '../../util/marker_manager';
 import Modal from 'react-modal';
 import DisplayShows from '../shows_by_day/display_shows'
+import { withRouter } from 'react-router'
 
 class ConcertMap extends React.Component {
 	constructor(props) {
@@ -37,7 +38,10 @@ class ConcertMap extends React.Component {
 	}
 
 	_handleClickEvent(selectedVenue) {
-		this.setState({open: true, venue: selectedVenue })
+		let newRoute = `venues/${selectedVenue.id}`
+		let query = this.props.router.location.query
+		this.props.router.push({pathname: newRoute, query: query})
+		// this.setState({open: true, venue: selectedVenue })
 	}
 
 	openModal () { this.setState({open: true}); }
@@ -61,4 +65,4 @@ class ConcertMap extends React.Component {
 	}
 };
 
-export default ConcertMap;
+export default withRouter(ConcertMap);

@@ -11,6 +11,7 @@ const App = ({ children }) => (
 	     <UserGreetingContainer />
 	   </header>
     {children}
+    <SearchContainer />
   </div>
 );
 

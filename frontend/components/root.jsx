@@ -7,6 +7,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 // react components
 import App from './app';
 import ShowsByDayContainer from './shows_by_day/shows_by_day_container'
+import VenuesContainer from './venues/venues_container'
 
 const Root = ( {store} ) => {
 	const _ensureLoggedIn = (nextState, replace) => {
@@ -25,6 +26,7 @@ const Root = ( {store} ) => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
         <IndexRoute component={ShowsByDayContainer}/>
+          <Route path="/venues/:venueId" component={VenuesContainer}/>
         </Route>
       </Router>
     </Provider>

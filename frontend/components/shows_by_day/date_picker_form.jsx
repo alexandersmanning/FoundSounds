@@ -14,7 +14,6 @@ class DatePickerForm extends React.Component{
 			toDate: this.props.toDate
 		}
 
-		this.handleSubmit = this.handleSubmit.bind(this)
 		this.handleChange = this.handleChange.bind(this)
 	}
 
@@ -26,11 +25,6 @@ class DatePickerForm extends React.Component{
 					toDate: new Date(+new Date + 12096e5).toISOString().substring(0, 10)
 				}, () => this._updatePath());
 			} else { this._updatePath() }
-	}
-
-	handleSubmit(e) {
-		e.preventDefault();
-		this._updatePath();
 	}
 
 	handleChange(field) {

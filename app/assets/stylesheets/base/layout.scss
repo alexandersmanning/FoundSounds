@@ -54,7 +54,7 @@ body {
 	float: left;
 }
 
-.shows-by-day-parent {
+.side-bar-parent {
 	height: calc(100vh);
 	// position: relative;
 	// top: 2px;
@@ -63,11 +63,11 @@ body {
 	float: right;
 }
 
-.show-by-day-content {
+.side-bar-content {
 	position: relative;
 	top: 70px;
-	margin: 10px;
-	padding: 10px;
+	// margin: 10px;
+	// padding: 10px;
 }
 
 .show-item {
@@ -147,6 +147,33 @@ label {
 .date-input-container {
 	width: 130px;
 	margin: auto;
+}
+
+
+.venue-nav {
+	position: relative;
+	top: 70px;
+	// display: flex;
+}
+
+.back-button {
+	width: 150px;
+	border: 1px solid lightgrey;
+	margin: 5px;
+	padding: 5px;
+	margin-bottom: 15px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.back-button:hover {
+	background-color: $pastel-red;
+	color: white;
+	transition: .5s
+}
+
+.venue-nav .title {
+	margin:4%;
 }
 
 
