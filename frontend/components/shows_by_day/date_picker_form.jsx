@@ -1,5 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import 'react-datepicker/dist/react-datepicker.css'
+import DatePicker from 'react-datepicker';
+import moment from 'moment';
+// require('react-datepicker/dist/react-datepicker.css');
 
 class DatePickerForm extends React.Component{
 	constructor(props) {
@@ -11,13 +15,9 @@ class DatePickerForm extends React.Component{
 		}
 
 		this.handleSubmit = this.handleSubmit.bind(this)
+		this.handleChange = this.handleChange.bind(this)
 	}
 
-	update(field) {
-		return e => this.setState({
-			[field]: e.currentTarget.value
-		});
-	}
 
 	componentDidMount() {
 			if (!this.state.fromDate || !this.state.toDate) {
@@ -33,6 +33,12 @@ class DatePickerForm extends React.Component{
 		this._updatePath();
 	}
 
+	handleChange(field) {
+		return date => this.setState({
+			[field]: date.toISOString().slice(0,10)
+		}, this._updatePath)
+	}
+
 	_updatePath() {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
 		this.props.fetchShowsByDate(this.state.fromDate, this.state.toDate)
@@ -40,26 +46,40 @@ class DatePickerForm extends React.Component{
 	};
 
 	render() {
+
 		return (
 			<div className="date-form-container">
 				<h3 className="date-form-title">Show Dates</h3>
-				<form onSubmit={this.handleSubmit} className="date-form-box">
-					<label for="date-from">From</label>
-					<input type="date" id="date-from"
-						value={this.state.fromDate}
-						min={this.props.minDate}
-						max={this.state.toDate}
-						onChange={this.update("fromDate")}
-					 />
-					<label for="date-to">To</label>
-					<input type="date" id="date-to"
-						value={this.state.toDate}
-						min={this.state.fromDate}
-						max={this.props.maxDate}
-						onChange={this.update("toDate")}
-					 />
-
-					 <input className="date-button" type="submit" value="set dates" />
+				<form onSubmit={this.handleSubmit} 
+					className="date-form-box side-bar-box">					
+					<div className="date-input-container">
+						<label htmlFor="date-from">From</label>
+						<DatePicker 
+							selected={moment(this.state.fromDate)} 
+							selectsStart  startDate={moment(this.state.fromDate)}
+							endDate={moment(this.state.toDate)}
+							onChange={this.handleChange("fromDate")} 
+							id="date-from"
+							className="date-picker"
+							placeholderText="date from"
+							maxDate={moment(this.state.toDate)}
+							/>
+							<span className="input-date-border"/>
+						</div>
+						<div className="date-input-container">
+						<label htmlFor="date-to">To</label>
+							<DatePicker 
+							selected={moment(this.state.toDate)} 
+							selectsEnd startDate={moment(this.state.fromDate)}
+							endDate={moment(this.state.toDate)}
+							onChange={this.handleChange("toDate")} 
+							id="date-from"
+							className="date-picker"
+							placeholderText="date to"
+							minDate={moment(this.state.fromDate)}
+							/>
+							<span className="input-date-border"/>
+						</div>
 				</form>
 			</div>
 		)

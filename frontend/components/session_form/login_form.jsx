@@ -36,7 +36,8 @@ class LogInForm extends React.Component {
 		return (
 			<div className="login-form-container">
 				<h3 className="login-form-title">Log In</h3>
-				<form onSubmit={this.handleSubmit} className="login-form-box">
+				<form onSubmit={this.handleSubmit} 
+							className="login-form-box">
 					<div className="login-form">
 						<span className="errors">
 								{this.renderErrors("login", this.props.errors.login)}

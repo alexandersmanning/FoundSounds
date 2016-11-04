@@ -49,7 +49,7 @@
   margin: 0;
 }
 
-.login-input:focus+.input-border{
+.login-input:hover+.input-border{
   width:276px;
 }
 
@@ -106,7 +106,7 @@
  
  .login-signup button{
  		font-family: 'Pacifico', cursive;
- 		font-size: 16px;
+ 		font-size: $medium-title;
  		padding-right: 8px;
  		white-space: nowrap;
  }

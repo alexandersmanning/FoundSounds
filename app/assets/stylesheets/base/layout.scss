@@ -58,6 +58,7 @@ body {
 	height: calc(100vh);
 	// position: relative;
 	// top: 2px;
+	background-color: #FDFDFD;
 	display: block;
 	float: right;
 }
@@ -69,7 +70,121 @@ body {
 	padding: 10px;
 }
 
+.show-item {
+	font-size: $small-main;
+	font-family: 'Sailec Regular', sans-serif;
+	margin: 8px;
+	cursor: pointer;
+}
 
+.artist-info {
+	font-size: $small-main;
+	font-family: 'Sailec Regular', sans-serif;
+	margin: 8px;
+	cursor: pointer;
+}
+.venue-address {
+		font-size: $small-main;
+		font-family: 'Sailec Regular', sans-serif;
+		margin: 8px;
+}
+
+.side-bar-box {
+	margin: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 10px;
+	border: 1px solid lightgrey;
+	background-color: white;
+	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
+}
+
+h3 {
+	font-size: $medium-title;
+	font-family: 'Pacifico', cursive;
+}
+
+
+h4 {
+	font-size: $medium-main;
+	font-family: 'Sailec Regular', sans-serif;
+	margin-bottom: 11px;
+}
+
+label {
+	font-size: $small-main;
+	font-family: 'Sailec Regular', sans-serif;
+	margin-bottom: 5px;
+}
+
+.date-picker {
+	font-size: $medium-main;
+	font-family: 'Sailec Regular', sans-serif;
+	border-bottom: 1px solid $border-grey;
+	width: 100px;
+	margin: 15px;
+	margin-top: 5px;
+}
+
+.input-date-border {
+  display:block;
+  width:0px;
+  height: 2px;
+  background: $light-purple;
+  position: relative;
+  top:-17px;
+  left: 0px;
+  -webkit-transition: all ease-in-out .30s;
+  -o-transition: all ease-in-out .30s;
+  transition: all ease-in-out .30s;
+  margin: 0;
+}
+
+.react-datepicker__input-container:hover+.input-date-border{
+  width:100%;
+}
+
+.date-input-container {
+	width: 130px;
+	margin: auto;
+}
+
+
+.react-datepicker__month .react-datepicker__day.react-datepicker__day--in-range {
+		background-color: $light-purple;
+ 	}
+
+.react-datepicker__month.react-datepicker__month--selecting-range .react-datepicker__day.react-datepicker__day--in-selecting-range {
+	background-color: $lightest-purple ;
+}
+
+.react-datepicker__month.react-datepicker__month--selecting-range .react-datepicker__day.react-datepicker__day--in-range.react-datepicker__day--in-selecting-range {
+	background-color: $light-purple ;
+}
+
+.react-datepicker__month.react-datepicker__month--selecting-range .react-datepicker__day.react-datepicker__day--selecting-range-start.react-datepicker__day--in-selecting-range{
+	background-color: $dark-purple;
+}
+
+.react-datepicker__month.react-datepicker__month--selecting-range .react-datepicker__day.react-datepicker__day--selected.react-datepicker__day--range-start.react-datepicker__day--in-range {
+	background-color: $lightest-purple ;
+}
+
+.react-datepicker__header {
+	background-color: white !important;
+}
+
+.react-datepicker__current-month {
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.react-datepicker__day-names {
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.react-datepicker__month {
+	font-family: 'Sailec Regular', sans-serif;
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 

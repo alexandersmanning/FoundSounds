@@ -6,7 +6,7 @@ const ShowInformation = props => {
 	let showDate = dateFormat(props.show.date, "dddd, mmmm dS");
 	return (
 		<li className="show-date">
-			{showDate}
+			<h4>{showDate}</h4>
 			<ul	className="artist-list">
 				{
 					Object.keys(props.show.artists).map(key =>

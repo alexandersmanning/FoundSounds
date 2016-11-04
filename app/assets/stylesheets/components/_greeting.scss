@@ -32,8 +32,8 @@
  	float: left;
  	padding-right: 8px;
  	font-family: 'Sailec Regular', sans-serif;
- 	font-size: 15px;
- 	margin-top: 2.3%;
+ 	font-size: $medium-main;
+ 	margin-top: 8px;
  }
 
  .header-button {
@@ -43,5 +43,5 @@
  	padding-left: 8px;
  	padding-right: 8px;
  	font-family: 'Pacifico', cursive;
- 		font-size: 16px;
+ 		font-size: $medium-title;
  }
