@@ -4,7 +4,6 @@ const _nullShowList = Object.freeze({})
 
 const ShowReducer = (state = _nullShowList, action) => {
 	Object.freeze(state)
-	debugger
 	switch(action.type) {
 		case RECEIVE_SHOW:
 			return action.show;

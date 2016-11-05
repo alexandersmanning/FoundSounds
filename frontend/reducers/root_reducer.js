@@ -6,7 +6,7 @@ import ShowReducer from './show_reducer';
 const RootReducer = combineReducers({
 	session: SessionReducer,
 	ShowsByDay: ShowsByDayReducer,
-	Shows: ShowReducer
+	Show: ShowReducer
 });
 
 export default RootReducer;

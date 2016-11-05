@@ -40,13 +40,12 @@ class Show extends React.Component {
 		let query = this.props.router.location.query
 		let venue = this.props.Show.venueId
 		this.props.router.push(
-			{	pathname: `/venue/${venue}`, query: query }
+			{	pathname: `/venues/${venue}`, query: query }
 		)
 	}
 
 	render () {
-		debugger
-		if (!this.props.Show) {
+		if (Object.keys(this.props.Show).length === 0) {
 			return <h1>loading</h1>
 		}
 		return (
@@ -58,21 +57,21 @@ class Show extends React.Component {
 								{"<"} back to list
 							</h3>
 							<h3 className="venue-button"
-									 onClick={this.pathToVenue.bind(this)}>
+									 onClick={this._pathToVenue.bind(this)}>
 								see venue {">"}
 							</h3>
 						</nav>
 					<content className="side-bar-content">
 						<section className="show-information-container side-bar-box">
-							<div className="show-information">
+							<ul className="show-information">
 								<ShowInformation show={this.props.Show}/>
-							</div>
+							</ul>
 						</section>
-						<h3 className="shows">Shows</h3>
+						<h3 className="shows">venue</h3>
 						<section className="venue-information side-bar-box">
-							<h4 className="venue-name">{this.props.Show.Venue.name}</h4>
+							<h4 className="venue-name">{this.props.Show.venueName}</h4>
 							<span className="venue-address">
-								{`${this.props.Show.Venue.address}, ${this.props.Show.Venue.city}, ${this.props.Show.Venue.state}`}
+								{`${this.props.Show.venueAddress}, ${this.props.Show.venueCity}, ${this.props.Show.venueState}`}
 							</span>
 						</section>
 					</content>

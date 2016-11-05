@@ -156,7 +156,24 @@ label {
 	// display: flex;
 }
 
+.show-nav {
+	position: relative;
+	top: 70px;
+	display: flex;
+	justify-content: space-between;
+}
+
 .back-button {
+	width: 150px;
+	border: 1px solid lightgrey;
+	margin: 5px;
+	padding: 5px;
+	margin-bottom: 15px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.venue-button {
 	width: 150px;
 	border: 1px solid lightgrey;
 	margin: 5px;
