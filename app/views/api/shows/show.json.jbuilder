@@ -9,7 +9,7 @@
 #   json.artists @show.artists
 # end
 
-json.id @show.id
+json.showId @show.id
 json.venueId @show.venue.id
 json.venueName @show.venue.name
 json.venueAddress @show.venue.address

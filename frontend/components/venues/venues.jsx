@@ -59,11 +59,13 @@ class Venue extends React.Component {
 							</span>
 						</section>
 							<h3 className="shows">Shows</h3>
-						<section className="show-information-container side-bar-box">
+						<section className="show-information-container link-side-bar-box">
 							<ul className="show-information">
 								{
 									Object.keys(this.props.Venue.Shows).map(key => (
-										<ShowInformation show={this.props.Venue.Shows[key]}/>
+										<ShowInformation 
+											show={this.props.Venue.Shows[key]}
+											/>
 									))
 								}
 							</ul>

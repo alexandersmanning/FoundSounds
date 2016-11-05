@@ -1,5 +1,6 @@
 import React from 'react'
 import ShowInformation from './show_information'
+import { Link } from 'react-router'
 
 //THIS WILL be used to display the show's information
 const DisplayShows = (props) => {

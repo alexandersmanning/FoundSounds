@@ -1,4 +1,11 @@
 import React from 'react'
+import { withRouter } from 'react-router'
+
+const updatePath = (showId, router) => {
+	router.push({
+		pathname: `shows/${showId}`, query: router.location.query
+	})
+}
 
 const ShowsComponent = (props) => {
 	return  (
@@ -6,7 +13,9 @@ const ShowsComponent = (props) => {
 		{
 			props.shows.map( show => {
 				return <li className="show-item"
-										key={show.showId}>
+										key={show.showId}
+										onClick={updatePath.bind(this,show.showId, props.router)}
+										>
 								{`${show.artists.join(", ")} at ${show.venueName}`}
 								</li>
 			})
@@ -15,4 +24,5 @@ const ShowsComponent = (props) => {
 	)
 }
 
-export default ShowsComponent;
+export default withRouter(ShowsComponent);
+

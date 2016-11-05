@@ -58,7 +58,8 @@ body {
 	height: calc(100vh);
 	// position: relative;
 	// top: 2px;
-	background-color: #FDFDFD;
+	// background-color: #FDFDFD;
+	background: transparent;
 	display: block;
 	float: right;
 }
@@ -81,12 +82,44 @@ body {
 	font-size: $small-main;
 	font-family: 'Sailec Regular', sans-serif;
 	margin: 8px;
-	cursor: pointer;
 }
 .venue-address {
 		font-size: $small-main;
 		font-family: 'Sailec Regular', sans-serif;
 		margin: 8px;
+}
+
+.link-side-bar-box>ul>li {
+	cursor: pointer;	
+}
+
+.venue-link {
+	cursor: pointer;
+}
+
+.venue-link:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	box-shadow: 1.5px 1.5px 1.5px darkgrey;
+	transition: .25s;
+}
+
+.show-information>.show-date {
+	margin: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	padding: 10px;
+	border: 1px solid lightgrey;
+	border-radius: 2px;
+	background-color: white;
+	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
+}
+
+.link-side-bar-box>ul>li:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	box-shadow: 1.5px 1.5px 1.5px darkgrey;
+	transition: .25s;
 }
 
 .side-bar-box {
@@ -150,6 +183,7 @@ label {
 }
 
 
+
 .venue-nav {
 	position: relative;
 	top: 70px;
@@ -184,6 +218,12 @@ label {
 }
 
 .back-button:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	transition: .5s;
+}
+
+.venue-button:hover {
 	color: $pastel-red;
 	border: 1px solid $pastel-red;
 	transition: .5s;

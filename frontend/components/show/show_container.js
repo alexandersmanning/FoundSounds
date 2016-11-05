@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import Show from './show'
-import { fetchShowById } from '../../actions/show_actions'
 import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -14,8 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
 	return ({
-		fetchShowsByDate: (fromDate, toDate) => dispatch(fetchShowsByDate(fromDate, toDate)),
-		fetchShowById: (id) => dispatch(fetchShowsById(id))
+		fetchShowsByDate: (fromDate, toDate) => dispatch(fetchShowsByDate(fromDate, toDate))
 	})
 }
 
