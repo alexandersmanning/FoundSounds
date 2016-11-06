@@ -26,6 +26,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'puma';
 
+gem 'rest-client'
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
@@ -51,6 +54,7 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # gem 'debugger'
 end
 
 group :production do
