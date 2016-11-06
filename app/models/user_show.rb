@@ -11,6 +11,4 @@ class UserShow < ActiveRecord::Base
     foreign_key: :show_id,
     class_name: :Show
 
-  scope :attending, where('attending == ?', 2)
-  scope :maybe, where('attending ==?', 1)
 end
