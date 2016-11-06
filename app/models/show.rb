@@ -32,14 +32,20 @@ class Show < ActiveRecord::Base
     users.attending
   end
 
-  def self.find_shows_by_date(from_date = Date.today, to_date= 10.days.from_now)
+  def self.find_shows_by_date(from_date = Date.today, to_date= 10.days.from_now, bounds = {
+       "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
+      "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
+    })
+
     if from_date.is_a?(String) || to_date.is_a?(String)
       from_date = Time.parse(from_date)
       to_date =  Time.parse(to_date)
     end
 
-    Show.all.where("date BETWEEN ? AND ?", from_date, to_date)
+    Show.includes(:venue).includes(:artists).where("(date BETWEEN ? AND ?) AND (venue_id in (?)) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id) )
   end
+
+
 
   def artists_list
     self.artists.map do |artist|
