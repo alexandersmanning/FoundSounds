@@ -7,8 +7,10 @@ export const receiveShowsByDate = (ShowsByDay) => ({
 	ShowsByDay
 });
 
-export const fetchShowsByDate = (fromDate, toDate) => ({
+export const fetchShowsByDate = (filter) => {
+	return ({
 	type: FETCH_SHOWS_BY_DATE,
-	fromDate,
-	toDate
-});
+	fromDate: filter["fromDate"],
+	toDate: filter["toDate"],
+	bounds: filter["bounds"]
+})};

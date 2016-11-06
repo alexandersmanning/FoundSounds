@@ -22,7 +22,7 @@ class Show extends React.Component {
 
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
-		this.props.fetchShowsByDate(fromDate, toDate)
+		this.props.fetchShowsByDate({fromDate, toDate})
 		this.props.router.push(
 			{ pathname: currentRouteName, 
 				query: {fromDate: fromDate, toDate: toDate}

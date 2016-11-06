@@ -7,6 +7,8 @@ const mapStateToProps = (state, ownProps) => {
 	return ({
 		ShowsByDay: state.ShowsByDay,
 		Venue: state.ShowsByDay.ShowList.ShowsByVenue[ownProps.params.venueId],
+		filter: state.filter,
+		//the below probably isn't needed
 		toDate: ownProps.location.query.toDate,
 		fromDate: ownProps.location.query.fromDate
 	})
@@ -14,7 +16,7 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
 	return ({
-		fetchShowsByDate: (fromDate, toDate) => dispatch(fetchShowsByDate(fromDate, toDate))
+		fetchShowsByDate: (filter) => dispatch(fetchShowsByDate(filter))
 	})
 }
 

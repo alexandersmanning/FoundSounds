@@ -37,6 +37,7 @@ class ShowsByDay extends React.Component {
 								fromDate={this.props.fromDate}
 								toDate={this.props.toDate}
 								fetchShowsByDate={this.props.fetchShowsByDate}
+								updateDates={this.props.updateDates}
 							/>
 						</section>
 						<section className="shows-by-day-list">
