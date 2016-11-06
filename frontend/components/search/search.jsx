@@ -1,11 +1,10 @@
 import React from 'react'
 import ConcertMap from '../concert_map/concert_map'
-// import BenchIndex from '../bench_index'
 
-const Search = ({ ShowsByVenue, requestConcerts }) => (
+const Search = ({ ShowsByVenue, updateBounds }) => (
 	<div className="interactive-map-container col-2-3">
 		<div className="map-parent">
-			<ConcertMap ShowsByVenue={ShowsByVenue}/>
+			<ConcertMap ShowsByVenue={ShowsByVenue} updateBounds={updateBounds}/>
 		</div>
 	</div>
 );

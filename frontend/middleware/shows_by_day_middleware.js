@@ -6,7 +6,8 @@ export default({getState, dispatch}) => next => action => {
 	const successCallback = ShowsByDay => dispatch(receiveShowsByDate(ShowsByDay));
 	switch(action.type){
 		case FETCH_SHOWS_BY_DATE:
-			fetchShows(action.fromDate, action.toDate, successCallback)
+			let filters = { fromDate: action.fromDate, toDate: action.toDate }
+			fetchShows(filters, successCallback)
 			return next(action);
 		default: 
 			return next(action);

@@ -7,16 +7,9 @@ import { withRouter } from 'react-router'
 class ConcertMap extends React.Component {
 	constructor(props) {
 		super(props)
-		this.openModal = this.openModal.bind(this);
-		this.closeModal = this.closeModal.bind(this);
-		this.leaveModal = this.leaveModal.bind(this);
 		this.state = { open: false, venue: {} }
 		this.handleClick = this._handleClickEvent.bind(this)
 	}
-
-	componentWillMount() {
-    Modal.setAppElement('body');
- 	}
 
 	componentDidMount() {
 		const mapDOMNode = this.refs.map;
@@ -29,8 +22,17 @@ class ConcertMap extends React.Component {
 		};
 		this.map = new google.maps.Map(mapDOMNode, mapOptions);
 		this.MarkerManager = new MarkerManager(this.map, this.handleClick)
-		// debugger
 		this.MarkerManager.updateMarkers(this.props.ShowsByVenue)
+
+		//handling bounds
+		
+		google.maps.event.addListener(this.map, 'idle', () => {
+				let bounds = this.map.getBounds();
+				let ne = { "lat": bounds.getNorthEast().lat(), "lng": bounds.getNorthEast().lng() }
+				let sw = { "lat": bounds.getSouthWest().lat(), "lng": bounds.getSouthWest().lng() }
+
+				this.props.updateBounds({"northEast": ne, "southWest": sw })
+		})
 	}
 
 	componentDidUpdate() {
@@ -41,25 +43,11 @@ class ConcertMap extends React.Component {
 		let newRoute = `venues/${selectedVenue.id}`
 		let query = this.props.router.location.query
 		this.props.router.push({pathname: newRoute, query: query})
-		// this.setState({open: true, venue: selectedVenue })
 	}
-
-	openModal () { this.setState({open: true}); }
-
-	closeModal () { this.setState({open: false}); }
-
-	leaveModal() {
- 		//Leaving actions
- 		this.closeModal()
-  }
 
 	render() {
 		return(
 			<div id='map-container' ref='map'>
-				<Modal isOpen={this.state.open}
-							 onRequestClose={this.leaveModal}>
-					<DisplayShows venue={this.state.venue}/>
-				</Modal>
 			</div>
 		)
 	}
