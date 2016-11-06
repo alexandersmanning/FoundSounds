@@ -16,3 +16,13 @@ export const fetchShowById = (id, success, error) => {
 		error
 	});
 }
+
+export const fetchVenueById = (id, filters, success, error) => {
+	$.ajax({
+		type: "GET",
+		url: `api/venues/${id}`,
+		date: filters,
+		success,
+		error
+	});
+}

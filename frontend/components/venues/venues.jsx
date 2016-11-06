@@ -23,7 +23,7 @@ class Venue extends React.Component {
 
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
-		this.props.fetchShowsByDate(fromDate, toDate)
+		this.props.updateDates(fromDate, toDate);
 		this.props.router.push(
 			{ pathname: currentRouteName, 
 				query: {fromDate: fromDate, toDate: toDate}
@@ -38,8 +38,7 @@ class Venue extends React.Component {
 	}
 
 	render () {
-
-		if (!this.props.Venue) {
+		if (Object.keys(this.props.Venue).length === 0) {
 			return <h1>loading</h1>
 		}
 		return (

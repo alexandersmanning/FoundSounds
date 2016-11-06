@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import Venue from './venues'
-import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
+import { fetchShowsByDate } from '../../actions/shows_by_day_actions';
+import { updateDates } from '../../actions/filter_actions'
 
 const mapStateToProps = (state, ownProps) => {
-
 	return ({
 		ShowsByDay: state.ShowsByDay,
-		Venue: state.ShowsByDay.ShowList.ShowsByVenue[ownProps.params.venueId],
+		Venue: state.Venue,
 		filter: state.filter,
 		//the below probably isn't needed
 		toDate: ownProps.location.query.toDate,
@@ -16,7 +16,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
 	return ({
-		fetchShowsByDate: (filter) => dispatch(fetchShowsByDate(filter))
+		fetchShowsByDate: (filter) => dispatch(fetchShowsByDate(filter)),
+		updateDates: (fromDate, toDate) => dispatch(updateDates(fromDate, toDate))
 	})
 }
 
