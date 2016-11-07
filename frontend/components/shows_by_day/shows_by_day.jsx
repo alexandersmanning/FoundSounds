@@ -19,13 +19,18 @@ class ShowsByDay extends React.Component {
 			showDisplay = Object.keys(this.ShowsByDay).map(date_value => 
 										{
 											return <li key={date_value} 
-																className="show-by-day-group side-bar-box">
-												<h4 className="show-date">{dateFormat(date_value, "dddd, mmmm dS")}</h4>
+																className="show-by-day-group">
+												<h4 className="show-date-list">{dateFormat(date_value, "dddd, mmmm dS")}</h4>
 												<ShowsComponent shows={this.ShowsByDay[date_value].Shows}/>
 											</li>
 										})
 		} else {
-			showDisplay = [<li className="no-shows">No shows to display</li>]
+			showDisplay = [
+				<li className="no-shows">
+					<h4>No shows to display</h4>
+					<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />
+				</li>
+			]
 		}
 
 		return (

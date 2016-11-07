@@ -20,21 +20,6 @@ body {
 	/*-webkit-font-smoothing: antialiased;*/
 }
 
-.mix-tape-parent {
-	display: inline-block;
-	position: relative;
-	z-index: -100
-}
-
-
-.coming-soon {
-	position: absolute;
-	left: 235px;
-	bottom: 242px;
-	color: #333333;
-	font-family: 'Patrick Hand SC', cursive;
-	/*-webkit-font-smoothing: antialiased*/
-}
 
 #map-container {
 	// width: 800px;
@@ -72,12 +57,7 @@ body {
 	// padding: 10px;
 }
 
-.show-item {
-	font-size: $small-main;
-	font-family: 'Sailec Regular', sans-serif;
-	margin: 8px;
-	cursor: pointer;
-}
+
 
 .artist-info {
 	font-size: $small-main;
@@ -184,57 +164,6 @@ label {
 }
 
 
-
-.venue-nav {
-	position: relative;
-	top: 70px;
-	// display: flex;
-}
-
-.show-nav {
-	position: relative;
-	top: 70px;
-	display: flex;
-	justify-content: space-between;
-}
-
-.back-button {
-	width: 150px;
-	border: 1px solid lightgrey;
-	margin: 5px;
-	padding: 5px;
-	margin-bottom: 15px;
-	background-color: white;
-	cursor: pointer;
-}
-
-.venue-button {
-	width: 150px;
-	border: 1px solid lightgrey;
-	margin: 5px;
-	padding: 5px;
-	margin-bottom: 15px;
-	background-color: white;
-	cursor: pointer;
-}
-
-.back-button:hover {
-	color: $pastel-red;
-	border: 1px solid $pastel-red;
-	transition: .5s;
-}
-
-.venue-button:hover {
-	color: $pastel-red;
-	border: 1px solid $pastel-red;
-	transition: .5s;
-}
-
-.venue-nav .title {
-	margin:4%;
-}
-
-
 .react-datepicker__month .react-datepicker__day.react-datepicker__day--in-range {
 		background-color: $light-purple;
  	}
@@ -271,20 +200,7 @@ label {
 	font-family: 'Sailec Regular', sans-serif;
 }
 
-.artist-image-container {
-	position: relative;
-}
 
-.artist-image {
-	position: relative;
-	z-index: 100;
-}
-
-.hidden-image {
-	position: absolute;
-	top: 5%;
-	z-index: 50;
-}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 

@@ -1,0 +1,23 @@
+.show-date-list {
+	text-decoration: underline;
+	font-size: $medium-title;
+}
+
+.show-item-in-list {
+	font-size: $small-main;
+	font-family: 'Sailec Regular', sans-serif;
+	margin: 10px;
+	cursor: pointer;
+}
+
+.show-item-in-list:hover {
+	color: $pastel-red;
+	cursor: pointer;
+	transition: .15s
+}
+
+.no-shows-image {
+	width: 250px;
+	height: 181px;
+	margin: auto;
+}

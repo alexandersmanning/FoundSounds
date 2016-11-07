@@ -1,0 +1,66 @@
+.artist-image-container {
+	display: block;
+	position: relative;
+	min-height: 300px;
+}
+
+.artist-image {
+	position: relative;
+	z-index: 100;
+
+}
+
+.hidden-image {
+	position: absolute;
+	top: 15%;
+	z-index: 50;
+}
+
+.venue-nav {
+	position: relative;
+	top: 70px;
+	// display: flex;
+}
+
+.show-nav {
+	position: relative;
+	top: 70px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.back-button {
+	width: 150px;
+	border: 1px solid lightgrey;
+	margin: 5px;
+	padding: 5px;
+	margin-bottom: 15px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.venue-button {
+	width: 150px;
+	border: 1px solid lightgrey;
+	margin: 5px;
+	padding: 5px;
+	margin-bottom: 15px;
+	background-color: white;
+	cursor: pointer;
+}
+
+.back-button:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	transition: .5s;
+}
+
+.venue-button:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	transition: .5s;
+}
+
+.venue-nav .title {
+	margin:4%;
+}
