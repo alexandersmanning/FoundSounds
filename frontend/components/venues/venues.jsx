@@ -51,7 +51,7 @@ class Venue extends React.Component {
 							</h3>
 						</nav>
 					<content className="side-bar-content">
-						<section className="venue-information side-bar-box">
+						<section className="venue-information">
 							<h4 className="venue-name">{this.props.Venue.name}</h4>
 							<span className="venue-address">
 								{`${this.props.Venue.address}, ${this.props.Venue.city}, ${this.props.Venue.state}`}

@@ -57,6 +57,10 @@ class Show extends React.Component {
 									 onClick={this._pathBack.bind(this)}>
 								{"<"} back to list
 							</h3>
+							<h3 className="venue-button"
+									 onClick	={this._pathToVenue.bind(this)}>
+								view the venue {">"}
+							</h3>
 						</nav>
 					<content className="side-bar-content">
 						<section className="show-information-container">
@@ -65,10 +69,8 @@ class Show extends React.Component {
 									className="side-bar-box"/>
 							</ul>
 						</section>
-						<h3 className="shows">venue</h3>
-						<ul className="venue-link side-bar-box"
-											onClick	={this._pathToVenue.bind(this)}
-						>
+						<h3 className="shows">Venue</h3>
+						<ul className="venue-link">
 							<h4 className="venue-name">{this.props.Show.venueName}</h4>
 							<li className="venue-address">
 								{`${this.props.Show.venueAddress}, ${this.props.Show.venueCity}, ${this.props.Show.venueState}`}

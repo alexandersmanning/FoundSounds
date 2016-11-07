@@ -46,7 +46,7 @@ class ShowsByDay extends React.Component {
 							/>
 						</section>
 						<section className="shows-by-day-list">
-							<h3 className="show-title">Shows</h3>
+							<h3 className="shows">Shows</h3>
 							<ul className="date-list">
 								{
 									showDisplay

@@ -74,16 +74,16 @@ body {
 	cursor: pointer;	
 }
 
-.venue-link {
-	cursor: pointer;
-}
+// .venue-link {
+// 	cursor: pointer;
+// }
 
-.venue-link:hover {
-	color: $pastel-red;
-	border: 1px solid $pastel-red;
-	box-shadow: 1.5px 1.5px 1.5px darkgrey;
-	transition: .25s;
-}
+// .venue-link:hover {
+// 	color: $pastel-red;
+// 	border: 1px solid $pastel-red;
+// 	box-shadow: 1.5px 1.5px 1.5px darkgrey;
+// 	transition: .25s;
+// }
 
 .show-information>.show-date {
 	margin: 10px;
@@ -99,8 +99,13 @@ body {
 .link-side-bar-box>ul>li:hover {
 	color: $pastel-red;
 	border: 1px solid $pastel-red;
-	box-shadow: 1.5px 1.5px 1.5px darkgrey;
+	// box-shadow: 1.5px 1.5px 1.5px darkgrey;
 	transition: .25s;
+
+	.artist-image-container {
+		border-bottom: 1px solid $pastel-red;
+		transition: .25s
+	}
 }
 
 .side-bar-box {
@@ -117,6 +122,13 @@ h3 {
 	font-size: $medium-title;
 	font-family: 'Pacifico', cursive;
 }
+
+h3.shows {
+	font-size: $medium-large-title;
+	font-family: 'Pacifico', cursive;
+}
+
+
 
 
 h4 {

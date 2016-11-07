@@ -44,7 +44,7 @@ class DatePickerForm extends React.Component{
 
 		return (
 			<div className="date-form-container">
-				<h3 className="date-form-title">Show Dates</h3>
+				<h3 className="shows">Show Dates</h3>
 				<form onSubmit={this.handleSubmit} 
 					className="date-form-box side-bar-box">					
 					<div className="date-input-container">
