@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 
 const artistInformation = props => {
 	return (
-		<li className="artist-info">
+		<li key={props.artist.id} className="artist-info">
 			{props.artist.name}
 		</li>
 	)

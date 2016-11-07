@@ -63,6 +63,7 @@ class Venue extends React.Component {
 								{
 									Object.keys(this.props.Venue.Shows).map(key => (
 										<ShowInformation 
+											key={key}
 											show={this.props.Venue.Shows[key]}
 											/>
 									))

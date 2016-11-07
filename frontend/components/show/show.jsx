@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFormat from 'dateformat'
 import ShowInformation from '../shows_by_day/show_information'
+import { withRouter } from 'react-router'
 
 
 class Show extends React.Component {
@@ -80,4 +81,4 @@ class Show extends React.Component {
 	}
 };
 
-export default Show
+export default withRouter(Show)

@@ -10,6 +10,7 @@
 # end
 
 json.showId @show.id
+json.date @show.date
 json.venueId @show.venue.id
 json.venueName @show.venue.name
 json.venueAddress @show.venue.address
@@ -20,7 +21,7 @@ json.artists do
     json.set! artist.id do
       json.name artist.name
       json.id artist.id
-      json.img_url = artist.img_url
+      json.img_url artist.img_url
     end
   end
 end

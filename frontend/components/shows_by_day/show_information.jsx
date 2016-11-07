@@ -12,14 +12,16 @@ const updatePath = (showId, router) => {
 const ShowInformation = props => {
 	let showDate = dateFormat(props.show.date, "dddd, mmmm dS");
 	return (
-		<li className="show-date"
+		<li key={props.show.showId}
+				className="show-date"
 				onClick={updatePath.bind(this, props.show.showId, props.router)}
 		>
+			<img src="" alt="artist-image"/>
 			<h4>{showDate}</h4>
 			<ul	className="artist-list">
 				{
 					Object.keys(props.show.artists).map(key =>
-						<ArtistInformation artist={props.show.artists[key]}/>
+						<ArtistInformation key={key} artist={props.show.artists[key]}/>
 					)
 				}
 			</ul>
