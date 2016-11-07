@@ -1,3 +1,4 @@
+require 'byebug'
 guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
 # venues = Venue.create([
 #   {name:"Great American Music Hall", address:"859 O'Farrell St.", city:"San Francisco", state:"CA", zip_code:94109, url:"http://www.gamh.com", latitude:37.785125, longitude:-122.418851, api_id:109},
@@ -69,7 +70,7 @@ guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
 #   }
 # ])
 50.times do |num|
-  show_list = JSON(RestClient.get("http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=API_KEY&page=#{num + 1}", {accept: :json}).body)
+  show_list = JSON(RestClient.get("http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=#{API_KEY}{}&page=#{num + 1}", {accept: :json}).body)
 
   break if show_list["resultsPage"]["results"]["event"].nil?
   show_list["resultsPage"]["results"]["event"].each do |event|
@@ -78,7 +79,7 @@ guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
     if venue.nil?
 
      venue_string = ERB::Util.url_encode("#{event['venue']['displayName'].split.join('+')}+SF+Bay+Area")
-     venue_response = JSON(RestClient.get("http://api.songkick.com/api/3.0/search/venues.json?query=#{venue_string}&apikey=API_KEY").body)
+     venue_response = JSON(RestClient.get("http://api.songkick.com/api/3.0/search/venues.json?query=#{venue_string}&apikey=#{API_KEY}").body)
 
       next if venue_response["resultsPage"]["results"]["venue"].nil?
 
@@ -110,6 +111,7 @@ guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
 
     ##Artist Portion
     event["performance"].each do |performance|
+      billing_index = performance["billingIndex"]
       band = Artist.find_by_api_id(performance["artist"]["id"])
       if band.nil?
         img_url = "http://images.sk-static.com/images/media/profile_images/artists/#{performance["artist"]["id"]}/huge_avatar"
@@ -122,10 +124,14 @@ guest = User.create(email: "guest@foundsounds.io", password: "guest_account")
           })
       end
 
-      if ShowArtist.find_by(show: show, artist: band).nil?
+      show_artist = ShowArtist.find_by(show: show, artist: band)
+
+      if show_artist.nil?
         ShowArtist.create({
-            show: show, artist: band, billing_index: performance["artist"]["billingIndex"]
+            show: show, artist: band, billing_index: billing_index
           })
+      elsif show_artist.billing_index.nil?
+        show_artist.update({billing_index: billing_index})
       end
     end
   end

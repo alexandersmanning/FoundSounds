@@ -16,6 +16,8 @@ json.venueName @show.venue.name
 json.venueAddress @show.venue.address
 json.venueState @show.venue.state
 json.venueCity @show.venue.city
+billing_index = @show.show_artists.where("billing_index = 1").pluck(:artist_id).first
+json.billing_index billing_index
 json.artists do
   @show.artists.each do |artist|
     json.set! artist.id do
