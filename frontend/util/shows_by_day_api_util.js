@@ -21,7 +21,7 @@ export const fetchVenueById = (id, filters, success, error) => {
 	$.ajax({
 		type: "GET",
 		url: `api/venues/${id}`,
-		date: filters,
+		data: filters,
 		success,
 		error
 	});

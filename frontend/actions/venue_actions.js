@@ -6,8 +6,9 @@ export const receiveVenue = (venue) => ({
 	venue
 });
 
-export const fetchVenueById = id => ({
+export const fetchVenueById = (id, filter) => ({
 	type: FETCH_VENUE_BY_ID,
-	id
+	id,
+	filter
 });
 
