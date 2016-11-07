@@ -11,4 +11,5 @@ class UserShow < ActiveRecord::Base
     foreign_key: :show_id,
     class_name: :Show
 
+
 end

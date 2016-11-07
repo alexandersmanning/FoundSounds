@@ -38,6 +38,17 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def find_user_shows(from_date, to_date, bounds)
+
+    if from_date < Date.today
+      Show.find_shows_by_date(from_date, to_date, bounds).joins(:users).where(
+        "users.id = #{self.id} AND user_shows.attending = 2")
+    else
+      Show.find_shows_by_date(from_date, to_date, bounds).joins(:users).where(
+        "users.id = #{self.id} AND user_shows.attending != 0")
+    end
+  end
+
   private
 
   def ensure_session_token
@@ -53,4 +64,6 @@ class User < ActiveRecord::Base
       self.session_token = new_session_token
     end
   end
+
+
 end
