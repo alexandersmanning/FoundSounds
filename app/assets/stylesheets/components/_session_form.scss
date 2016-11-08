@@ -109,12 +109,16 @@
  		font-size: $medium-title;
  		padding-right: 8px;
  		white-space: nowrap;
+    width: inherit;
+    height: inherit;
  }
 
  .login-signup {
  	display: flex;
  	justify-content: space-between;
  	padding-right: 15px;
+  width: inherit;
+  height: inherit;
  }
 
  .errors {

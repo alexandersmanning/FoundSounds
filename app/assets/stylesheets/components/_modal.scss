@@ -4,3 +4,8 @@
 	 	margin: 0 auto;
 	 	margin-top: 50px;
  }
+
+ .ReactModal__Overlay--after-open {
+ 	z-index: 500 !important;
+ }
+

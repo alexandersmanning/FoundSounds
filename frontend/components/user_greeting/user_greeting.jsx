@@ -10,7 +10,7 @@ class SessionLinks extends React.Component {
 		this.closeModal = this.closeModal.bind(this);
 		this.logoutModal = this.logoutModal.bind(this);
 		this.leaveModal = this.leaveModal.bind(this);
-		this.state = { open: false }
+		this.state = { open: this.props.open || false }
 	}
 
 	componentWillMount() {
@@ -61,11 +61,13 @@ class SessionLinks extends React.Component {
 	}
 }
 
-const UserGreeting = ({ currentUser, logout, receiveErrors }) => (
+const UserGreeting = ({ currentUser, logout, receiveErrors, open }) => (
 	<SessionLinks 
 		currentUser={currentUser} 
 		logout={logout} 
-		receiveErrors={receiveErrors}/>
+		receiveErrors={receiveErrors}
+		open={open}
+		/>
 );
 
 export default UserGreeting;

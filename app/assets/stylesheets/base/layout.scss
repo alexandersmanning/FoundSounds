@@ -212,6 +212,44 @@ label {
 	font-family: 'Sailec Regular', sans-serif;
 }
 
+.attendence-button-group {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+}
+
+
+.user-show-button {
+	width: 150px;
+	border: 1px solid lightgrey;
+	margin: 5px;
+	position: relative;
+	height: 40px;
+}
+
+.user-show-button:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	cursor: pointer;
+	transition: .15s
+}
+
+
+.absolute-show-button {
+	position: absolute;
+	margin: auto;
+	width: inherit;
+	height: inherit;
+}
+
+.hidden-login-button {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 40px;
+	opacity: 0;
+}
 
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }

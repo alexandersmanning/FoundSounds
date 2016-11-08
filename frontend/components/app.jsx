@@ -8,7 +8,9 @@ const App = ({ children }) => (
   <div>
 	   <header className="main-nav-bar">
 	     <Link to="/" className="header-link"><h1 className="header-logo">Found Sounds</h1></Link>
-	     <UserGreetingContainer />
+	     <div className="main-bar-login">
+	     	<UserGreetingContainer />
+	     </div>
 	   </header>
     {children}
     <SearchContainer />
