@@ -16,7 +16,7 @@ export default({getState, dispatch}) => next => action => {
 			return next(action);
 		case UPDATE_BOUNDS:
 			next(action);
-			if ( currentUser ){ dispatch(fetchUserShows(currentUser.id, getState().filter)) }
+			// if ( currentUser ){ dispatch(fetchUserShows(currentUser.id, getState().filter)) }
 			//I dont thing the getState porition is needed given the store
 			dispatch(fetchShowsByDate(getState().filter));
 			break;
