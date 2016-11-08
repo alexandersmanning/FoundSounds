@@ -22,7 +22,7 @@ const ShowInformation = props => {
 		>
 			<div className="artist-image-container">
 				<img className="artist-image" src={img_url} alt="artist-image"/>
-				<img className="hidden-image" src={"http://res.cloudinary.com/ddvdi1pie/image/upload/v1478496195/b0g09gagwqn0ambv8ikz_edpj0c.jpg"} alt="hidden-image"/>
+				<img className="hidden-image" src={"http://res.cloudinary.com/ddvdi1pie/image/upload/a_180/v1478496195/b0g09gagwqn0ambv8ikz_edpj0c.jpg"} alt="hidden-image"/>
 			</div>
 			<h4>{showDate}</h4>
 			<ul	className="artist-list">

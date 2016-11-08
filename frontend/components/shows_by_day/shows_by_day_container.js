@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import ShowsByDay from './shows_by_day'
 import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
 import { updateDates } from '../../actions/filter_actions'
+import { addUserShow, updateUserShow, deleteUserShow } from '../../actions/user_shows_actions'
 
 const mapStateToProps = (state, ownProps) => {
 	return ({

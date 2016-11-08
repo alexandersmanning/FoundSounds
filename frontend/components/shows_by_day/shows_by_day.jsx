@@ -10,7 +10,6 @@ class ShowsByDay extends React.Component {
 		super(props)
   }
 
-
 	render () {
 		
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
@@ -21,7 +20,9 @@ class ShowsByDay extends React.Component {
 											return <li key={date_value} 
 																className="show-by-day-group">
 												<h4 className="show-date-list">{dateFormat(date_value, "dddd, mmmm dS")}</h4>
-												<ShowsComponent shows={this.ShowsByDay[date_value].Shows}/>
+												<ShowsComponent 
+													shows={this.ShowsByDay[date_value].Shows} 
+												/>
 											</li>
 										})
 		} else {

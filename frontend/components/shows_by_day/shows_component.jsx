@@ -1,5 +1,6 @@
 import React from 'react'
 import { withRouter } from 'react-router'
+import UserShowsContainer from '../user_shows/user_shows_container'
 
 const updatePath = (showId, router) => {
 	router.push({
@@ -12,11 +13,13 @@ const ShowsComponent = (props) => {
 		<ul className="show-list">
 		{
 			props.shows.map( show => {
-				return <li className="show-item-in-list"
-										key={show.showId}
-										onClick={updatePath.bind(this,show.showId, props.router)}
-										>
-								{`${show.artists.join(", ")} at ${show.venueName}`}
+				return <li key={show.showId}>
+								<span 
+									className="show-item-in-list"
+									onClick={updatePath.bind(this,show.showId, props.router)}>
+									{`${show.artists.join(", ")} at ${show.venueName}`}
+								</span>
+								<UserShowsContainer showId={show.showId} />
 								</li>
 			})
 		}

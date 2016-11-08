@@ -2,6 +2,7 @@ import React from 'react';
 import dateFormat from 'dateformat'
 import ShowInformation from '../shows_by_day/show_information'
 import { withRouter } from 'react-router'
+import UserShowsContainer from '../user_shows/user_shows_container'
 
 
 class Show extends React.Component {
@@ -68,6 +69,7 @@ class Show extends React.Component {
 								<ShowInformation show={this.props.Show} 
 									className="side-bar-box"/>
 							</ul>
+							<UserShowsContainer showId={this.props.Show.showId} />
 						</section>
 						<h3 className="shows">Venue</h3>
 						<ul className="venue-link">

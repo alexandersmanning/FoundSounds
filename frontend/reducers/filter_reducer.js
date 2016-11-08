@@ -1,6 +1,5 @@
-import { updateBounds, 
+import {
 				 UPDATE_BOUNDS,
-				 updateDates,
 				 UPDATE_DATES
 				  } from '../actions/filter_actions';
 import merge from 'lodash/merge';
