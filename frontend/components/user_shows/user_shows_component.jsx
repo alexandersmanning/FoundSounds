@@ -30,7 +30,7 @@ class UserShows extends React.Component {
 			// find if they are attending or not, and set the text appropriately
 			if (attending_show.attending === 2) {
 					show_value = 1;
-					show_text = "Now Interested"
+					show_text = "Just Interested"
 			}
 				else {
 					show_value = 2;

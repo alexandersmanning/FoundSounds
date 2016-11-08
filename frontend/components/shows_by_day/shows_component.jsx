@@ -13,7 +13,7 @@ const ShowsComponent = (props) => {
 		<ul className="show-list">
 		{
 			props.shows.map( show => {
-				return <li key={show.showId}>
+				return <li className="artist-venue-name" key={show.showId}>
 								<span 
 									className="show-item-in-list"
 									onClick={updatePath.bind(this,show.showId, props.router)}>
