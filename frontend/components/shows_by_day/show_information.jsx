@@ -1,6 +1,7 @@
 import React from 'react'
 import dateFormat from 'dateformat'
 import ArtistInformation from './artist_information'
+import UserShowsContainer from '../user_shows/user_shows_container'
 import { withRouter } from 'react-router'
 
 const updatePath = (showId, router) => {
@@ -33,6 +34,7 @@ const ShowInformation = props => {
 				}
 			</ul>
 		</li>
+		
 	)
 };
 

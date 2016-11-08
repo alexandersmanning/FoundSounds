@@ -24,13 +24,6 @@ class Show < ActiveRecord::Base
     through: :user_shows,
     source: :user
 
-  def attending
-    users.attending
-  end
-
-  def maybe
-    users.attending
-  end
 
  def self.find_shows_by_venue(venue_id, from_date, to_date)
 

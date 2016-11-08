@@ -4,5 +4,6 @@
     json.id show.id
     json.venueId show.venue_id
     json.date show.date
+    json.attending show.attending
   end
 end

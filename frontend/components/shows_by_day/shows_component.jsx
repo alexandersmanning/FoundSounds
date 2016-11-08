@@ -19,7 +19,7 @@ const ShowsComponent = (props) => {
 									onClick={updatePath.bind(this,show.showId, props.router)}>
 									{`${show.artists.join(", ")} at ${show.venueName}`}
 								</span>
-								<UserShowsContainer showId={show.showId} />
+							
 								</li>
 			})
 		}

@@ -39,7 +39,6 @@ class User < ActiveRecord::Base
   end
 
   def find_user_shows(from_date, to_date, bounds)
-
     to_date ||=  10.days.from_now
     from_date ||= Date.today
 
@@ -49,17 +48,15 @@ class User < ActiveRecord::Base
     end
 
     if from_date < Date.today
-      Show.find_shows_by_date(from_date, to_date, bounds)
-          .select("shows.*, user_shows.id as user_shows_id")
+       Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
           .joins(:users)
-          .where(
-        "users.id = #{self.id} AND user_shows.attending = 2")
-    else
-      Show.find_shows_by_date(from_date, to_date, bounds)
-        .select("shows.*, user_shows.id as user_shows_id")
-        .joins(:users)
         .where(
-        "users.id = #{self.id} AND user_shows.attending != 0")
+        "users.id = #{self.id} AND user_shows.attending == 2")
+    else
+      Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
+          .joins(:users)
+        .where(
+        "users.id = #{self.id}")
     end
   end
 
