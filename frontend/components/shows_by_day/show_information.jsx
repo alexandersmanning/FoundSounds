@@ -5,11 +5,23 @@ import UserShowsContainer from '../user_shows/user_shows_container'
 import { withRouter } from 'react-router'
 
 const updatePath = (showId, router) => {
-	debugger
+	let modifiedRoute = findModifiedPath(router)
 	router.push({
-		pathname: `shows/${showId}`, query: router.location.query
+		pathname: `${modifiedRoute}shows/${showId}`, query: router.location.query
 	})
 }
+
+const findModifiedPath = (router) => {
+		let currentRouteName = router.getCurrentLocation().pathname;
+		let endIdx = currentRouteName.indexOf("venue")
+		if (endIdx !== -1)
+		 {
+			currentRouteName = currentRouteName.slice(0, endIdx)
+			} else {
+				currentRouteName += '/'
+			}
+		return currentRouteName
+	}
 
 const ShowInformation = props => {
 	let showDate = dateFormat(props.show.date, "dddd, mmmm dS");
