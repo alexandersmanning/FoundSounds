@@ -50,17 +50,9 @@ class ConcertMap extends React.Component {
 	}
 
 	_findModifiedPath() {
-		// let currentRouteName = this.props.router.getCurrentLocation().pathname;
-		// if (currentRouteName.indexOf("venue") !== -1)
-		//  {
-		// 	const showString = `venue/${this.props.router.params.venueId}`
-		// 	currentRouteName = currentRouteName.slice(0, currentRouteName.length - showString.length - 1)
-		// 	} else if (currentRouteName !== "/"){
-		// 		currentRouteName += '/'
-		// 	}
-		// return currentRouteName
+	
 
-
+		// this code is repeated in multiple places and must go in a util
 		let currentRouteName = this.props.router.getCurrentLocation().pathname;
 		let endIdx = currentRouteName.indexOf("venue")
 		if (endIdx === -1)

@@ -36,7 +36,6 @@ class DatePickerForm extends React.Component{
 	_updatePath() {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
 		this.props.updateDates(this.state.fromDate, this.state.toDate)
-		// this.props.fetchShowsByDate(this.state.fromDate, this.state.toDate)
 		this.props.router.push({pathname: currentRouteName, query: this.state});
 	};
 
