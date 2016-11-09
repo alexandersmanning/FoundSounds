@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
        Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
           .joins(:users)
         .where(
-        "users.id = #{self.id} AND user_shows.attending == 2")
+        "users.id = #{self.id} AND user_shows.attending = 2")
     else
       Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
           .joins(:users)

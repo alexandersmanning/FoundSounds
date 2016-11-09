@@ -14,6 +14,10 @@ const updatePath = (showId, router) => {
 const findModifiedPath = (router) => {
 		let currentRouteName = router.getCurrentLocation().pathname;
 		let endIdx = currentRouteName.indexOf("venue")
+		if (endIdx === -1)
+		{
+			endIdx = currentRouteName.indexOf("show")
+		}
 		if (endIdx !== -1)
 		 {
 			currentRouteName = currentRouteName.slice(0, endIdx)

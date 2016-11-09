@@ -50,12 +50,27 @@ class ConcertMap extends React.Component {
 	}
 
 	_findModifiedPath() {
+		// let currentRouteName = this.props.router.getCurrentLocation().pathname;
+		// if (currentRouteName.indexOf("venue") !== -1)
+		//  {
+		// 	const showString = `venue/${this.props.router.params.venueId}`
+		// 	currentRouteName = currentRouteName.slice(0, currentRouteName.length - showString.length - 1)
+		// 	} else if (currentRouteName !== "/"){
+		// 		currentRouteName += '/'
+		// 	}
+		// return currentRouteName
+
+
 		let currentRouteName = this.props.router.getCurrentLocation().pathname;
-		if (currentRouteName.indexOf("venue") !== -1)
+		let endIdx = currentRouteName.indexOf("venue")
+		if (endIdx === -1)
+		{
+			endIdx = currentRouteName.indexOf("show")
+		}
+		if (endIdx !== -1)
 		 {
-			const showString = `venue/${this.props.router.params.venueId}`
-			currentRouteName = currentRouteName.slice(0, currentRouteName.length - showString.length - 1)
-			} else {
+			currentRouteName = currentRouteName.slice(0, endIdx)
+			} else if (currentRouteName !== "/") {
 				currentRouteName += '/'
 			}
 		return currentRouteName

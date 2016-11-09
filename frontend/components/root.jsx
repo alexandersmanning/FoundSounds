@@ -10,6 +10,7 @@ import ShowsByDayContainer from './shows_by_day/shows_by_day_container'
 import VenuesContainer from './venues/venues_container'
 import ShowContainer from './show/show_container'
 import AttendingShowContainer from './sidebar_navigator/attending_shows_container'
+import PreviousShowContainer from './sidebar_navigator/previous_shows_container'
 
 import { fetchShowById } from '../actions/show_actions'
 import { fetchVenueById } from '../actions/venue_actions'
@@ -61,6 +62,15 @@ const Root = ( {store} ) => {
                  component={VenuesContainer} 
                  onEnter={_fetchVenueById}/>
           <Route path="/attending/shows/:showId" 
+                 component={ShowContainer} 
+                 onEnter={_fetchShowById}/>
+          <Route path="/previous"
+                 component={PreviousShowContainer} 
+                 onEnter={_addUserToFilter}/>
+          <Route path="/previous/venues/:venueId" 
+                 component={VenuesContainer} 
+                 onEnter={_fetchVenueById}/>
+          <Route path="/previous/shows/:showId" 
                  component={ShowContainer} 
                  onEnter={_fetchShowById}/>
         </Route>
