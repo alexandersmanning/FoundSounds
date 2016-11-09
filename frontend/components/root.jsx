@@ -9,9 +9,11 @@ import App from './app';
 import ShowsByDayContainer from './shows_by_day/shows_by_day_container'
 import VenuesContainer from './venues/venues_container'
 import ShowContainer from './show/show_container'
+import AttendingShowContainer from './sidebar_navigator/attending_shows_container'
 
 import { fetchShowById } from '../actions/show_actions'
 import { fetchVenueById } from '../actions/venue_actions'
+import { addUserToFilter, removeUserFromFilter } from '../actions/filter_actions'
 
 
 const Root = ( {store} ) => {
@@ -30,16 +32,35 @@ const Root = ( {store} ) => {
     let venueId = nextState.params.venueId;
     store.dispatch(fetchVenueById(venueId, store.getState().filter ));
   }
+
+   const _removeUserFromFilter = (nextState, replace) => {
+    store.dispatch(removeUserFromFilter())
+  }
+
+  const _addUserToFilter = (nextState, replace) => {
+    let userId = store.getState().session["currentUser"]["id"]
+    store.dispatch(addUserToFilter(userId))
+  }
   // move search container to app, and then sidebar for IndexRoute
    return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-        <IndexRoute component={ShowsByDayContainer}/>
+        <IndexRoute component={ShowsByDayContainer}
+                    onEnter={_removeUserFromFilter}/>
           <Route path="/venues/:venueId" 
                  component={VenuesContainer} 
                  onEnter={_fetchVenueById}/>
           <Route path="/shows/:showId" 
+                 component={ShowContainer} 
+                 onEnter={_fetchShowById}/>
+          <Route path="/attending"
+                 component={AttendingShowContainer} 
+                 onEnter={_addUserToFilter}/>
+          <Route path="/attending/venues/:venueId" 
+                 component={VenuesContainer} 
+                 onEnter={_fetchVenueById}/>
+          <Route path="/attending/shows/:showId" 
                  component={ShowContainer} 
                  onEnter={_fetchShowById}/>
         </Route>
@@ -51,3 +72,7 @@ const Root = ( {store} ) => {
 export default Root;
 
 // <IndexRoute component={}/>
+ // <Route path="/attending"
+ //                 component={AttendingShowContainer} />
+ //          <Route path="/previous"
+ //                 component={PreviousShowContainer} />

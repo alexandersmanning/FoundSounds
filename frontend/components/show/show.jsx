@@ -32,18 +32,26 @@ class Show extends React.Component {
 	};
 
 	_pathBack() {
+		let modifiedPath = this._findModifiedPath();
 		let query = this.props.router.location.query
 		this.props.router.push(
-			{	pathname: "/", query: query }
+			{	pathname: modifiedPath, query: query }
 		)
 	}
 
 	_pathToVenue() {
 		let query = this.props.router.location.query
 		let venue = this.props.Show.venueId
+		let modifiedPath = this._findModifiedPath();
 		this.props.router.push(
-			{	pathname: `/venues/${venue}`, query: query }
+			{	pathname: `${modifiedPath}/venues/${venue}`, query: query }
 		)
+	}
+
+	_findModifiedPath() {
+		const currentRouteName = this.props.router.getCurrentLocation().pathname;
+		const showString = `/shows/${this.props.router.params.showId}`
+		return currentRouteName.slice(0, currentRouteName.length - showString.length)
 	}
 
 	render () {

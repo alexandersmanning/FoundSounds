@@ -5,6 +5,7 @@ import UserShowsContainer from '../user_shows/user_shows_container'
 import { withRouter } from 'react-router'
 
 const updatePath = (showId, router) => {
+	debugger
 	router.push({
 		pathname: `shows/${showId}`, query: router.location.query
 	})

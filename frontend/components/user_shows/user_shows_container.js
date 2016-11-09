@@ -10,7 +10,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	addUserShow: (userId, showId, attending) => dispatch(addUserShow(userId, showId, attending)),
-	updateUserShow: (userShowId, attending) => dispatch(updateUserShow(userId, showId, attending)),
+	updateUserShow: (userShowId, attending) => dispatch(updateUserShow(userShowId, attending)),
 	deleteUserShow: (userShowId) => dispatch(deleteUserShow(userShowId))
 })
 

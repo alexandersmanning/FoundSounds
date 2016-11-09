@@ -43,9 +43,22 @@ class ConcertMap extends React.Component {
 	}
 
 	_handleClickEvent(selectedVenue) {
-		let newRoute = `venues/${selectedVenue.id}`
-		let query = this.props.router.location.query
-		this.props.router.push({pathname: newRoute, query: query})
+		let newRoute = `venues/${selectedVenue.id}`;
+		let currentRouteName = this._findModifiedPath();
+		let query = this.props.router.location.query;
+		this.props.router.push({pathname: `${currentRouteName}${newRoute}`, query: query})
+	}
+
+	_findModifiedPath() {
+		let currentRouteName = this.props.router.getCurrentLocation().pathname;
+		if (currentRouteName.indexOf("venue") !== -1)
+		 {
+			const showString = `venue/${this.props.router.params.venueId}`
+			currentRouteName = currentRouteName.slice(0, currentRouteName.length - showString.length - 1)
+			} else {
+				currentRouteName += '/'
+			}
+		return currentRouteName
 	}
 
 	render() {

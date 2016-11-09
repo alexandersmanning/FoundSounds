@@ -3,7 +3,8 @@ class Api::VenuesController < ApplicationController
     @venue_shows = Show.find_shows_by_venue(
         params[:id],
         params[:fromDate],
-        params[:toDate]
+        params[:toDate],
+        params[:userId]
       )
   end
 end

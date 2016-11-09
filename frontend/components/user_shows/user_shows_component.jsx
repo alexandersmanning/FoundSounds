@@ -13,6 +13,10 @@ class UserShows extends React.Component {
 		this.props.addUserShow(userId, showId, attendence_type)
 	}
 
+	_updateUserShow (userShowId, attendence_type) {
+		this.props.updateUserShow(userShowId, attendence_type)
+	}
+
 	_deleteUserShow(userShowId) {
 		this.props.deleteUserShow(userShowId)
 	}
@@ -23,30 +27,32 @@ class UserShows extends React.Component {
 
 	render() {
 		let attending_show = this.props.UserShows[this.props.showId]
-		let show_value
-		let show_text 
+		let attending_class = ""
+		let interested_class = ""
+		let attending_action, interested_action
 
 		if (attending_show) {
-			// find if they are attending or not, and set the text appropriately
 			if (attending_show.attending === 2) {
-					show_value = 1;
-					show_text = "Just Interested"
+					attending_class = "selected-button"
+					attending_action = this._deleteUserShow.bind(this, attending_show["userShowsId"])
+					interested_action = this._updateUserShow.bind(this, attending_show["userShowsId"],  1)
 			}
 				else {
-					show_value = 2;
-					show_text = "Now Attending"
+					interested_class = "selected-button";
+					interested_action = this._deleteUserShow.bind(this, attending_show["userShowsId"])
+					attending_action = this._updateUserShow.bind(this, attending_show["userShowsId"], 2)
 				}
 			return( 
 						<section className="attendence-button-group">
 							<div 
-								className="user-show-button"
-								onClick={this._deleteUserShow.bind(this, attending_show["userShowsId"])}>
-										<h3 className="absolute-show-button">Remove Show</h3>
+								className={"user-show-button " + attending_class}
+								onClick={attending_action}>
+										<h3 className="absolute-show-button">Attending</h3>
 								</div>
 								<div 
-									className="user-show-button"
-									onClick={this._addUserShow.bind(this, this.props.session.currentUser.id, this.props.showId, show_value)}>
-									<h3 className="absolute-show-button">{show_text}</h3>
+									className={"user-show-button " + interested_class}
+									onClick={interested_action}>
+									<h3 className="absolute-show-button">Interested</h3>
 								</div>
 							</section>
 							)

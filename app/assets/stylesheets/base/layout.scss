@@ -234,6 +234,18 @@ label {
 	transition: .15s
 }
 
+.user-show-button.selected-button {
+	color: $light-purple;
+	border: 1px solid $light-purple;
+}
+
+.user-show-button.selected-button:hover {
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
+	cursor: pointer;
+	transition: .15s
+}
+
 
 .absolute-show-button {
 	position: absolute;

@@ -31,10 +31,17 @@ class Venue extends React.Component {
 	};
 
 	_pathBack() {
+		let modifiedPath = this._findModifiedPath();
 		let query = this.props.router.location.query
 		this.props.router.push(
-			{	pathname: "/", query: query }
+			{	pathname: modifiedPath, query: query }
 		)
+	}
+
+	_findModifiedPath() {
+		const currentRouteName = this.props.router.getCurrentLocation().pathname;
+		const showString = `/venues/${this.props.router.params.venueId}`
+		return currentRouteName.slice(0, currentRouteName.length - showString.length)
 	}
 
 	render () {

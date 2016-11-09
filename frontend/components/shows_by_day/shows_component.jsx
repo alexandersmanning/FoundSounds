@@ -3,8 +3,11 @@ import { withRouter } from 'react-router'
 import UserShowsContainer from '../user_shows/user_shows_container'
 
 const updatePath = (showId, router) => {
+	debugger
+	let currentPath = router.location.pathname
+	if (currentPath !== "/") { currentPath += "/"}
 	router.push({
-		pathname: `shows/${showId}`, query: router.location.query
+		pathname: `${currentPath}shows/${showId}`, query: router.location.query
 	})
 }
 
