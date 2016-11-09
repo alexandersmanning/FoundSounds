@@ -42,6 +42,8 @@ class ShowsByDay extends React.Component {
 							<DatePickerForm 
 								fromDate={this.props.fromDate}
 								toDate={this.props.toDate}
+								maxDate={this.props.maxDate}
+								minDate={this.props.minDate}
 								fetchShowsByDate={this.props.fetchShowsByDate}
 								updateDates={this.props.updateDates}
 							/>

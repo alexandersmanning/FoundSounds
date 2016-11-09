@@ -13,7 +13,6 @@ class DatePickerForm extends React.Component{
 			fromDate: this.props.fromDate,
 			toDate: this.props.toDate
 		}
-
 		this.handleChange = this.handleChange.bind(this)
 	}
 
@@ -40,6 +39,9 @@ class DatePickerForm extends React.Component{
 	};
 
 	render() {
+	  this.maxDate = (this.props.maxDate || new Date(+new Date + 3.154e+10)).toISOString().substring(0, 10)
+
+		this.minDate = (this.props.minDate || new Date(+new Date - 6.307e+11)).toISOString().substring(0, 10)
 
 		return (
 			<div className="date-form-container">
@@ -57,6 +59,7 @@ class DatePickerForm extends React.Component{
 							className="date-picker"
 							placeholderText="date from"
 							maxDate={moment(this.state.toDate)}
+							minDate={moment(this.minDate)}
 							/>
 							<span className="input-date-border"/>
 						</div>
@@ -71,6 +74,7 @@ class DatePickerForm extends React.Component{
 							className="date-picker"
 							placeholderText="date to"
 							minDate={moment(this.state.fromDate)}
+							maxDate={moment(this.maxDate)}
 							/>
 							<span className="input-date-border"/>
 						</div>

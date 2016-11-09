@@ -56,9 +56,9 @@ class Show < ActiveRecord::Base
     end
 
     if (user_id.nil?)
-      Show.includes(:venue).includes(:artists).where("(date BETWEEN ? AND ?) AND (venue_id in (?)) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id) )
+      Show.includes(:venue).includes(:artists).where("(date BETWEEN ? AND ?) AND (venue_id in (?)) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id) ).order("shows.date")
     else
-     Show.includes(:venue).includes(:artists).includes(:users).joins(:users).where("(date BETWEEN ? AND ?) AND (venue_id in (?))  AND (users.id = ?) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id), user_id)
+     Show.includes(:venue).includes(:artists).includes(:users).joins(:users).where("(date BETWEEN ? AND ?) AND (venue_id in (?))  AND (users.id = ?) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id), user_id).order("shows.date")
     end
   end
 

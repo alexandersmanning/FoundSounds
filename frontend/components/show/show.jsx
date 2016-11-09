@@ -58,6 +58,12 @@ class Show extends React.Component {
 		if (Object.keys(this.props.Show).length === 0) {
 			return <h1>loading</h1>
 		}
+
+		let showAttending = <div hidden></div>
+		if (this.props.Show.date.substring(0,10) >= new Date().toISOString().substring(0, 10)) {
+			showAttending = <UserShowsContainer showId={this.props.Show.showId} />
+		}
+
 		return (
 			<div className="main-container">
 				<aside className="side-bar-parent col-1-3">
@@ -77,7 +83,7 @@ class Show extends React.Component {
 								<ShowInformation show={this.props.Show} 
 									className="side-bar-box"/>
 							</ul>
-							<UserShowsContainer showId={this.props.Show.showId} />
+							{showAttending}
 						</section>
 						<h3 className="shows">Venue</h3>
 						<ul className="venue-link">

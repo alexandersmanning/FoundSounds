@@ -5,12 +5,31 @@ import { updateDates } from '../../actions/filter_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
+	// if the params are empty, create dates instead 
+	let yesterday = new Date(+new Date - 8.64e+7);
+	let fromDate, toDate;
+
+	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) > yesterday ) {
+		toDate = yesterday.toISOString().substring(0, 10)
+		fromDate = new Date(+new Date - 12096e5).toISOString().substring(0, 10)
+	} else {
+		fromDate = Math.min(Date.parse(ownProps.location.query.fromDate), yesterday)
+		toDate = Math.min(Date.parse(ownProps.location.query.toDate), yesterday)
+		if (!fromDate) {
+			fromDate = new Date().toISOString().substring(0, 10)
+		} else { fromDate = new Date(fromDate).toISOString().substring(0, 10) } 
+	
+		if (!toDate) {
+			toDate = new Date().toISOString().substring(0, 10)
+		} else { toDate = new Date(toDate).toISOString().substring(0, 10) } 
+	}
+
 	return ({
 		ShowsByDay: state.ShowsByDay,
 		filter: state.filter,
-		toDate: ownProps.location.query.toDate,
-		fromDate: ownProps.location.query.fromDate,
-		maxDate: new Date()
+		toDate: toDate,
+		fromDate: fromDate,
+		maxDate: yesterday
 	})
 }
 
