@@ -102,7 +102,9 @@
 }
 
 
-
+  .main-bar-login {
+    padding-right: 15px;
+  }
  
  .login-signup button{
  		font-family: 'Pacifico', cursive;
@@ -116,7 +118,6 @@
  .login-signup {
  	display: flex;
  	justify-content: space-between;
- 	padding-right: 15px;
   width: inherit;
   height: inherit;
  }

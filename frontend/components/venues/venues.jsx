@@ -2,6 +2,7 @@ import React from 'react';
 import dateFormat from 'dateformat'
 import ArtistInformation from '../shows_by_day/artist_information'
 import ShowInformation from '../shows_by_day/show_information'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 class Venue extends React.Component {
@@ -19,6 +20,7 @@ class Venue extends React.Component {
 		}
 
 		this._updatePath(fromDate, toDate)
+
 	}
 
 	_updatePath(fromDate, toDate) {
@@ -48,9 +50,10 @@ class Venue extends React.Component {
 		if (Object.keys(this.props.Venue).length === 0) {
 			return <h1>loading</h1>
 		}
+
 		return (
 			<div className="main-container">
-				<aside className="side-bar-parent col-1-3">
+				<aside id="venue-side-bar" className="side-bar-parent col-1-3">
 						<nav className="venue-nav">
 							<h3 className="back-button"
 									 onClick={this._pathBack.bind(this)}>
@@ -67,14 +70,19 @@ class Venue extends React.Component {
 							<h3 className="shows">Shows</h3>
 						<section className="show-information-container link-side-bar-box">
 							<ul className="show-information">
-								{
-									Object.keys(this.props.Venue.Shows).map(key => (
-										<ShowInformation 
-											key={key}
-											show={this.props.Venue.Shows[key]}
-											/>
-									))
-								}
+								<ReactCSSTransitionGroup
+	          			transitionName="venue-shows"
+	         				transitionEnterTimeout={500}
+	          			transitionLeaveTimeout={300}>
+										{
+											Object.keys(this.props.Venue.Shows).map(key => (
+												<ShowInformation 
+													key={key}
+													show={this.props.Venue.Shows[key]}
+													/>
+											))
+										}
+								</ReactCSSTransitionGroup>
 							</ul>
 						</section>
 					</content>

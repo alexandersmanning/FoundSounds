@@ -41,7 +41,7 @@ body {
 }
 
 .side-bar-parent {
-	height: calc(97vh);
+	height: calc(100vh);
 	overflow: scroll;
 	// position: relative;
 	// top: 2px;
@@ -72,7 +72,7 @@ body {
 		margin: 8px;
 }
 
-.link-side-bar-box>ul>li {
+.link-side-bar-box>ul>span>li {
 	cursor: pointer;	
 }
 
@@ -87,7 +87,7 @@ body {
 // 	transition: .25s;
 // }
 
-.show-information>.show-date {
+.show-information>span>.show-date {
 	margin: 10px;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -98,7 +98,7 @@ body {
 	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
 }
 
-.link-side-bar-box>ul>li:hover {
+.link-side-bar-box>ul>span>li:hover {
 	color: $pastel-red;
 	border: 1px solid $pastel-red;
 	// box-shadow: 1.5px 1.5px 1.5px darkgrey;
@@ -285,7 +285,7 @@ label {
 .tab {
 	// border: 1px solid lightgrey;
 	// border-right: none;
-	background-color: $light-red;
+	background-color: $lightest-purple;
 	padding: 0;
 	margin: 3px;
 	margin-right: 0px;
@@ -326,7 +326,7 @@ content: "";
 }
 
 .tab.selected {
-	color: $light-red;
+	color: $lightest-purple;
 	background-color: white;
 	opacity: 1;
 }
@@ -335,7 +335,7 @@ content: "";
 content: "";
   position: absolute;
   top: 0px;
-  border: 0 solid $light-red;
+  border: 0 solid $lightest-purple;
   border-width: 13px 13px;
   width: 0;
   height: 0;
@@ -344,7 +344,7 @@ content: "";
 .tab h5:after {
   left: -26px;
   border-color: transparent;
-  border-right-color: $light-red;
+  border-right-color: $lightest-purple;
 }
 
 h5 {
@@ -404,6 +404,26 @@ h5 {
 	justify-content: space-around;
 	flex-direction: column;
 }
+
+
+.venue-shows-enter {
+  opacity: 0.01;
+}
+
+.venue-shows-enter.venue-shows-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.venue-shows-leave {
+  opacity: 1;
+}
+
+.venue-shows-leave.venue-shows-leave-active {
+  opacity: 0.01;
+  transition: opacity 300ms ease-in;
+}
+
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 

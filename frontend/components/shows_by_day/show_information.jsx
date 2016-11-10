@@ -29,7 +29,16 @@ const findModifiedPath = (router) => {
 
 const ShowInformation = props => {
 	let showDate = dateFormat(new Date(+new Date(props.show.date) + 2.88e+7), "dddd, mmmm dS");
-	let img_artist = props.show.artists[props.show.billing_index] || props.show.artists[Object.keys(props.show.artists)[0]]
+
+	let img_artist
+	if (props.show.billing_index){
+		img_artist = props.show.artists[props.show.billing_index]
+	} else if (props.show.artists) {
+		img_artist = props.show.artists[Object.keys(props.show.artists)[0]]
+	} else {
+		return null
+	}
+
 	let img_url = img_artist["img_url"]
 
 	return (

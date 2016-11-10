@@ -3,6 +3,7 @@ import dateFormat from 'dateformat'
 import ShowInformation from '../shows_by_day/show_information'
 import { withRouter } from 'react-router'
 import UserShowsContainer from '../user_shows/user_shows_container'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 class Show extends React.Component {
@@ -80,8 +81,15 @@ class Show extends React.Component {
 					<content className="side-bar-content">
 						<section className="show-information-container">
 							<ul className="show-information">
-								<ShowInformation show={this.props.Show} 
-									className="side-bar-box"/>
+								<ReactCSSTransitionGroup
+	          			transitionName="venue-shows"
+	         				transitionEnterTimeout={500}
+	          			transitionLeaveTimeout={300}> 
+	          				{
+											<ShowInformation show={this.props.Show} 
+												className="side-bar-box"/>
+	          				}
+								</ReactCSSTransitionGroup>
 							</ul>
 							{showAttending}
 						</section>
