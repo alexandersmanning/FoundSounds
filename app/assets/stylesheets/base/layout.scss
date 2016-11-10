@@ -41,7 +41,7 @@ body {
 }
 
 .side-bar-parent {
-	height: calc(100vh);
+	height: calc(97vh);
 	overflow: scroll;
 	// position: relative;
 	// top: 2px;
@@ -278,14 +278,14 @@ label {
 .tab-navigator {
 	position: absolute;
 	right: 0;
-	top: 55px;
+	top: 70px;
 	z-index: 100;
 }
 
 .tab {
 	// border: 1px solid lightgrey;
 	// border-right: none;
-	background-color: $pastel-red;
+	background-color: $light-red;
 	padding: 0;
 	margin: 3px;
 	margin-right: 0px;
@@ -326,7 +326,7 @@ content: "";
 }
 
 .tab.selected {
-	color: $pastel-red;
+	color: $light-red;
 	background-color: white;
 	opacity: 1;
 }
@@ -335,7 +335,7 @@ content: "";
 content: "";
   position: absolute;
   top: 0px;
-  border: 0 solid $pastel-red;
+  border: 0 solid $light-red;
   border-width: 13px 13px;
   width: 0;
   height: 0;
@@ -344,7 +344,7 @@ content: "";
 .tab h5:after {
   left: -26px;
   border-color: transparent;
-  border-right-color: $pastel-red;
+  border-right-color: $light-red;
 }
 
 h5 {
@@ -373,6 +373,7 @@ h5 {
 	right: 0;
 	display: flex;
 	justify-content: space-between;
+	z-index: 200;
 }
 
 .about-footer {
@@ -396,6 +397,12 @@ h5 {
 	font-size: $small-main;
 	margin: 5px;
 	padding: 5px;
+}
+
+.about-section {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }

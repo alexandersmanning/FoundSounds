@@ -19,21 +19,27 @@ const Search = ({ ShowsByVenue, updateBounds, session, router }) => {
 					<UserGreetingContainer />
 				</div>
 	 		}
+
+	 let path = router.location.pathname
+	 let main = (path.indexOf("attending") === -1 && path.indexOf("previous") === -1 ? " selected" : "")
+	 let attending = (path.indexOf("attending") > 0 ? " selected" : "")
+	 let previous = (path.indexOf("previous") > 0 ? " selected" : "")
+
 	return (
 	<div className="interactive-map-container col-2-3">
 		<nav className="tab-navigator">
 			<ul	className="tabset">
 					<li 
-						className={"tab" + (router.location.pathname === "/" ? " selected" : "")}
+						className={"tab" + main}
 						onClick={_changePath.bind(this, "/", session.currentUser, router)}>
 						<h5>Main</h5>
 					</li>
-					<li className={"tab" + (router.location.pathname === "/attending" ? " selected" : "") }
+					<li className={"tab" + attending}
 								onClick={_changePath.bind(this, "/attending", session.currentUser, router)}>
 						<h5>Attending</h5>
 						{logInModal}
 					</li>
-					<li className={"tab" + (router.location.pathname === "/previous" ? " selected"  : "")}
+					<li className={"tab" + previous}
 								onClick={_changePath.bind(this, "/previous", session.currentUser, router)}>
 						<h5>Previous Shows</h5>
 						{logInModal}
