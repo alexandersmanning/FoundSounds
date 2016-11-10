@@ -24,11 +24,21 @@ export default class MarkerManager {
 		const marker = new google.maps.Marker({
 			position: pos,
 			map: this.map,
-			venueId: venue.id
+			venueId: venue.id,
+			icon: "http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_32/v1478809017/pin_ecw3d3.png"
 		});
 
 		marker.addListener('click', () => this.handleClick(venue));
+		
+		marker.addListener('mouseover', function() {
+				this.setIcon("http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_45/v1478809017/pin_ecw3d3.png")
+			})
+		marker.addListener('mouseout', function() {
+				this.setIcon("http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_32/v1478809017/pin_ecw3d3.png")
+		})
+
 		this.markers.push(marker)
+
 	}
 
 	_removeMarker(marker) {

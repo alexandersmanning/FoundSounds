@@ -81,15 +81,12 @@ class Show extends React.Component {
 					<content className="side-bar-content">
 						<section className="show-information-container">
 							<ul className="show-information">
-								<ReactCSSTransitionGroup
-	          			transitionName="venue-shows"
-	         				transitionEnterTimeout={500}
-	          			transitionLeaveTimeout={300}> 
-	          				{
-											<ShowInformation show={this.props.Show} 
-												className="side-bar-box"/>
-	          				}
-								</ReactCSSTransitionGroup>
+								<span>
+        				{
+									<ShowInformation show={this.props.Show} 
+										className="side-bar-box"/>
+        				}
+        				</span>
 							</ul>
 							{showAttending}
 						</section>

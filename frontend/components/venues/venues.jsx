@@ -69,19 +69,19 @@ class Venue extends React.Component {
 						</section>
 							<h3 className="shows">Shows</h3>
 						<section className="show-information-container link-side-bar-box">
-							<ul className="show-information">
-								<ReactCSSTransitionGroup
-	          			transitionName="venue-shows"
-	         				transitionEnterTimeout={500}
-	          			transitionLeaveTimeout={300}>
-										{
-											Object.keys(this.props.Venue.Shows).map(key => (
-												<ShowInformation 
-													key={key}
-													show={this.props.Venue.Shows[key]}
-													/>
-											))
-										}
+							<ul className="show-information">		
+							<ReactCSSTransitionGroup
+			          transitionName="venue-shows"
+			          transitionEnterTimeout={500}
+			          transitionLeaveTimeout={300}>
+									{
+										Object.keys(this.props.Venue.Shows).map(key => (
+											<ShowInformation 
+												key={key}
+												show={this.props.Venue.Shows[key]}
+												/>
+										))
+									}
 								</ReactCSSTransitionGroup>
 							</ul>
 						</section>

@@ -1,7 +1,7 @@
 .artist-image-container {
 	display: block;
 	position: relative;
-	min-height: 30%;
+	min-height: calc(100vw * 0.26);
 	border-bottom: 1px solid lightgrey;
 }
 
