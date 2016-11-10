@@ -1,7 +1,7 @@
 import React from 'react'
 import Modal from 'react-modal'
 
-class About extends React.Component {
+class AboutModal extends React.Component {
 	constructor(props) {
 		super(props)
 		this.openModal = this.openModal.bind(this);
@@ -52,4 +52,4 @@ class About extends React.Component {
 	}
 };
 
-export default About
+export default AboutModal
