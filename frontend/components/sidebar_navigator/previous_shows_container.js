@@ -5,7 +5,6 @@ import { updateDates } from '../../actions/filter_actions'
 
 
 const mapStateToProps = (state, ownProps) => {
-	// if the params are empty, create dates instead 
 	let yesterday = new Date(+new Date - 8.64e+7);
 	let fromDate, toDate;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 import SessionFormContainer from '../session_form/session_form_container';
 import Modal from 'react-modal';
 
@@ -19,6 +19,7 @@ class SessionLinks extends React.Component {
 
  logoutModal() {
  	this.props.logout();
+ 	this.props.router.replace({pathname: "/"})
  	this.openModal()
  };
 
@@ -61,13 +62,14 @@ class SessionLinks extends React.Component {
 	}
 }
 
-const UserGreeting = ({ currentUser, logout, receiveErrors, open }) => (
+const UserGreeting = ({ currentUser, logout, receiveErrors, open, router }) => (
 	<SessionLinks 
 		currentUser={currentUser} 
 		logout={logout} 
 		receiveErrors={receiveErrors}
 		open={open}
+		router={router}
 		/>
 );
 
-export default UserGreeting;
+export default withRouter(UserGreeting);

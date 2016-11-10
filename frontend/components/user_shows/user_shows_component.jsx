@@ -1,6 +1,5 @@
 import React from 'react';
 import UserGreetingContainer from '../user_greeting/user_greeting_container';
-import Modal from 'react-modal';
 
 class UserShows extends React.Component {
 	constructor(props) {

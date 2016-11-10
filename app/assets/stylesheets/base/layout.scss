@@ -37,6 +37,7 @@ body {
 	// top: 3px;
 	display: block;
 	float: left;
+	position: relative;
 }
 
 .side-bar-parent {
@@ -47,6 +48,7 @@ body {
 	// background-color: #FDFDFD;
 	background: transparent;
 	display: block;
+	position: relative;
 	float: right;
 }
 
@@ -265,6 +267,94 @@ label {
 
 .artist-venue-name {
 	margin: 1em;
+}
+
+.tab-navigator {
+	position: absolute;
+	right: 0;
+	top: 55px;
+	z-index: 100;
+}
+
+.tab {
+	// border: 1px solid lightgrey;
+	// border-right: none;
+	background-color: darkgrey;
+	padding: 0;
+	margin: 3px;
+	margin-right: 0px;
+	margin-top: 5px;
+	width: 150px;
+	height: 26px;
+	opacity: 0.85;
+	color: white;
+}
+
+.tab {
+	position: relative;
+}
+
+.tab.selected h5:after{
+content: "";
+  position: absolute;
+  top: 0px;
+  border: 0 solid white;
+  border-width: 13px 13px;
+  width: 0;
+  height: 0;
+}
+
+.tab.selected h5:after {
+  left: -26px;
+  border-color: transparent;
+  border-right-color: white;
+}
+
+.tab:hover {
+	color: $pastel-red;
+}
+
+.tab.selected {
+	color: $pastel-red;
+	background-color: white;
+	opacity: 1;
+}
+
+.tab h5:after{
+content: "";
+  position: absolute;
+  top: 0px;
+  border: 0 solid darkgrey;
+  border-width: 13px 13px;
+  width: 0;
+  height: 0;
+}
+
+.tab h5:after {
+  left: -26px;
+  border-color: transparent;
+  border-right-color: darkgrey;
+}
+// .tab h5:before {
+// 	// top: 0.04em;
+//   left: 100px;
+//   border-right-color: transparent;
+// }
+
+h5 {
+	font-family: 'Sailec Regular', sans-serif;
+	font-size: $small-main;
+	margin: 2px;
+	padding: 5px;
+}
+
+.tab-login-button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 150px;
+	height: 30px;
+	opacity: 0;
 }
 
 

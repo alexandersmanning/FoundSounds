@@ -34,7 +34,6 @@ class Show < ActiveRecord::Base
       from_date = Date.parse(from_date)
       to_date =  Date.parse(to_date)
     end
-
     if (user_id.nil?)
       Show.includes(:venue).includes(:artists).where("(date BETWEEN ? AND ?) AND (venue_id = ?) ", from_date, to_date, venue_id)
     else
@@ -48,7 +47,6 @@ class Show < ActiveRecord::Base
        "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
       "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
       }
-
 
     if from_date.is_a?(String) || to_date.is_a?(String)
       from_date = Date.parse(from_date)

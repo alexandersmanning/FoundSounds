@@ -4,7 +4,8 @@ import { updateBounds } from '../../actions/filter_actions'
 
 const mapStateToProps = state => {
 	return ({
-		ShowsByVenue: state.ShowsByDay
+		ShowsByVenue: state.ShowsByDay,
+		session: state.session
 	})
 };
 

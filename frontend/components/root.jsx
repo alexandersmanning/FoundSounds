@@ -21,7 +21,10 @@ const Root = ( {store} ) => {
 	const _ensureLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
+      replace("/");
+      return false;
     }
+    return true
   };
 
   const _fetchShowById = (nextState, replace) => {
@@ -39,8 +42,22 @@ const Root = ( {store} ) => {
   }
 
   const _addUserToFilter = (nextState, replace) => {
-    let userId = store.getState().session["currentUser"]["id"]
-    store.dispatch(addUserToFilter(userId))
+     if (_ensureLoggedIn(nextState, replace)) {
+      let userId = store.getState().session["currentUser"]["id"]
+      store.dispatch(addUserToFilter(userId))
+    }
+  }
+
+  const _logInVenue = (nextState, replace) => {
+    if (_ensureLoggedIn(nextState, replace)) {
+      _fetchVenueById(nextState, replace)
+    }
+  }
+
+  const _logInShow = (nextState, replace) => {
+    if (_ensureLoggedIn(nextState, replace)) {
+      _fetchShowById(nextState, replace)
+    }
   }
   // move search container to app, and then sidebar for IndexRoute
    return (
@@ -60,19 +77,19 @@ const Root = ( {store} ) => {
                  onEnter={_addUserToFilter}/>
           <Route path="/attending/venues/:venueId" 
                  component={VenuesContainer} 
-                 onEnter={_fetchVenueById}/>
+                 onEnter={_logInVenue}/>
           <Route path="/attending/shows/:showId" 
                  component={ShowContainer} 
-                 onEnter={_fetchShowById}/>
+                 onEnter={_logInShow}/>
           <Route path="/previous"
                  component={PreviousShowContainer} 
                  onEnter={_addUserToFilter}/>
           <Route path="/previous/venues/:venueId" 
                  component={VenuesContainer} 
-                 onEnter={_fetchVenueById}/>
+                 onEnter={_logInVenue}/>
           <Route path="/previous/shows/:showId" 
                  component={ShowContainer} 
-                 onEnter={_fetchShowById}/>
+                 onEnter={_logInShow}/>
         </Route>
       </Router>
     </Provider>
