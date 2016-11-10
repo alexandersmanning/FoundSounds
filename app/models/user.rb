@@ -47,19 +47,11 @@ class User < ActiveRecord::Base
       to_date =  Date.parse(to_date)
     end
 
-    if from_date < Date.today
-       Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
-          .joins(:users)
-        .where(
-        "users.id = #{self.id} AND user_shows.attending = 2")
-        .order("shows.date")
-    else
-      Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
-          .joins(:users)
-        .where(
-        "users.id = #{self.id}")
-        .order("shows.date")
-    end
+    Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
+      .joins(:users)
+      .where(
+      "users.id = #{self.id}")
+      .order("shows.date")
   end
 
   private
