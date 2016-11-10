@@ -76,16 +76,6 @@ body {
 	cursor: pointer;	
 }
 
-// .venue-link {
-// 	cursor: pointer;
-// }
-
-// .venue-link:hover {
-// 	color: $pastel-red;
-// 	border: 1px solid $pastel-red;
-// 	box-shadow: 1.5px 1.5px 1.5px darkgrey;
-// 	transition: .25s;
-// }
 
 .show-information>span>.show-date {
 	width: inherit;
@@ -406,13 +396,14 @@ h5 {
 	flex-direction: column;
 }
 
-
 .venue-shows-enter {
   opacity: 0.01;
+  width: 0%
 }
 
 .venue-shows-enter.venue-shows-enter-active {
   opacity: 1;
+  width: 100%;
   transition: opacity 500ms ease-in;
 }
 
