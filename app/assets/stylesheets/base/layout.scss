@@ -120,6 +120,12 @@ body {
 	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
 }
 
+h2 {
+	font-size: 20px;
+	font-family: 'Pacifico', cursive;
+	margin: 5px;
+}
+
 h3 {
 	font-size: $medium-title;
 	font-family: 'Pacifico', cursive;
@@ -279,7 +285,7 @@ label {
 .tab {
 	// border: 1px solid lightgrey;
 	// border-right: none;
-	background-color: darkgrey;
+	background-color: $pastel-red;
 	padding: 0;
 	margin: 3px;
 	margin-right: 0px;
@@ -292,6 +298,7 @@ label {
 
 .tab {
 	position: relative;
+	cursor: pointer;
 }
 
 .tab.selected h5:after{
@@ -311,7 +318,11 @@ content: "";
 }
 
 .tab:hover {
-	color: $pastel-red;
+	color: black;
+}
+
+.tab.selected:hover {
+	cursor: default;
 }
 
 .tab.selected {
@@ -324,7 +335,7 @@ content: "";
 content: "";
   position: absolute;
   top: 0px;
-  border: 0 solid darkgrey;
+  border: 0 solid $pastel-red;
   border-width: 13px 13px;
   width: 0;
   height: 0;
@@ -333,13 +344,8 @@ content: "";
 .tab h5:after {
   left: -26px;
   border-color: transparent;
-  border-right-color: darkgrey;
+  border-right-color: $pastel-red;
 }
-// .tab h5:before {
-// 	// top: 0.04em;
-//   left: 100px;
-//   border-right-color: transparent;
-// }
 
 h5 {
 	font-family: 'Sailec Regular', sans-serif;
@@ -357,6 +363,40 @@ h5 {
 	opacity: 0;
 }
 
+.footer-container {
+	width: inherit;
+	height: 15px;
+	background-color: whitesmoke;
+	opacity: .90;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+}
+
+.about-footer {
+	cursor: pointer;
+	margin-right: 15px;
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.footer-text {
+	margin-left: 15px;
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.user-pic {
+	width: 30%;
+	margin: auto;
+}
+
+.about-text {
+	font-family: 'Sailec Regular', sans-serif;
+	font-size: $small-main;
+	margin: 5px;
+	padding: 5px;
+}
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
 

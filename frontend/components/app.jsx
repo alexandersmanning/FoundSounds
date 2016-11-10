@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import UserGreetingContainer from './user_greeting/user_greeting_container';
 import SearchContainer from './search/search_container'
+import Footer from './footer/footer'
 
 const App = ({ children }) => (
   <div>
@@ -14,6 +15,7 @@ const App = ({ children }) => (
 	   </header>
     {children}
     <SearchContainer />
+    <Footer />
   </div>
 );
 
