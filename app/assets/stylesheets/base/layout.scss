@@ -41,7 +41,7 @@ body {
 }
 
 .side-bar-parent {
-	height: calc(100vh);
+	height: calc(100vh - 15px);
 	overflow: scroll;
 	// position: relative;
 	// top: 2px;

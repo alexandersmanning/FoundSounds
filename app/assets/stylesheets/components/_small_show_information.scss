@@ -1,0 +1,62 @@
+.artist-list-show-box {
+	width: inherit;
+	margin: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
+	border: 1px solid lightgrey;
+	padding: 3px;
+	border-radius: 2px;
+	background-color: white;
+	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
+	display: flex;
+	justify-content: space-between;
+}
+
+.artist-small-image-container {
+	display: block;
+	position: relative;
+	/*min-height: 200px;*/
+}
+
+.artist-small-image {
+	position: relative;
+	z-index: 100;
+	max-width: 200px;
+}
+
+.hidden-small-image {
+	position: absolute;
+	top: 11%;
+	z-index: 50;
+	max-width: 200px;
+}
+
+.small-show-info {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+	height: inherit;
+	margin: auto;
+	max-width: 50%;
+
+}
+
+.small-artist-name {
+	font-family: 'Sailec Regular', $sans-serif, sans-serif;
+	padding-bottom: 15px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.artist-list-show-box:hover {
+	border: 1px solid $light-purple;
+	cursor: pointer;
+
+	.small-artist-name {
+		color: $light-purple;
+	}
+
+	.small-venue-name {
+		color: $light-purple;
+	}
+}
+

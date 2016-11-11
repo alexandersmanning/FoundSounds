@@ -30,7 +30,7 @@ class ShowsByDay extends React.Component {
 																className="show-by-day-group">
 												<h4 className="show-date-list">{dateFormat(new Date(date_value +" 08:00:00"), "dddd, mmmm dS")}</h4>
 												<ShowsComponent 
-													shows={this.ShowsByDay[date_value].Shows} 
+													shows={this.ShowsByDay[date_value].Shows} key={date_value}
 												/>
 											</li>
 										})

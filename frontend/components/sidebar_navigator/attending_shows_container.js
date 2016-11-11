@@ -23,16 +23,6 @@ const mapStateToProps = (state, ownProps) => {
 		} else { toDate = new Date(toDate).toISOString().substring(0, 10) } 
 	}
 
-	// let fromDate = Math.max(Date.parse(ownProps.location.query.fromDate), new Date())
-	// let toDate = Math.max(Date.parse(ownProps.location.query.toDate), new Date())
-	// if (!fromDate) {
-	// 	fromDate = new Date().toISOString().substring(0, 10)
-	// } else { fromDate = new Date(fromDate).toISOString().substring(0, 10) } 
-
-	// if (!toDate) {
-	// 	toDate = new Date().toISOString().substring(0, 10)
-	// } else { toDate = new Date(toDate).toISOString().substring(0, 10) } 
-
 	return ({
 		ShowsByDay: state.ShowsByDay,
 		filter: state.filter,

@@ -20,7 +20,17 @@ json.ShowList do
           json.Shows shows_by_date[date].each do |show|
               json.showId show.id
               json.venueName show.venue.name
-              json.artists show.artists_list
+              json.artists do
+                show.artists.each do |artist|
+                  json.set! artist.id do
+                    json.name artist.name
+                    json.id artist.id
+                    json.img_url artist.img_url
+                  end
+                end
+              end
+              billing_index = show.show_artists.where("billing_index = 1").pluck(:artist_id).first
+              json.billing_index billing_index
           end
         end
       end

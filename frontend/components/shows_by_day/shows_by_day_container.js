@@ -5,11 +5,29 @@ import { updateDates, removeVenueFromFilter } from '../../actions/filter_actions
 import { addUserShow, updateUserShow, deleteUserShow } from '../../actions/user_shows_actions'
 
 const mapStateToProps = (state, ownProps) => {
+	let today = new Date();
+	let fromDate, toDate;
+
+	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < today ) {
+		fromDate = today.toISOString().substring(0, 10)
+		toDate = new Date(+new Date + 12096e5).toISOString().substring(0, 10)
+	} else {
+		fromDate = Math.min(Date.parse(ownProps.location.query.fromDate), today)
+		toDate = Math.min(Date.parse(ownProps.location.query.toDate), today)
+		if (!fromDate) {
+			fromDate = new Date().toISOString().substring(0, 10)
+		} else { fromDate = new Date(fromDate).toISOString().substring(0, 10) } 
+	
+		if (!toDate) {
+			toDate = new Date().toISOString().substring(0, 10)
+		} else { toDate = new Date(toDate).toISOString().substring(0, 10) } 
+	}
+
 	return ({
 		ShowsByDay: state.ShowsByDay,
 		filter: state.filter,
-		toDate: ownProps.location.query.toDate,
-		fromDate: ownProps.location.query.fromDate
+		toDate: toDate,
+		fromDate: fromDate
 	})
 }
 
