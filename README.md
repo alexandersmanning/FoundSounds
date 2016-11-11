@@ -41,6 +41,7 @@ By going to the venue pane, a call is made to the show database using the venueI
 #### Individual Shows
 
 ![Alt text](http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,h_580/v1478907384/Screen_Shot_2016-11-11_at_2.05.49_PM_ubnfaz.png "Individual Show")
+
 This final pane provides the venue and a list of the bands playing on a specific night. Furthermore, the user is now able to say if they are attending, or are interested in this show. This data is then used in the separate views to show user's their show history, or a list of upcoming shows
 
 ### Display of A User's Upcoming and Past Shows
