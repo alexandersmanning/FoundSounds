@@ -4,10 +4,10 @@ import UserShowsContainer from '../user_shows/user_shows_container'
 import SmallShows from './small_show_information'
 
 const ShowsComponent = (props) => {
-	let showList = props.shows.map( show =>  <SmallShows show={show}/>)
+	let showList = props.shows.map( show =>  <SmallShows show={show} key={show.showId}/>)
 
 	return  (
-		<ul className="show-list">
+		<ul className="show-list" key={props.date_value}>
 		{
 			showList
 		}

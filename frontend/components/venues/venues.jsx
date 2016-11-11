@@ -20,8 +20,6 @@ class Venue extends React.Component {
 		}
 
 		this._updatePath(fromDate, toDate)
-
-		debugger
 		this.props.addVenueToFilter(this.props.Venue.id)
 	}
 
