@@ -20,8 +20,16 @@ class Venue extends React.Component {
 		}
 
 		this._updatePath(fromDate, toDate)
-
+		this.props.addVenueToFilter(this.props.Venue.id)
 	}
+
+	componentDidUpdate() {
+		if (this.props.Venue.id && this.props.filter.venueId !== this.props.Venue.id) {
+			this.props.addVenueToFilter(this.props.Venue.id)
+		}
+	}
+
+
 
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
@@ -51,6 +59,17 @@ class Venue extends React.Component {
 			return <h1>loading</h1>
 		}
 
+		let showList = (<ul key="venue-show-list" className="show-information">		
+					{
+						Object.keys(this.props.Venue.Shows).map(key => (
+							<ShowInformation 
+								key={key}
+								show={this.props.Venue.Shows[key]}
+								/>
+						))
+					}
+				</ul>)
+
 		return (
 			<div className="main-container">
 				<aside id="venue-side-bar" className="side-bar-parent col-1-3">
@@ -69,21 +88,12 @@ class Venue extends React.Component {
 						</section>
 							<h3 className="shows">Shows</h3>
 						<section className="show-information-container link-side-bar-box">
-							<ul className="show-information">		
 							<ReactCSSTransitionGroup
 			          transitionName="venue-shows"
 			          transitionEnterTimeout={500}
 			          transitionLeaveTimeout={300}>
-									{
-										Object.keys(this.props.Venue.Shows).map(key => (
-											<ShowInformation 
-												key={key}
-												show={this.props.Venue.Shows[key]}
-												/>
-										))
-									}
-								</ReactCSSTransitionGroup>
-							</ul>
+								{ showList }
+							</ReactCSSTransitionGroup>
 						</section>
 					</content>
 				</aside>

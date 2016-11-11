@@ -21,6 +21,13 @@ class Show extends React.Component {
 		}
 
 		this._updatePath(fromDate, toDate)
+		this.props.addVenueToFilter(this.props.Show.venueId)
+	}
+
+	componentDidUpdate() {
+		if (this.props.Show.venueId && this.props.filter.venueId !== this.props.Show.venueId) {
+			this.props.addVenueToFilter(this.props.Show.venueId)
+		}
 	}
 
 	_updatePath(fromDate, toDate) {
@@ -80,14 +87,14 @@ class Show extends React.Component {
 						</nav>
 					<content className="side-bar-content">
 						<section className="show-information-container">
-							<ul className="show-information">
-								<span>
-        				{
-									<ShowInformation show={this.props.Show} 
-										className="side-bar-box"/>
-        				}
-        				</span>
-							</ul>
+						  <span>
+								<ul className="show-information">
+	        				{
+										<ShowInformation show={this.props.Show} 
+											className="side-bar-box"/>
+	        				}
+								</ul>
+        			 </span>
 							{showAttending}
 						</section>
 						<h3 className="shows">Venue</h3>

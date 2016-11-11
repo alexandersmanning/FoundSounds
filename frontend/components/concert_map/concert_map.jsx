@@ -1,8 +1,9 @@
 import React from "react";
 import MarkerManager from '../../util/marker_manager';
 import Modal from 'react-modal';
-import DisplayShows from '../shows_by_day/display_shows'
-import { withRouter } from 'react-router'
+import DisplayShows from '../shows_by_day/display_shows';
+import { withRouter } from 'react-router';
+import { mapStyle } from './map_style';
 
 class ConcertMap extends React.Component {
 	constructor(props) {
@@ -15,14 +16,16 @@ class ConcertMap extends React.Component {
 		const mapDOMNode = this.refs.map;
 
 		const mapOptions = {
-			center: { lat: 37.7758, lng: -122.435}, //currently San Francisco
+			center: { lat: 37.7758, lng: -122.435},
 			zoom: 13,
 			streetViewControl: false,
-			mapTypeControl: false
+			mapTypeControl: false,
+			styles: mapStyle
 		};
+
 		this.map = new google.maps.Map(mapDOMNode, mapOptions);
 		this.MarkerManager = new MarkerManager(this.map, this.handleClick)
-		this.MarkerManager.updateMarkers(this.props.ShowsByVenue)
+		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId)
 
 		//handling bounds
 		
@@ -30,7 +33,7 @@ class ConcertMap extends React.Component {
 				let bounds = this.map.getBounds();
 				let ne = { "lat": bounds.getNorthEast().lat(), "lng": bounds.getNorthEast().lng() }
 				let sw = { "lat": bounds.getSouthWest().lat(), "lng": bounds.getSouthWest().lng() }
-				// let dates = this.props.router.location.query
+
 				this.props.updateBounds({
 								"northEast": ne, 
 								"southWest": sw, 
@@ -39,7 +42,8 @@ class ConcertMap extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.MarkerManager.updateMarkers(this.props.ShowsByVenue)	
+		// debugger
+		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId)	
 	}
 
 	_handleClickEvent(selectedVenue) {

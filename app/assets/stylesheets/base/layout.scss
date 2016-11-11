@@ -72,12 +72,22 @@ body {
 		margin: 8px;
 }
 
-.link-side-bar-box>ul>span>li {
+.link-side-bar-box {
+	position: relative;
+}
+
+.link-side-bar-box>span>ul {
+	position: absolute;
+	margin: auto;
+	width: calc(100% - 17px)
+}
+
+.link-side-bar-box>span>ul>li {
 	cursor: pointer;	
 }
 
 
-.show-information>span>.show-date {
+span>.show-information>.show-date {
 	width: inherit;
 	margin: 10px;
 	margin-left: 5px;
@@ -89,15 +99,19 @@ body {
 	-webkit-box-shadow: 0 0 1px hsla(0,0%,100%,.5);
 }
 
-.link-side-bar-box>ul>span>li:hover {
-	color: $pastel-red;
-	border: 1px solid $pastel-red;
+.link-side-bar-box>span>ul>li:hover {
+	color: $light-purple;
+	border: 1px solid $light-purple;
 	// box-shadow: 1.5px 1.5px 1.5px darkgrey;
 	transition: .25s;
 
 	.artist-image-container {
-		border-bottom: 1px solid $pastel-red;
+		border-bottom: 1px solid $light-purple;
 		transition: .25s
+	}
+
+	li.artist-info {
+		color: $light-purple;
 	}
 }
 
@@ -227,15 +241,15 @@ label {
 }
 
 .user-show-button:hover {
-	color: $pastel-red;
-	border: 1px solid $pastel-red;
+	color: $light-purple;
+	border: 1px solid $light-purple;
 	cursor: pointer;
 	transition: .15s
 }
 
 .user-show-button.selected-button {
-	color: $light-purple;
-	border: 1px solid $light-purple;
+	color: $pastel-red;
+	border: 1px solid $pastel-red;
 }
 
 .user-show-button.selected-button:hover {
@@ -276,7 +290,7 @@ label {
 .tab {
 	// border: 1px solid lightgrey;
 	// border-right: none;
-	background-color: $lightest-purple;
+	background-color: $pastel-red;
 	padding: 0;
 	margin: 3px;
 	margin-right: 0px;
@@ -326,7 +340,7 @@ content: "";
 content: "";
   position: absolute;
   top: 0px;
-  border: 0 solid $lightest-purple;
+  border: 0 solid $pastel-red;
   border-width: 13px 13px;
   width: 0;
   height: 0;
@@ -335,7 +349,7 @@ content: "";
 .tab h5:after {
   left: -26px;
   border-color: transparent;
-  border-right-color: $lightest-purple;
+  border-right-color: $pastel-red;
 }
 
 h5 {
@@ -398,12 +412,10 @@ h5 {
 
 .venue-shows-enter {
   opacity: 0.01;
-  width: 0%
 }
 
 .venue-shows-enter.venue-shows-enter-active {
   opacity: 1;
-  width: 100%;
   transition: opacity 500ms ease-in;
 }
 

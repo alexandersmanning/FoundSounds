@@ -12,7 +12,7 @@ const _changePath = (location, currentUser, router) => {
 		}
 }
 
-const Search = ({ ShowsByVenue, updateBounds, session, router }) => {
+const Search = ({ ShowsByVenue, updateBounds, session, router, filter }) => {
 	let logInModal = <div hidden/>
 	 if (!session.currentUser) {
 				logInModal = <div className="tab-login-button">
@@ -47,7 +47,9 @@ const Search = ({ ShowsByVenue, updateBounds, session, router }) => {
 				</ul>
 			</nav>
 		<div className="map-parent">
-			<ConcertMap ShowsByVenue={ShowsByVenue} updateBounds={updateBounds}/>
+			<ConcertMap ShowsByVenue={ShowsByVenue} 
+									updateBounds={updateBounds} 
+									filter={filter}/>
 		</div>
 	</div>
 )};

@@ -1,3 +1,7 @@
+const standardMarker = "http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_32/v1478829204/pin_vbzdws.png";
+const highlightedMarker = "http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_48/v1478829204/pin_vbzdws.png"
+const selectedMarker = "http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_48/v1478829204/placeholder_mop7j1.png"
+
 export default class MarkerManager {
 	constructor(map, handleClick) {
 		this.map = map;
@@ -25,20 +29,25 @@ export default class MarkerManager {
 			position: pos,
 			map: this.map,
 			venueId: venue.id,
-			icon: "http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_32/v1478809017/pin_ecw3d3.png"
+			icon: standardMarker
 		});
 
 		marker.addListener('click', () => this.handleClick(venue));
-		
+
 		marker.addListener('mouseover', function() {
-				this.setIcon("http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_45/v1478809017/pin_ecw3d3.png")
+				if (this.getIcon() !== selectedMarker)
+				{		
+					this.setIcon(highlightedMarker)
+				}
 			})
 		marker.addListener('mouseout', function() {
-				this.setIcon("http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_32/v1478809017/pin_ecw3d3.png")
+				if (this.getIcon() !== selectedMarker)
+				{		
+					this.setIcon(standardMarker)
+				}
 		})
 
 		this.markers.push(marker)
-
 	}
 
 	_removeMarker(marker) {
@@ -47,13 +56,23 @@ export default class MarkerManager {
 		this.markers.splice(idx, 1);
 	}
 
-	updateMarkers(venues) {
+	updateMarkers(venues, currentVenue) {
 		this.venues = this._venuesToArray(venues.ShowList.ShowsByVenue)
 		let venuesToCreate = this._venuesToAdd ()
 		venuesToCreate.forEach( venue => this._createMarkerFromVenue(venue) )
 
 		let venuesToRemove = this._markersToRemove ()
 		venuesToRemove.forEach(venue => this._removeMarker(venue))
+
+		//update marker icon go through each this.markers and 
+			this.markers.forEach( marker => {
+				if (marker.venueId === currentVenue) {
+					marker.setIcon(selectedMarker)
+				}
+				else {
+					marker.setIcon(standardMarker)
+				}
+			})
 	}
 
 	_venuesToArray(venues) {

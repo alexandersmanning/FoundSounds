@@ -14,6 +14,12 @@ class ShowsByDay extends React.Component {
   	console.log(`you hit ${location}`)
   }
 
+  componentDidMount() {
+  	if (this.props.filter.venueId) {
+  		this.props.removeVenueFromFilter(this.props.filter.venueId)
+  	}
+  }
+
 	render () {
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		let showDisplay;
