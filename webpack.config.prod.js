@@ -1,10 +1,10 @@
-const path = require("path");
+var webpack = require("webpack")
 
 module.exports = {
   context: __dirname,
   entry: "./frontend/foundsounds.jsx",
   output: {
-    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
+    path: "./app/assets/javascripts"
     filename: "bundle.js"
   },
     plugins:[
