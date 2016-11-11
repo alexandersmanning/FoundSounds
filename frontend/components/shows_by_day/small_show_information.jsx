@@ -11,9 +11,7 @@ const updatePath = (showId, router) => {
 
 const SmallShows = (props) => {
 	let imgArtist, artistName
-	if (props.show.billing_index){
-		imgArtist = props.show.artists[props.show.billing_index]
-	} else if (props.show.artists) {
+	if (props.show.artists) {
 		imgArtist = props.show.artists[Object.keys(props.show.artists)[0]]
 	} else {
 		return null

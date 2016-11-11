@@ -8,6 +8,7 @@ import dateFormat from 'dateformat';
 class ShowsByDay extends React.Component {
 	constructor(props) {
 		super(props)
+		this.state = { displayed: [] }
   }
 
   _changePath(location) {
@@ -18,6 +19,14 @@ class ShowsByDay extends React.Component {
   	if (this.props.filter.venueId) {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
+  }
+
+  _displayedDates() {
+
+  }
+
+  _getDates() {
+  	
   }
 
 	render () {

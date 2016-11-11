@@ -9,6 +9,7 @@ show_venues = Hash.new
   shows_by_venue[show.venue_id] << show
 end
 
+
 json.ShowList do
   json.ShowsByDate do
     #possibly remove the below
@@ -29,8 +30,6 @@ json.ShowList do
                   end
                 end
               end
-              billing_index = show.show_artists.where("billing_index = 1").pluck(:artist_id).first
-              json.billing_index billing_index
           end
         end
       end
