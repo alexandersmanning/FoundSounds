@@ -30,6 +30,10 @@ class Show extends React.Component {
 		}
 	}
 
+	// componentWillUnmount() {
+
+	// }
+
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
 		this.props.updateDates(fromDate, toDate);

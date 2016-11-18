@@ -33,11 +33,11 @@ class ShowsByDay extends React.Component {
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		let showDisplay;
 		if (this.ShowsByDay) {
-			showDisplay = Object.keys(this.ShowsByDay).map(date_value => 
+			showDisplay = Object.keys(this.ShowsByDay).map((date_value, idx) => 
 										{
-											return <li key={date_value} 
+											return <li key={idx} 
 																className="show-by-day-group">
-												<h4 className="show-date-list">{dateFormat(new Date(date_value +" 08:00:00"), "dddd, mmmm dS")}</h4>
+												<h4 className="show-date-list">{date_value}</h4>
 												<ShowsComponent 
 													shows={this.ShowsByDay[date_value].Shows} 
 													date={date_value}
@@ -83,3 +83,5 @@ class ShowsByDay extends React.Component {
 };
 
 export default ShowsByDay;
+
+// dateFormat(new Date(date_value +" 08:00:00"), "dddd, mmmm dS")

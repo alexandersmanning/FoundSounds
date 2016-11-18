@@ -12,8 +12,8 @@ import ShowContainer from './show/show_container'
 import AttendingShowContainer from './sidebar_navigator/attending_shows_container'
 import PreviousShowContainer from './sidebar_navigator/previous_shows_container'
 
-import { fetchShowById } from '../actions/show_actions'
-import { fetchVenueById } from '../actions/venue_actions'
+import { fetchShowById, clearShow } from '../actions/show_actions'
+import { fetchVenueById, clearVenue } from '../actions/venue_actions'
 import { addUserToFilter, removeUserFromFilter } from '../actions/filter_actions'
 
 
@@ -28,11 +28,13 @@ const Root = ( {store} ) => {
   };
 
   const _fetchShowById = (nextState, replace) => {
+    store.dispatch(clearShow());
     let showId = nextState.params.showId;
     store.dispatch(fetchShowById(showId));
   }
 
    const _fetchVenueById = (nextState, replace) => {
+    store.dispatch(clearVenue());
     let venueId = nextState.params.venueId;
     store.dispatch(fetchVenueById(venueId, store.getState().filter ));
   }
