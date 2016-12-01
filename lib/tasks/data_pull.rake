@@ -1,8 +1,10 @@
+require 'byebug'
+
 namespace :data_pull do
   desc "TODO"
   task sf_show_data: :environment do
-    1.times do |num|
-      show_list = JSON(RestClient.get("http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=#{API_KEY}&page=#{num + 1}", {accept: :json}).body)
+    50.times do |num|
+      show_list = JSON(RestClient.get("http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=#{Figaro.env.song_kick_api}&page=#{num + 1}", {accept: :json}).body)
 
       break if show_list["resultsPage"]["results"]["event"].nil?
       show_list["resultsPage"]["results"]["event"].each do |event|
@@ -10,12 +12,21 @@ namespace :data_pull do
         venue = Venue.find_by_api_id(event["venue"]["id"])
         if venue.nil?
          venue_string = ERB::Util.url_encode("#{event['venue']['displayName'].split.join('+')}+SF+Bay+Area")
-         venue_response = JSON(RestClient.get("http://api.songkick.com/api/3.0/search/venues.json?query=#{venue_string}&apikey=#{API_KEY}").body)
+
+         venue_response = JSON(RestClient.get("http://api.songkick.com/api/3.0/search/venues.json?query=#{venue_string}&apikey=#{Figaro.env.song_kick_api}").body)
+
+         if venue_response["resultsPage"]["results"]["venue"].nil?
+          venue_string = ERB::Util.url_encode("#{event['venue']['displayName'].split.join('+')}")
+
+           venue_response = JSON(RestClient.get("http://api.songkick.com/api/3.0/search/venues.json?query=#{venue_string}&apikey=#{Figaro.env.song_kick_api}").body)
+         end
 
           next if venue_response["resultsPage"]["results"]["venue"].nil?
 
           found_venue = venue_response["resultsPage"]["results"]["venue"].select do |venue| venue["id"] == event["venue"]["id"]
           end.first
+
+          next if found_venue.nil?
 
           venue = Venue.create(
                 name:found_venue["displayName"],
@@ -30,6 +41,8 @@ namespace :data_pull do
                 description: found_venue["description"]
               )
         end
+
+        next if venue[:id].nil?
 
         show = Show.find_by_api_id(event["id"])
         if show.nil?

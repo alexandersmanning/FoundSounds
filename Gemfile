@@ -28,6 +28,8 @@ gem 'puma';
 
 gem 'rest-client'
 
+gem 'figaro'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
