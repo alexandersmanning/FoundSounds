@@ -71,31 +71,33 @@ class Venue extends React.Component {
 				</ul>)
 
 		return (
+			<ReactCSSTransitionGroup
+		     	transitionName="venue"
+		      transitionAppear={true}
+		      transitionAppearTimeout={500}
+		      transitionEnter={false}
+		      transitionLeave={false}>
 			<div>
-						<nav className="venue-nav">
-							<h3 className="back-button"
-									 onClick={this._pathBack.bind(this)}>
-								{"<"} back to list
-							</h3>
-						</nav>
-					<content className="side-bar-content">
-						<section className="venue-information">
-							<h4 className="venue-name">{this.props.Venue.name}</h4>
-							<span className="venue-address">
-								{`${this.props.Venue.address}, ${this.props.Venue.city}, ${this.props.Venue.state}`}
-							</span>
-						</section>
-							<h3 className="shows">Shows</h3>
-						<section className="show-information-container link-side-bar-box">
-							<ReactCSSTransitionGroup
-			          transitionName="venue-shows"
-			          transitionEnterTimeout={500}
-			          transitionLeaveTimeout={300}>
-								{ showList }
-							</ReactCSSTransitionGroup>
-						</section>
-					</content>
-				</div>
+				<nav className="venue-nav">
+					<h3 className="back-button"
+						 onClick={this._pathBack.bind(this)}>
+						{"<"} back to list
+					</h3>
+				</nav>
+				<content className="side-bar-content">
+					<section className="venue-information">
+						<h4 className="venue-name">{this.props.Venue.name}</h4>
+						<span className="venue-address">
+							{`${this.props.Venue.address}, ${this.props.Venue.city}, ${this.props.Venue.state}`}
+						</span>
+					</section>
+						<h3 className="shows">Shows</h3>
+					<section className="show-information-container link-side-bar-box">
+						{ showList }
+					</section>
+				</content>
+			</div>
+			</ReactCSSTransitionGroup>
 		)
 	}
 };

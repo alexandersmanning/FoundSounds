@@ -3,7 +3,7 @@ import ShowsComponent from './shows_component';
 import DatePickerForm from './date_picker_form';
 import SearchContainer from '../search/search_container';
 import dateFormat from 'dateformat';
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
@@ -52,7 +52,13 @@ class ShowsByDay extends React.Component {
 		}
 
 		return (
-			<div>
+			<ReactCSSTransitionGroup
+		     	transitionName="example"
+		      transitionAppear={true}
+		      transitionAppearTimeout={500}
+		      transitionEnter={false}
+		      transitionLeave={false}>
+				<div>
 					<content className="side-bar-content">
 						<section className="date-picker-form-section">
 							<DatePickerForm 
@@ -73,7 +79,8 @@ class ShowsByDay extends React.Component {
 							</ul>
 						</section>
 					</content>
-			</div>
+				</div>
+			</ReactCSSTransitionGroup>
 		)
 	}
 };

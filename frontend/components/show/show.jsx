@@ -77,6 +77,12 @@ class Show extends React.Component {
 		}
 
 		return (
+			<ReactCSSTransitionGroup
+		     	transitionName="example"
+		      transitionAppear={true}
+		      transitionAppearTimeout={500}
+		      transitionEnter={false}
+		      transitionLeave={false}>
 				<div>
 						<nav className="show-nav">
 							<h3 className="back-button"
@@ -109,6 +115,7 @@ class Show extends React.Component {
 						</ul>
 					</content>
 				</div>
+			</ReactCSSTransitionGroup>
 		)
 	}
 };
