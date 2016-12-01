@@ -15,7 +15,11 @@ const App = ({ children }) => (
 	     	<UserGreetingContainer />
 	     </div>
 	   </header>
-    {children}
+	   	<div className="main-container">
+				<aside className="side-bar-parent col-1-3">
+    			{children}
+    		</aside>
+			</div>
     <SearchContainer />
     <Footer />
   </div>

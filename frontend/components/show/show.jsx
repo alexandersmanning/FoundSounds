@@ -77,8 +77,7 @@ class Show extends React.Component {
 		}
 
 		return (
-			<div className="main-container">
-				<aside className="side-bar-parent col-1-3">
+				<div>
 						<nav className="show-nav">
 							<h3 className="back-button"
 									 onClick={this._pathBack.bind(this)}>
@@ -109,8 +108,7 @@ class Show extends React.Component {
 							</li>
 						</ul>
 					</content>
-				</aside>
-			</div>
+				</div>
 		)
 	}
 };

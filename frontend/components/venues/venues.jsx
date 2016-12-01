@@ -71,8 +71,7 @@ class Venue extends React.Component {
 				</ul>)
 
 		return (
-			<div className="main-container">
-				<aside id="venue-side-bar" className="side-bar-parent col-1-3">
+			<div>
 						<nav className="venue-nav">
 							<h3 className="back-button"
 									 onClick={this._pathBack.bind(this)}>
@@ -96,8 +95,7 @@ class Venue extends React.Component {
 							</ReactCSSTransitionGroup>
 						</section>
 					</content>
-				</aside>
-			</div>
+				</div>
 		)
 	}
 };

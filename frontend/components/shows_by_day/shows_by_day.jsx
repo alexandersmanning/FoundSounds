@@ -54,8 +54,7 @@ class ShowsByDay extends React.Component {
 		}
 
 		return (
-			<div className="main-container">
-				<aside className="side-bar-parent col-1-3">
+			<div>
 					<content className="side-bar-content">
 						<section className="date-picker-form-section">
 							<DatePickerForm 
@@ -76,7 +75,6 @@ class ShowsByDay extends React.Component {
 							</ul>
 						</section>
 					</content>
-				</aside>
 			</div>
 		)
 	}
