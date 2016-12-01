@@ -1,11 +1,7 @@
-require 'byebug'
-
 namespace :data_pull do
   desc "TODO"
   task sf_show_data: :environment do
     50.times do |num|
-      t = Time.new()
-      puts "round #{num + 1}"
       show_list = JSON(RestClient.get("http://api.songkick.com/api/3.0/metro_areas/26330/calendar.json?apikey=#{Figaro.env.song_kick_api}&page=#{num + 1}", {accept: :json}).body)
 
       break if show_list["resultsPage"]["results"]["event"].nil?
@@ -81,8 +77,6 @@ namespace :data_pull do
           end
         end
       end
-
-      puts Time.new() - t
     end
   end
 end
