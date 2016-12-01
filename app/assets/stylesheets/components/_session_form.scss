@@ -88,6 +88,11 @@
   cursor: pointer;
 }
 
+.guest-button:hover {
+  background-color: $lightest-purple;
+  transition: background-color 0.25s ease-out;
+}
+
 .login-button {
 	width: 125px;
 	margin: 5px;
@@ -99,6 +104,11 @@
 	background-color: $light-purple;
 	font-family: 'Sailec Regular', sans-serif;
 	
+}
+
+.login-button:hover {
+  background-color: $lightest-purple;
+  transition: background-color 0.25s ease-out;
 }
 
 
