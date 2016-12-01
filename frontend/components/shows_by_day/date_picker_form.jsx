@@ -23,7 +23,7 @@ class DatePickerForm extends React.Component{
 			if (!this.state.fromDate || !this.state.toDate) {
 				this.setState({
 					fromDate: new Date().toISOString().substring(0, 10),
-					toDate: new Date(+new Date + 12096e5).toISOString().substring(0, 10)
+					toDate: new Date(+new Date + 6048e5).toISOString().substring(0, 10)
 				}, () => this._updatePath());
 			} else
 				{ 

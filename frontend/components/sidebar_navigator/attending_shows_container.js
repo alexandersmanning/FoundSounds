@@ -10,7 +10,7 @@ const mapStateToProps = (state, ownProps) => {
 
 	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < today ) {
 		fromDate = today.toISOString().substring(0, 10)
-		toDate = new Date(+new Date + 12096e5).toISOString().substring(0, 10)
+		toDate = new Date(+new Date + 6048e5).toISOString().substring(0, 10)
 	} else {
 		fromDate = Math.min(Date.parse(ownProps.location.query.fromDate), today)
 		toDate = Math.min(Date.parse(ownProps.location.query.toDate), today)

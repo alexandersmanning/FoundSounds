@@ -21,29 +21,27 @@ class ShowsByDay extends React.Component {
   	}
   }
 
-  _displayedDates() {
-
+  _displayedDates(date_value) {
+  	return new Date(date_value).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" })
   }
 
-  _getDates() {
-
-  }
 
 	render () {
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		let showDisplay;
 		if (this.ShowsByDay) {
 			showDisplay = Object.keys(this.ShowsByDay).map((date_value, idx) => 
-										{
-											return <li key={idx} 
-																className="show-by-day-group">
-												<h4 className="show-date-list">{date_value}</h4>
-												<ShowsComponent 
-													shows={this.ShowsByDay[date_value].Shows} 
-													date={date_value}
-												/>
-											</li>
-										})
+					{
+						let new_date = this._displayedDates(date_value);
+						return <li key={idx} 
+											className="show-by-day-group">
+							<h4 className="show-date-list">{new_date}</h4>
+							<ShowsComponent 
+								shows={this.ShowsByDay[date_value].Shows} 
+								date={date_value}
+							/>
+						</li>
+					})
 		} else {
 			showDisplay = [
 				<li className="no-shows">
