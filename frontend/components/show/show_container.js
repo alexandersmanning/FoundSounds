@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 	})
 }
 
-//Come back here for bounds
+
 const mapDispatchToProps = dispatch => {
 	return ({
 		fetchShowsByDate: (fromDate, toDate) => dispatch(fetchShowsByDate({"fromDate": fromDate, "toDate": toDate})),

@@ -4,13 +4,6 @@ import configureStore from './store/store';
 import Root from './components/root'
 
 
-//Test 
-import { fetchShows } from './util/shows_by_day_api_util';
-window.fetchShows = fetchShows
-
-//
-
-
 document.addEventListener("DOMContentLoaded", () => {
 	let store;
 	if (window.currentUser) {
