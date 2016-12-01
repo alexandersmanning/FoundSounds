@@ -54,6 +54,14 @@ class Venue extends React.Component {
 		return currentRouteName.slice(0, currentRouteName.length - showString.length)
 	}
 
+	componentWillLeave(d) {
+		debugger
+	}
+
+	componentDidLeave() {
+		debugger
+	}
+
 	render () {
 		if (Object.keys(this.props.Venue).length === 0) {
 			return <h1>loading</h1>
@@ -76,7 +84,7 @@ class Venue extends React.Component {
 		      transitionAppear={true}
 		      transitionAppearTimeout={500}
 		      transitionEnter={false}
-		      transitionLeave={false}>
+		      transitionLeaveTimeout={500}>
 			<div>
 				<nav className="venue-nav">
 					<h3 className="back-button"

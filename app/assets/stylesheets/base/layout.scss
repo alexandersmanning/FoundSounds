@@ -410,27 +410,57 @@ h5 {
 	flex-direction: column;
 }
 
+// .example-appear {
+//   opacity: 0.01;
+// }
+
+// .example-appear.example-appear-active {
+//   opacity: 1;
+//   transition: opacity .25s ease-in;
+// }
+
 .example-appear {
-  opacity: 0.01;
+	transform: translate(100%);
 }
 
 .example-appear.example-appear-active {
-  opacity: 1;
-  transition: opacity .25s ease-in;
+	 transform: translate(0%);
+  transition: transform 500ms ease-in-out;
+}
+
+.example-disapear {
+	transform: translate(0%);
+}
+
+.example-disapear.example-disapear-active {
+	 transform: translate(100%);
+  transition: transform 500ms ease-in-out;
 }
 
 .venue-appear {
-  opacity: 0.01;
+  // opacity: 0.01;
+  transform: translate(100%);
 }
 
 .venue-appear.venue-appear-active {
-  opacity: 1;
-  transition: opacity .25s ease-in;
+  // opacity: 1;
+  // transition: opacity .25s ease-in;
+  transform: translate(0%);
+  transition: transform 500ms ease-in-out;
 }
 
-// .venue-container {
-// 	position:relative
-// }
+.venue-leave {
+  // opacity: 0.01;
+   transform: translate(100%);
+}
+
+.venue-leave.venue-leave-active {
+  // opacity: 1;
+  // transition: opacity .25s ease-in;
+  transform: translate(-100%);
+  transition: transform 500ms ease-in-out;
+}
+
 
 
 @media only screen and (-webkit-min-device-pixel-ratio: 1.25), only screen and ( min-device-pixel-ratio: 1.25), only screen and ( min-resolution: 200dpi), only screen and ( min-resolution: 1.25dppx) {     -webkit-font-smoothing: subpixel-antialiased; }
