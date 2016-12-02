@@ -428,13 +428,16 @@ h5 {
   transition: transform 500ms ease-in-out;
 }
 
-.example-disapear {
-	transform: translate(0%);
+.example-leave {
+	// transform: translate(0%);
+	opacity: 1;
 }
 
-.example-disapear.example-disapear-active {
-	 transform: translate(100%);
-  transition: transform 500ms ease-in-out;
+.example-leave.example-leave-active {
+	opacity: 0.01;
+	transition: opacity 0.5s ease-in;
+	 // transform: translate(100%);
+  // transition: transform 500ms ease-in-out;
 }
 
 .venue-appear {

@@ -66,6 +66,8 @@ class Show extends React.Component {
 		return currentRouteName.slice(0, currentRouteName.length - showString.length)
 	}
 
+	
+
 	render () {
 		if (Object.keys(this.props.Show).length === 0) {
 			return <h1>loading</h1>
@@ -82,7 +84,8 @@ class Show extends React.Component {
 		      transitionAppear={true}
 		      transitionAppearTimeout={500}
 		      transitionEnter={false}
-		      transitionLeave={false}>
+		      transitionLeave={true}
+		      transitionLeaveTimeout={500}>
 				<div>
 						<nav className="show-nav">
 							<h3 className="back-button"
