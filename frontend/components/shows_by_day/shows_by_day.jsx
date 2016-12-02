@@ -22,7 +22,7 @@ class ShowsByDay extends React.Component {
   }
 
   _displayedDates(date_value) {
-  	return new Date(date_value).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" })
+  	return new Date(+new Date(date_value) + 2.88e+7).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" })
   }
 
 

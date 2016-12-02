@@ -85,7 +85,7 @@ class Venue extends React.Component {
 		      transitionAppearTimeout={500}
 		      transitionEnter={false}
 		      transitionLeaveTimeout={500}>
-			<div>
+			<div key={`venue-${this.props.Venue.id}`}>
 				<nav className="venue-nav">
 					<h3 className="back-button"
 						 onClick={this._pathBack.bind(this)}>

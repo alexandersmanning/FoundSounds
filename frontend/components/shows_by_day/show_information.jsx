@@ -28,7 +28,7 @@ const findModifiedPath = (router) => {
 	}
 
 const ShowInformation = props => {
-	let showDate = dateFormat(new Date(+new Date(props.show.date) + 2.88e+7), "dddd, mmmm dS");
+	let showDate = new Date(+new Date(props.show.date) + 2.88e+7).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" });
 
 	let img_artist
 	if (props.show.billing_index){

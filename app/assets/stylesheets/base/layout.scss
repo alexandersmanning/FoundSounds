@@ -420,12 +420,15 @@ h5 {
 // }
 
 .example-appear {
-	transform: translate(100%);
+	// transform: translate(100%);
+	opacity: 0.01;
 }
 
 .example-appear.example-appear-active {
-	 transform: translate(0%);
-  transition: transform 500ms ease-in-out;
+	 // transform: translate(0%);
+  // transition: transform 500ms ease-in-out;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out
 }
 
 .example-leave {
@@ -441,15 +444,15 @@ h5 {
 }
 
 .venue-appear {
-  // opacity: 0.01;
-  transform: translate(100%);
+  opacity: 0.01;
+  // transform: translate(100%);
 }
 
 .venue-appear.venue-appear-active {
-  // opacity: 1;
-  // transition: opacity .25s ease-in;
-  transform: translate(0%);
-  transition: transform 500ms ease-in-out;
+  opacity: 1;
+  transition: opacity .25s ease-in;
+  // transform: translate(0%);
+  // transition: transform 500ms ease-in-out;
 }
 
 .venue-leave {
