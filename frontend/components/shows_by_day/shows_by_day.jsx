@@ -55,7 +55,7 @@ class ShowsByDay extends React.Component {
 			<ReactCSSTransitionGroup
 		     	transitionName="example"
 		      transitionAppear={true}
-		      transitionAppearTimeout={500}
+		      transitionAppearTimeout={1000}
 		      transitionEnter={false}
 		      transitionLeave={false}>
 				<div>
