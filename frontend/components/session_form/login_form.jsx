@@ -21,7 +21,7 @@ class LogInForm extends React.Component {
 	}
 
 	guestLogin(e) {
-		let guest = {email: "guest@foundsounds.io", password: "guest_account" }
+		let guest = {email: "guest@foundsounds.live", password: "guest_account" }
 		this.props.login({user: guest } );
 	}
 
