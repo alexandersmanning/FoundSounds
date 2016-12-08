@@ -9,7 +9,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 class ShowsByDay extends React.Component {
 	constructor(props) {
 		super(props)
-		this.state = { loaded: [], hasMore: true }
+		this.state = { loaded: [], hasMore: true, height: 800}
 		this._getMoreDates = this._getMoreDates.bind(this)
   }
 
@@ -18,15 +18,11 @@ class ShowsByDay extends React.Component {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
 
-  	// ReactDOM.findDOMNode(this).addEventListener("scroll", (d) => { this._atHeight(d) })
+  	this.setState({height: window.innerHeight - 50 })
   }
 
   componentWillReceiveProps() {
   	this.setState({loaded: [], hasMore: true })
-  }
-
-  _atHeight() {
-  	//scroll position is window position 
   }
 
   _getMoreDates() {
@@ -79,7 +75,8 @@ class ShowsByDay extends React.Component {
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
     			loader={<h4>Loading...</h4>}
-    			height={800}
+    			height={this.state.height}
+    			scrollThreshold={0.1}
     			>
     			{this.state.loaded}</InfiniteScroll>
 		} else {
