@@ -1,8 +1,8 @@
 import React from 'react';
-import dateFormat from 'dateformat'
-import ArtistInformation from '../shows_by_day/artist_information'
-import ShowInformation from '../shows_by_day/show_information'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import dateFormat from 'dateformat';
+import ArtistInformation from '../shows_by_day/artist_information';
+import ShowInformation from '../shows_by_day/show_information';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 
 class Venue extends React.Component {
@@ -52,14 +52,6 @@ class Venue extends React.Component {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
 		const showString = `/venues/${this.props.router.params.venueId}`
 		return currentRouteName.slice(0, currentRouteName.length - showString.length)
-	}
-
-	componentWillLeave(d) {
-		debugger
-	}
-
-	componentDidLeave() {
-		debugger
 	}
 
 	render () {
