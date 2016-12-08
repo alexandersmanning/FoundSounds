@@ -18,7 +18,7 @@ class ShowsByDay extends React.Component {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
 
-  	this.setState({height: window.innerHeight - 50 })
+  	this.setState({height: window.innerHeight - 305 })
   }
 
   componentWillReceiveProps() {
@@ -95,7 +95,7 @@ class ShowsByDay extends React.Component {
 		      transitionAppearTimeout={1000}
 		      transitionEnter={false}
 		      transitionLeave={false}>
-				<div>
+				<div className="main">
 					<content className="side-bar-content">
 						<section className="date-picker-form-section">
 							<DatePickerForm 

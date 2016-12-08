@@ -86,7 +86,7 @@ class Show extends React.Component {
 		      transitionEnter={false}
 		      transitionLeave={true}
 		      transitionLeaveTimeout={500}>
-				<div>
+				<div className="scroll">
 						<nav className="show-nav">
 							<h3 className="back-button"
 									 onClick={this._pathBack.bind(this)}>

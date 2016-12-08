@@ -41,8 +41,8 @@ body {
 }
 
 .side-bar-parent {
-	height: calc(100vh - 15px);
-	overflow: scroll;
+		height: calc(100vh - 15px);
+	// overflow: scroll;
 	// position: relative;
 	// top: 2px;
 	// background-color: #FDFDFD;
@@ -50,6 +50,16 @@ body {
 	display: block;
 	position: relative;
 	float: right;
+}
+
+.side-bar-parent .main {
+	overflow: hidden;
+	height: 100%;
+}
+
+.side-bar-parent .scroll {
+	 overflow: scroll;
+	 height: 100%;
 }
 
 .side-bar-content {
@@ -183,9 +193,18 @@ label {
   width:100%;
 }
 
+.date-picker-form-section {
+	display: block;
+}
+
+.date-form-box {
+	display: flex;
+	justify-content: space-around;
+}
+
 .date-input-container {
 	width: 130px;
-	margin: auto;
+	// margin: auto;
 }
 
 
