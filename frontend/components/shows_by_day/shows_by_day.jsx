@@ -20,7 +20,7 @@ class ShowsByDay extends React.Component {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
 
-  	this.setState({height: window.innerHeight - 220 })
+  	this.setState({height: window.innerHeight - 270 })
   }
 
   componentWillReceiveProps() {

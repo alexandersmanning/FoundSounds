@@ -150,6 +150,7 @@ h3.shows {
 	font-size: $medium-large-title;
 	font-family: 'Pacifico', cursive;
 	margin-top: 0.5em;
+	margin-bottom: 0.5em;
 	// margin: 0;
 }
 
@@ -201,7 +202,9 @@ label {
 
 .date-form-box {
 	display: flex;
-	justify-content: space-around;
+	// justify-content: space-around;
+	flex-direction: column;
+	align-items: center;
 }
 
 .date-input-container {
