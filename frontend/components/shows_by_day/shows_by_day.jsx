@@ -95,7 +95,7 @@ class ShowsByDay extends React.Component {
 				showDisplay = <InfiniteScroll
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
-    			loader={<h4>Loading...</h4>}
+    			loader={<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />}
     			height={this.state.height}
     			>
     			{this.state.loaded}</InfiniteScroll>
