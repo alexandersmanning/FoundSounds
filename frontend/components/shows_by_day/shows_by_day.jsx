@@ -6,6 +6,7 @@ import SearchContainer from '../search/search_container';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Headroom from 'react-headroom'
+import { isEqual } from 'lodash'
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
@@ -23,11 +24,13 @@ class ShowsByDay extends React.Component {
   	this.setState({height: window.innerHeight - 270 })
   }
 
-  componentWillReceiveProps() {
-  	let header = [this._getShowTitle()]
-  	setTimeout(() => {
-  		this.setState({loaded: header, hasMore: true })
-  	}, 500)
+  componentWillReceiveProps(nextProps) {
+  	if (!isEqual(this.props.ShowsByDay.ShowList.ShowsByDate, nextProps.ShowsByDay.ShowList.ShowsByDate)) {
+  		let header = [this._getShowTitle()]
+	  	setTimeout(() => {
+	  		this.setState({loaded: header, hasMore: true })
+	  	}, 500)
+  	}
   }
 
   _getMoreDates() {
