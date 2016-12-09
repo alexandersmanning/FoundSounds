@@ -7,13 +7,12 @@ import { addUserShow, updateUserShow, deleteUserShow } from '../../actions/user_
 const mapStateToProps = (state, ownProps) => {
 	let today = new Date();
 	let fromDate, toDate;
-
 	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < today ) {
 		fromDate = today.toISOString().substring(0, 10)
 		toDate = new Date(+new Date + 6048e5).toISOString().substring(0, 10)
 	} else {
-		fromDate = Math.min(Date.parse(ownProps.location.query.fromDate), today)
-		toDate = Math.min(Date.parse(ownProps.location.query.toDate), today)
+		fromDate = Date.parse(ownProps.location.query.fromDate)
+		toDate = Date.parse(ownProps.location.query.toDate)
 		if (!fromDate) {
 			fromDate = new Date().toISOString().substring(0, 10)
 		} else { fromDate = new Date(fromDate).toISOString().substring(0, 10) } 
