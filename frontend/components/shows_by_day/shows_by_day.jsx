@@ -8,9 +8,10 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
-		super(props)
-		this.state = { loaded: [], hasMore: true, height: 800}
-		this._getMoreDates = this._getMoreDates.bind(this)
+		super(props);
+		this._getMoreDates = this._getMoreDates.bind(this);
+		this._getShowTitle = this._getShowTitle.bind(this);
+		this.state = { loaded: [this._getShowTitle()], hasMore: true, height: 800};
   }
 
   componentDidMount() {
@@ -18,11 +19,14 @@ class ShowsByDay extends React.Component {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
 
-  	this.setState({height: window.innerHeight - 305 })
+  	this.setState({height: window.innerHeight - 220 })
   }
 
   componentWillReceiveProps() {
-  	this.setState({loaded: [], hasMore: true })
+  	let header = [this._getShowTitle()]
+  	setTimeout(() => {
+  		this.setState({loaded: header, hasMore: true })
+  	}, 500)
   }
 
   _getMoreDates() {
@@ -30,28 +34,33 @@ class ShowsByDay extends React.Component {
   	let loadLength = this.state.loaded.length;
   	let newItems = [];
   	let hasMore = true;
-  	if (loadLength < dateList.length) {
- 			dateList.forEach( (dateValue, idx) => {
- 				if (idx < loadLength + 1) {
- 					newItems.push(this._createShow(dateValue, idx))
- 				}
+
+  	if (loadLength - 1 < dateList.length) {
+ 			let dateKey = [dateList[loadLength - 1]]
+ 			if (this.ShowsByDay[dateKey[0]]["Shows"].length < 5 
+ 				&& loadLength !== dateList.length) {
+ 				dateKey.push(dateList[loadLength])
+ 			}
+
+ 			dateKey.forEach( dateValue => {
+ 				newItems.push(this._createShow(dateValue))
  			});
   	}
   	else { 
-  		newItems = this.state.loaded;
   		hasMore = false;
   	}
 
+  	let newLoaded = this.state.loaded.concat(newItems)
   	setTimeout(() => {
-  		this.setState({loaded: newItems, hasMore: hasMore})
+  		this.setState({loaded: newLoaded, hasMore: hasMore})
   	}, 500);
   }
 
-  _createShow(dateValue, idx) {
+  _createShow(dateValue) {
   	let new_date = this._displayedDates(dateValue)
 
   	return (
-  		<li key={idx} 
+  		<li key={dateValue} 
 				className="show-by-day-group">
 				<h4 className="show-date-list">{new_date}</h4>
 					<ShowsComponent 
@@ -59,6 +68,14 @@ class ShowsByDay extends React.Component {
 						date={dateValue}/>
 			</li>
 		)
+  }
+
+  _getShowTitle() {
+  		return (
+  			<div key={"title"} className="show-title-box">
+					<h3 className="shows-title">Shows</h3>
+				</div>
+			)
   }
 
   _displayedDates(date_value) {
@@ -70,13 +87,12 @@ class ShowsByDay extends React.Component {
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		let showDisplay;
 		if (this.ShowsByDay) {
-				if (this.state.loaded.length < 1) { this._getMoreDates() }
+				if (this.state.loaded.length < 2) { this._getMoreDates() }
 				showDisplay = <InfiniteScroll
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
     			loader={<h4>Loading...</h4>}
     			height={this.state.height}
-    			scrollThreshold={0.1}
     			>
     			{this.state.loaded}</InfiniteScroll>
 		} else {
@@ -108,7 +124,6 @@ class ShowsByDay extends React.Component {
 							/>
 						</section>
 						<section className="shows-by-day-list">
-							<h3 className="shows">Shows</h3>
 							<ul className="date-list">
 								{
 									showDisplay
