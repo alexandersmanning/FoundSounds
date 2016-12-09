@@ -5,6 +5,7 @@ import DatePickerForm from './date_picker_form';
 import SearchContainer from '../search/search_container';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import Headroom from 'react-headroom'
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
@@ -113,16 +114,18 @@ class ShowsByDay extends React.Component {
 		      transitionLeave={false}>
 				<div className="main">
 					<content className="side-bar-content">
-						<section className="date-picker-form-section">
-							<DatePickerForm 
-								fromDate={this.props.fromDate}
-								toDate={this.props.toDate}
-								maxDate={this.props.maxDate}
-								minDate={this.props.minDate}
-								fetchShowsByDate={this.props.fetchShowsByDate}
-								updateDates={this.props.updateDates}
-							/>
-						</section>
+						<Headroom>
+							<section className="date-picker-form-section">
+								<DatePickerForm 
+									fromDate={this.props.fromDate}
+									toDate={this.props.toDate}
+									maxDate={this.props.maxDate}
+									minDate={this.props.minDate}
+									fetchShowsByDate={this.props.fetchShowsByDate}
+									updateDates={this.props.updateDates}
+								/>
+							</section>
+						</Headroom>
 						<section className="shows-by-day-list">
 							<ul className="date-list">
 								{
