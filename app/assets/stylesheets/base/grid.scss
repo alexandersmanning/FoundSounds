@@ -29,4 +29,12 @@ with a class attribute containing 'col-' */
   [class*='col-'] {
     width: 100%;
   }
+
+.headroom--unpinned {
+  width: 100vw;
+  }
+
+  .headroom--pinned {
+  width: 100vw;
+  }
 }

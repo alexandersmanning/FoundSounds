@@ -127,12 +127,12 @@ class ShowsByDay extends React.Component {
     			>
     			{this.state.loaded}</InfiniteScroll>
 		} else {
-			showDisplay = [
+			showDisplay = this.state.loaded.concat([
 				<li key="noshow" className="no-shows">
 					<h4>No shows to display</h4>
 					<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />
 				</li>
-			]
+			])
 		}
 
 		return (
