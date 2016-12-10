@@ -13,7 +13,11 @@ class ShowsByDay extends React.Component {
 		super(props);
 		this._getMoreDates = this._getMoreDates.bind(this);
 		this._getShowTitle = this._getShowTitle.bind(this);
-		this.state = { loaded: [this._getShowTitle()], hasMore: true, height: 800};
+		this._getHeadComponent = this._getHeadComponent.bind(this);
+		this._getInfiniteScrollParent = this._getInfiniteScrollParent.bind(this);
+
+		let header = [this._getHeadComponent(), this._getShowTitle()]
+		this.state = { loaded: header , hasMore: true, height: 800};
   }
 
   componentDidMount() {
@@ -21,12 +25,12 @@ class ShowsByDay extends React.Component {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
 
-  	this.setState({height: window.innerHeight - 270 })
+  	this.setState({height: window.innerHeight - 15 })
   }
 
   componentWillReceiveProps(nextProps) {
   	if (!isEqual(this.props.ShowsByDay.ShowList.ShowsByDate, nextProps.ShowsByDay.ShowList.ShowsByDate)) {
-  		let header = [this._getShowTitle()]
+  		let header = [this._getHeadComponent(), this._getShowTitle()]
 	  	setTimeout(() => {
 	  		this.setState({loaded: header, hasMore: true })
 	  	}, 500)
@@ -35,12 +39,12 @@ class ShowsByDay extends React.Component {
 
   _getMoreDates() {
   	let dateList = Object.keys(this.ShowsByDay);
-  	let loadLength = this.state.loaded.length;
+  	let loadLength = this.state.loaded.length - 2;
   	let newItems = [];
   	let hasMore = true;
 
-  	if (loadLength - 1 < dateList.length) {
- 			let dateKey = [dateList[loadLength - 1]]
+  	if (loadLength  < dateList.length) {
+ 			let dateKey = [dateList[loadLength]]
  			if (this.ShowsByDay[dateKey[0]]["Shows"].length < 5 
  				&& loadLength !== dateList.length) {
  				dateKey.push(dateList[loadLength])
@@ -86,12 +90,35 @@ class ShowsByDay extends React.Component {
   	return new Date(+new Date(date_value) + 2.88e+7).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" })
   }
 
+  _getInfiniteScrollParent() {
+  	return document.getElementsByClassName("infinite-scroll-component")[0]
+  }
+
+  _getHeadComponent() {
+  		return (
+  			<Headroom
+		  		parent={this._getInfiniteScrollParent}
+		  		disableInlineStyles={true}
+		  		>
+				<section className="date-picker-form-section">
+					<DatePickerForm 
+						fromDate={this.props.fromDate}
+						toDate={this.props.toDate}
+						maxDate={this.props.maxDate}
+						minDate={this.props.minDate}
+						fetchShowsByDate={this.props.fetchShowsByDate}
+						updateDates={this.props.updateDates}
+					/>
+				</section>
+			</Headroom> )
+  }
+
 
 	render () {
 		this.ShowsByDay = this.props.ShowsByDay.ShowList.ShowsByDate
 		let showDisplay;
 		if (this.ShowsByDay) {
-				if (this.state.loaded.length < 2) { this._getMoreDates() }
+				if (this.state.loaded.length <= 2) { this._getMoreDates() }
 				showDisplay = <InfiniteScroll
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
@@ -117,18 +144,6 @@ class ShowsByDay extends React.Component {
 		      transitionLeave={false}>
 				<div className="main">
 					<content className="side-bar-content">
-						<Headroom>
-							<section className="date-picker-form-section">
-								<DatePickerForm 
-									fromDate={this.props.fromDate}
-									toDate={this.props.toDate}
-									maxDate={this.props.maxDate}
-									minDate={this.props.minDate}
-									fetchShowsByDate={this.props.fetchShowsByDate}
-									updateDates={this.props.updateDates}
-								/>
-							</section>
-						</Headroom>
 						<section className="shows-by-day-list">
 							<ul className="date-list">
 								{
