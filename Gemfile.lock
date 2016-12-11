@@ -124,6 +124,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    oj (2.18.0)
     pg (0.19.0)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -232,7 +233,9 @@ DEPENDENCIES
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails
+  multi_json (~> 1.11)
   newrelic_rpm
+  oj
   pg (~> 0.15)
   pry-rails
   puma

@@ -30,6 +30,9 @@ gem 'rest-client'
 
 gem 'figaro'
 
+gem 'oj'
+gem 'multi_json', '~> 1.11'
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'
