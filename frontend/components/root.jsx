@@ -16,6 +16,8 @@ import { fetchShowById, clearShow } from '../actions/show_actions'
 import { fetchVenueById, clearVenue } from '../actions/venue_actions'
 import { addUserToFilter, removeUserFromFilter } from '../actions/filter_actions'
 
+import { removeShowsByDay } from '../actions/shows_by_day_actions'
+
 
 const Root = ( {store} ) => {
 	const _ensureLoggedIn = (nextState, replace) => {
@@ -40,10 +42,12 @@ const Root = ( {store} ) => {
   }
 
    const _removeUserFromFilter = (nextState, replace) => {
-    store.dispatch(removeUserFromFilter())
+    store.dispatch(removeShowsByDay());
+    store.dispatch(removeUserFromFilter());
   }
 
   const _addUserToFilter = (nextState, replace) => {
+     store.dispatch(removeShowsByDay());
      if (_ensureLoggedIn(nextState, replace)) {
       let userId = store.getState().session["currentUser"]["id"]
       store.dispatch(addUserToFilter(userId))

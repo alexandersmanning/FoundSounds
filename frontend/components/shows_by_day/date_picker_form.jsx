@@ -25,7 +25,8 @@ class DatePickerForm extends React.Component{
 					fromDate: new Date().toISOString().substring(0, 10),
 					toDate: new Date(+new Date + 6048e5).toISOString().substring(0, 10)
 				}, () => this._updatePath());
-			} else
+			} 
+			else
 				{ 
 					this._updatePath() 
 				}
