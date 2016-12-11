@@ -45,10 +45,10 @@ class ShowsByDay extends React.Component {
   	if (loadLength  < dateList.length) {
  			let dateKey = [dateList[loadLength]]
  			if (this.ShowsByDay[dateKey[0]]["Shows"].length < 5 
- 				&& loadLength !== dateList.length) {
+ 				&& (loadLength + 1) !== dateList.length) {
  				dateKey.push(dateList[loadLength + 1])
  			}
- 			
+
  			dateKey.forEach( dateValue => {
  				newItems.push(this._createShow(dateValue))
  			});
@@ -65,7 +65,6 @@ class ShowsByDay extends React.Component {
 
   _createShow(dateValue) {
   	let new_date = this._displayedDates(dateValue)
-
   	return (
   		<li key={dateValue} 
 				className="show-by-day-group">
