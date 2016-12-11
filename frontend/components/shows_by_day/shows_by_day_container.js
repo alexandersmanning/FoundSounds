@@ -5,10 +5,10 @@ import { updateDates, removeVenueFromFilter } from '../../actions/filter_actions
 import { addUserShow, updateUserShow, deleteUserShow } from '../../actions/user_shows_actions'
 
 const mapStateToProps = (state, ownProps) => {
-	let today = new Date();
+	let today = new Date().toISOString().substring(0, 10);
 	let fromDate, toDate;
-	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < today ) {
-		fromDate = today.toISOString().substring(0, 10)
+	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < Date.parse(today) ) {
+		fromDate = today
 		toDate = new Date(+new Date + 6048e5).toISOString().substring(0, 10)
 	} else {
 		fromDate = Date.parse(ownProps.location.query.fromDate)

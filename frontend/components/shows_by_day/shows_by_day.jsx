@@ -24,7 +24,6 @@ class ShowsByDay extends React.Component {
   	if (this.props.filter.venueId) {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
-
   	this.setState({height: window.innerHeight - 15 })
   }
 
@@ -47,9 +46,9 @@ class ShowsByDay extends React.Component {
  			let dateKey = [dateList[loadLength]]
  			if (this.ShowsByDay[dateKey[0]]["Shows"].length < 5 
  				&& loadLength !== dateList.length) {
- 				dateKey.push(dateList[loadLength])
+ 				dateKey.push(dateList[loadLength + 1])
  			}
-
+ 			
  			dateKey.forEach( dateValue => {
  				newItems.push(this._createShow(dateValue))
  			});
@@ -91,7 +90,7 @@ class ShowsByDay extends React.Component {
   }
 
   _getInfiniteScrollParent() {
-  	return document.getElementsByClassName("infinite-scroll-component")[0]
+  	return document.getElementsByClassName("infinite-scroll-component")[0] || window
   }
 
   _getHeadComponent() {
@@ -99,6 +98,7 @@ class ShowsByDay extends React.Component {
   			<Headroom
 		  		parent={this._getInfiniteScrollParent}
 		  		disableInlineStyles={true}
+		  		key="headroom"
 		  		>
 				<section className="date-picker-form-section">
 					<DatePickerForm 
@@ -143,7 +143,7 @@ class ShowsByDay extends React.Component {
 		      transitionEnter={false}
 		      transitionLeave={false}>
 				<div className="main">
-					<content className="side-bar-content">
+					<content className="side-bar-content main-display">
 						<section className="shows-by-day-list">
 							<ul className="date-list">
 								{
