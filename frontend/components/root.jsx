@@ -42,8 +42,12 @@ const Root = ( {store} ) => {
   }
 
    const _removeUserFromFilter = (nextState, replace) => {
-    store.dispatch(removeShowsByDay());
+    // store.dispatch(removeShowsByDay());
     store.dispatch(removeUserFromFilter());
+  }
+
+  const _clearShowList = (nextState, replace) => {
+    store.dispatch(removeShowsByDay());
   }
 
   const _addUserToFilter = (nextState, replace) => {
@@ -80,7 +84,9 @@ const Root = ( {store} ) => {
                  onEnter={_fetchShowById}/>
           <Route path="/attending"
                  component={AttendingShowContainer} 
-                 onEnter={_addUserToFilter}/>
+                 onEnter={_addUserToFilter}
+                 onLeave={_clearShowList}
+                 />
           <Route path="/attending/venues/:venueId" 
                  component={VenuesContainer} 
                  onEnter={_logInVenue}/>
@@ -89,7 +95,9 @@ const Root = ( {store} ) => {
                  onEnter={_logInShow}/>
           <Route path="/previous"
                  component={PreviousShowContainer} 
-                 onEnter={_addUserToFilter}/>
+                 onEnter={_addUserToFilter}
+                 onLeave={_clearShowList}
+                 />
           <Route path="/previous/venues/:venueId" 
                  component={VenuesContainer} 
                  onEnter={_logInVenue}/>
