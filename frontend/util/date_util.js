@@ -11,6 +11,11 @@ export const getDefaultFromDate = () => {
 	return dateToString(new Date());
 }
 
+export const getToDate = (fromDate) => {
+	let startDate = Date.parse(fromDate);
+	return dateToString(new Date(+startDate + TWO_WEEKS))
+}
+
 export const getMaxDate = () => {
 	return dateToString(new Date(+new Date + MAX_DATE));
 };

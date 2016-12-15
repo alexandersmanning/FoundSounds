@@ -11,7 +11,8 @@ import { addUserShow,
 
 import { getDefaultToDate,
 	getDefaultFromDate,
-	dateToString
+	dateToString,
+	getToDate
 } from '../../util/date_util';
 
 const mapStateToProps = (state, ownProps) => {
@@ -24,7 +25,7 @@ const mapStateToProps = (state, ownProps) => {
 	} 
 
 	if (!toDate || Date.parse(toDate) < Date.parse(fromDate)){
-		toDate = fromDate; 
+		toDate = getToDate(fromDate); 
 	} 
 
 	return ({
