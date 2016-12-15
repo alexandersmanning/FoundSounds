@@ -21,11 +21,11 @@ class ShowsByDay extends React.Component {
 		this.state = { loaded: header , hasMore: true, height: window.innerHeight - 15 };
   }
 
-  componentDidMount() {
-  	if (this.props.filter.venueId) {
-  		this.props.removeVenueFromFilter(this.props.filter.venueId)
-  	}
-  }
+  // componentDidMount() {
+  // 	// if (this.props.filter.venueId) {
+  // 	// 	this.props.removeVenueFromFilter(this.props.filter.venueId)
+  // 	// }
+  // }
 
   componentWillReceiveProps(nextProps) {
   	if (!isEqual(this.props.ShowsByDay.ShowList.ShowsByDate, nextProps.ShowsByDay.ShowList.ShowsByDate)) {
