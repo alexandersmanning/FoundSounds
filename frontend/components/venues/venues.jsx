@@ -18,8 +18,8 @@ class Venue extends React.Component {
 		if (!this.props.fromDate || !this.props.toDate) {
 			fromDate = getDefaultFromDate();
 			toDate = getDefaultToDate();
-			this._updatePath(fromDate, toDate)
 		}
+		this._updatePath(fromDate, toDate)
 
 		this.props.addVenueToFilter(this.props.Venue.id)
 	}

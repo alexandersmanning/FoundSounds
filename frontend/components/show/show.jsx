@@ -20,8 +20,8 @@ class Show extends React.Component {
 		if (!fromDate || !toDate) {
 			fromDate = getDefaultFromDate();
 			toDate = getDefaultToDate();
-			this._updatePath(fromDate, toDate)
 		}
+		this._updatePath(fromDate, toDate)
 
 		this.props.addVenueToFilter(this.props.Show.venueId)
 	}
