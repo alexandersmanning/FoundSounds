@@ -6,7 +6,7 @@ show_venues = Hash.new
 @shows.each do |show|
   shows_by_date[show.date.to_date] << show
   show_venues[show.venue_id] = show.venue
-  shows_by_venue[show.venue_id] << show
+  # shows_by_venue[show.venue_id] << show
 end
 
 
@@ -40,28 +40,9 @@ json.ShowList do
     show_venues.keys.each do |venue_id|
       json.set! venue_id do
         json.id venue_id
-        json.name show_venues[venue_id].name
-        json.address show_venues[venue_id].address
-        json.city show_venues[venue_id].city
-        json.state show_venues[venue_id].state
         json.lat show_venues[venue_id].latitude
         json.lng show_venues[venue_id].longitude
-        json.Shows do
-          shows_by_venue[venue_id].each do |show|
-            json.set! show.id do
-              json.showId show.id
-              json.date show.date
-              json.artists show.artists
-              json.showTicketsUrl show.url
-            end
-          end
-        end
       end
     end
   end
 end
-
-# I want a list of show names
-# date shows
-# venues
-# artists

@@ -18,8 +18,8 @@ class Show extends React.Component {
 		let toDate = this.props.toDate;
 
 		if (!fromDate || !toDate) {
-			fromDate = getDefaultFromDate;
-			toDate = getDefaultToDate;
+			fromDate = getDefaultFromDate();
+			toDate = getDefaultToDate();
 			this._updatePath(fromDate, toDate)
 		}
 

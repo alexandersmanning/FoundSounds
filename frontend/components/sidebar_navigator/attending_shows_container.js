@@ -3,25 +3,25 @@ import ShowsByDay from '../shows_by_day/shows_by_day'
 import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
 import { updateDates, removeVenueFromFilter } from '../../actions/filter_actions'
 
+import { getDefaultToDate,
+	getDefaultFromDate,
+	dateToString,
+	getToDate
+} from '../../util/date_util';
+
 
 const mapStateToProps = (state, ownProps) => {
-	let today = new Date();
-	let fromDate, toDate;
+	let today = getDefaultFromDate();
+	let fromDate = ownProps.location.query.fromDate;
+	let toDate = ownProps.location.query.toDate;
 
-	if (!ownProps.location.query.fromDate || Date.parse(ownProps.location.query.fromDate) < today ) {
-		fromDate = today.toISOString().substring(0, 10)
-		toDate = new Date(+new Date + 6048e5).toISOString().substring(0, 10)
-	} else {
-		fromDate = Math.max(Date.parse(ownProps.location.query.fromDate), today)
-		toDate = Date.parse(ownProps.location.query.toDate)
-		if (!fromDate) {
-			fromDate = new Date().toISOString().substring(0, 10)
-		} else { fromDate = new Date(fromDate).toISOString().substring(0, 10) } 
-	
-		if (!toDate) {
-			toDate = new Date().toISOString().substring(0, 10)
-		} else { toDate = new Date(toDate).toISOString().substring(0, 10) } 
-	}
+	if (!fromDate || Date.parse(fromDate) < Date.parse(today) ) {
+		fromDate = today;
+	} 
+
+	if (!toDate || Date.parse(toDate) < Date.parse(fromDate)){
+		toDate = getToDate(fromDate); 
+	} 
 
 	return ({
 		ShowsByDay: state.ShowsByDay,
