@@ -1,7 +1,7 @@
-import { connect } from 'react-redux'
-import Show from './show'
-import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
-import { updateDates, addVenueToFilter } from '../../actions/filter_actions'
+import { connect } from 'react-redux';
+import Show from './show';
+import { fetchShowsByDate } from '../../actions/shows_by_day_actions';
+import { updateDates, addVenueToFilter } from '../../actions/filter_actions';
 
 const mapStateToProps = (state, ownProps) => {
 	return ({

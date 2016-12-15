@@ -20,6 +20,7 @@ const Search = ({ ShowsByVenue, updateBounds, session, router, filter }) => {
 				</div>
 	 		}
 
+	 	//more elegant want of finding which path
 	 let path = router.location.pathname
 	 let main = (path.indexOf("attending") === -1 && path.indexOf("previous") === -1 ? " selected" : "")
 	 let attending = (path.indexOf("attending") > 0 ? " selected" : "")

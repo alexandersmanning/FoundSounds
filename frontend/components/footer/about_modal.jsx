@@ -47,8 +47,6 @@ class AboutModal extends React.Component {
 						</content>
 					</Modal>
 				</section> )
-
-		// /							The idea for the site came about from years of attending concerts, and hoping for a way of finding last minute small shows. His love for live music is shared by his wife, who he met at a small folk show in the city. 
 	}
 };
 

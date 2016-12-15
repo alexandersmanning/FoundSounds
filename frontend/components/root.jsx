@@ -42,7 +42,6 @@ const Root = ( {store} ) => {
   }
 
    const _removeUserFromFilter = (nextState, replace) => {
-    // store.dispatch(removeShowsByDay());
     store.dispatch(removeUserFromFilter());
   }
 
@@ -69,7 +68,7 @@ const Root = ( {store} ) => {
       _fetchShowById(nextState, replace)
     }
   }
-  // move search container to app, and then sidebar for IndexRoute
+  
    return (
     <Provider store={store}>
       <Router history={hashHistory}>
@@ -111,9 +110,3 @@ const Root = ( {store} ) => {
 }
 
 export default Root;
-
-// <IndexRoute component={}/>
- // <Route path="/attending"
- //                 component={AttendingShowContainer} />
- //          <Route path="/previous"
- //                 component={PreviousShowContainer} />

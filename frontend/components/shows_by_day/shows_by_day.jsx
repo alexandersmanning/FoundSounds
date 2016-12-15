@@ -5,8 +5,9 @@ import DatePickerForm from './date_picker_form';
 import SearchContainer from '../search/search_container';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-import Headroom from 'react-headroom'
-import { isEqual } from 'lodash'
+import Headroom from 'react-headroom';
+import { isEqual } from 'lodash';
+import { displayDate } from '../../util/date_util';
 
 class ShowsByDay extends React.Component {
 	constructor(props) {
@@ -17,14 +18,13 @@ class ShowsByDay extends React.Component {
 		this._getInfiniteScrollParent = this._getInfiniteScrollParent.bind(this);
 
 		let header = [this._getHeadComponent(), this._getShowTitle()]
-		this.state = { loaded: header , hasMore: true, height: 800};
+		this.state = { loaded: header , hasMore: true, height: window.innerHeight - 15 };
   }
 
   componentDidMount() {
   	if (this.props.filter.venueId) {
   		this.props.removeVenueFromFilter(this.props.filter.venueId)
   	}
-  	this.setState({height: window.innerHeight - 15 })
   }
 
   componentWillReceiveProps(nextProps) {
@@ -64,7 +64,7 @@ class ShowsByDay extends React.Component {
   }
 
   _createShow(dateValue) {
-  	let new_date = this._displayedDates(dateValue)
+  	let new_date = displayDate(dateValue)
   	return (
   		<li key={dateValue} 
 				className="show-by-day-group">
@@ -82,10 +82,6 @@ class ShowsByDay extends React.Component {
 					<h3 className="shows-title">Shows</h3>
 				</div>
 			)
-  }
-
-  _displayedDates(date_value) {
-  	return new Date(+new Date(date_value) + 2.88e+7).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" })
   }
 
   _getInfiniteScrollParent() {
@@ -158,18 +154,3 @@ class ShowsByDay extends React.Component {
 };
 
 export default ShowsByDay;
-
-// dateFormat(new Date(date_value +" 08:00:00"), "dddd, mmmm dS")
-
-// showDisplay = Object.keys(this.ShowsByDay).map((date_value, idx) => 
-// 					{
-// 						let new_date = this._displayedDates(date_value);
-// 						return <li key={idx} 
-// 											className="show-by-day-group">
-// 							<h4 className="show-date-list">{new_date}</h4>
-// 							<ShowsComponent 
-// 								shows={this.ShowsByDay[date_value].Shows} 
-// 								date={date_value}
-// 							/>
-// 						</li>
-// 					})

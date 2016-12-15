@@ -27,7 +27,6 @@ class ConcertMap extends React.Component {
 		this.MarkerManager = new MarkerManager(this.map, this.handleClick)
 		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId)
 
-		//handling bounds
 		
 		google.maps.event.addListener(this.map, 'idle', () => {
 				let bounds = this.map.getBounds();
@@ -42,7 +41,6 @@ class ConcertMap extends React.Component {
 	}
 
 	componentDidUpdate() {
-		// debugger
 		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId)	
 	}
 

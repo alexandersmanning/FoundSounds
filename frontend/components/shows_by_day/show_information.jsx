@@ -2,7 +2,8 @@ import React from 'react'
 import dateFormat from 'dateformat'
 import ArtistInformation from './artist_information'
 import UserShowsContainer from '../user_shows/user_shows_container'
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import { displayDate } from '../../util/date_util';
 
 const updatePath = (showId, router) => {
 	let modifiedRoute = findModifiedPath(router)
@@ -28,7 +29,7 @@ const findModifiedPath = (router) => {
 	}
 
 const ShowInformation = props => {
-	let showDate = new Date(+new Date(props.show.date) + 2.88e+7).toLocaleDateString("US", {format: "weekday, month, day", weekday: "long", month: "long", day: "numeric" });
+	let showDate = displayDate(props.show.date);
 
 	let img_artist
 	if (props.show.billing_index){

@@ -3,11 +3,13 @@ import { withRouter } from 'react-router';
 import 'react-datepicker/dist/react-datepicker.css'
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-// require('react-datepicker/dist/react-datepicker.css');
+import { getDefaultToDate, 
+	getDefaultFromDate, 
+	getMaxDate, 
+	getMinDate } from '../../util/date_util';
 
 class DatePickerForm extends React.Component{
 	constructor(props) {
-		//This will be sent a min and max date?
 		super(props);
 		this.state = {
 			fromDate: this.props.fromDate,
@@ -18,18 +20,16 @@ class DatePickerForm extends React.Component{
 
 
 	componentDidMount() {
-			let routerFromDate = this.props.router.location.query["fromDate"];
-			let routerToDate = this.props.router.location.query["toDate"];
-			if (!this.state.fromDate || !this.state.toDate) {
-				this.setState({
-					fromDate: new Date().toISOString().substring(0, 10),
-					toDate: new Date(+new Date + 6048e5).toISOString().substring(0, 10)
-				}, () => this._updatePath());
-			} 
-			else
-				{ 
-					this._updatePath() 
-				}
+		if (!this.state.fromDate || !this.state.toDate) {
+			this.setState({
+				fromDate: getDefaultFromDate(),
+				toDate: getDefaultToDate()
+			}, () => this._updatePath());
+		} 
+		else
+			{ 
+				this._updatePath() // only want to do this if show_list is empty
+			}
 	}
 
 	handleChange(field) {
@@ -45,9 +45,9 @@ class DatePickerForm extends React.Component{
 	};
 
 	render() {
-	  this.maxDate = (this.props.maxDate || new Date(+new Date + 3.154e+10)).toISOString().substring(0, 10)
+	  this.maxDate = (this.props.maxDate || getMaxDate())
 
-		this.minDate = (this.props.minDate || new Date(+new Date - 6.307e+11)).toISOString().substring(0, 10)
+		this.minDate = (this.props.minDate || getMinDate())
 
 		return (
 			<div className="date-form-container">

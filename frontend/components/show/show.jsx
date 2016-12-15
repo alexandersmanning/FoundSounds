@@ -1,9 +1,10 @@
 import React from 'react';
-import dateFormat from 'dateformat'
-import ShowInformation from '../shows_by_day/show_information'
-import { withRouter } from 'react-router'
-import UserShowsContainer from '../user_shows/user_shows_container'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+import dateFormat from 'dateformat';
+import ShowInformation from '../shows_by_day/show_information';
+import { withRouter } from 'react-router';
+import UserShowsContainer from '../user_shows/user_shows_container';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { getDefaultToDate, getDefaultFromDate } from '../../util/date_util';
 
 
 class Show extends React.Component {
@@ -12,27 +13,26 @@ class Show extends React.Component {
 	}
 
 	componentDidMount() {
+		//checking to make sure there is a date 
 		let fromDate = this.props.fromDate;
 		let toDate = this.props.toDate;
 
 		if (!fromDate || !toDate) {
-			fromDate = new Date().toISOString().substring(0, 10);
-			toDate = new Date(+new Date + 6048e5).toISOString().substring(0, 10);
+			fromDate = getDefaultFromDate;
+			toDate = getDefaultToDate;
+			this._updatePath(fromDate, toDate)
 		}
 
-		this._updatePath(fromDate, toDate)
 		this.props.addVenueToFilter(this.props.Show.venueId)
 	}
 
 	componentDidUpdate() {
+		// This is a way to make sure the proper pinpoint is highlighted on the map
 		if (this.props.Show.venueId && this.props.filter.venueId !== this.props.Show.venueId) {
 			this.props.addVenueToFilter(this.props.Show.venueId)
 		}
 	}
 
-	// componentWillUnmount() {
-
-	// }
 
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;

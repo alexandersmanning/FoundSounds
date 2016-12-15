@@ -10,7 +10,6 @@ export default class MarkerManager {
 		this._createMarkerFromVenue = this._createMarkerFromVenue.bind(this)
 		this._removeMarker = this._removeMarker.bind(this)
 		this._markersToRemove = this._markersToRemove.bind(this)
-		// this._createMarkerFromBench = this._createMarkerFromBench.bind(this);
 	}
 
 	_venuesToAdd() {
@@ -64,7 +63,6 @@ export default class MarkerManager {
 		let venuesToRemove = this._markersToRemove ()
 		venuesToRemove.forEach(venue => this._removeMarker(venue))
 
-		//update marker icon go through each this.markers and 
 			this.markers.forEach( marker => {
 				if (marker.venueId === currentVenue) {
 					marker.setIcon(selectedMarker)

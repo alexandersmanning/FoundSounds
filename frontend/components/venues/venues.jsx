@@ -3,23 +3,24 @@ import dateFormat from 'dateformat';
 import ArtistInformation from '../shows_by_day/artist_information';
 import ShowInformation from '../shows_by_day/show_information';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { getDefaultToDate, getDefaultFromDate } from '../../util/date_util'
 
 
 class Venue extends React.Component {
 	constructor(props) {
-		super(props)
+		super(props);
+		this._sortByDate = this._sortByDate.bind(this);
 	}
 
 	componentDidMount() {
-		let fromDate = this.props.fromDate;
-		let toDate = this.props.toDate;
+		let fromDate, toDate;
 
-		if (!fromDate || !toDate) {
-			fromDate = new Date().toISOString().substring(0, 10);
-			toDate = new Date(+new Date + 12096e5).toISOString().substring(0, 10);
+		if (!this.props.fromDate || !this.props.toDate) {
+			fromDate = getDefaultFromDate();
+			toDate = getDefaultToDate();
+			this._updatePath(fromDate, toDate)
 		}
 
-		this._updatePath(fromDate, toDate)
 		this.props.addVenueToFilter(this.props.Venue.id)
 	}
 
@@ -28,8 +29,6 @@ class Venue extends React.Component {
 			this.props.addVenueToFilter(this.props.Venue.id)
 		}
 	}
-
-
 
 	_updatePath(fromDate, toDate) {
 		const currentRouteName = this.props.router.getCurrentLocation().pathname;
@@ -54,14 +53,21 @@ class Venue extends React.Component {
 		return currentRouteName.slice(0, currentRouteName.length - showString.length)
 	}
 
+	_sortByDate() {
+		let showList = this.props.Venue.Shows
+		return Object.keys(showList).sort((a, b) => {
+			return Date.parse(showList[a]["date"]) - Date.parse(showList[b]["date"]);
+		})
+	}
+
 	render () {
 		if (Object.keys(this.props.Venue).length === 0) {
 			return <h1>loading</h1>
 		}
 
 		let showList = (<ul key="venue-show-list" className="show-information">		
-					{
-						Object.keys(this.props.Venue.Shows).map(key => (
+					{	
+						this._sortByDate().map(key => (
 							<ShowInformation 
 								key={key}
 								show={this.props.Venue.Shows[key]}
