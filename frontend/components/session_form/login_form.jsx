@@ -42,14 +42,14 @@ class LogInForm extends React.Component {
 						<span className="errors">
 								{this.renderErrors("login", this.props.errors.login)}
 							</span>
-						<label for="login-email" hidden> Email</label>
+						<label htmlFor="login-email" hidden> Email</label>
 						<input className="login-text" id="login-email" type="text"
 							value={this.state.email}
 							onChange={this.update("email")}
 							className="login-input"
 							placeholder="email" />
 						<span className="input-border"/>
-						<label for="login-password" hidden>Password</label>
+						<label htmlFor="login-password" hidden>Password</label>
 							<input className="login-text" type="password"
 								value={this.state.password}
 								onChange={this.update("password")}

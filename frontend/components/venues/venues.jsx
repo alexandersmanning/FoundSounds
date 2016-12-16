@@ -13,9 +13,10 @@ class Venue extends React.Component {
 	}
 
 	componentDidMount() {
-		let fromDate, toDate;
+		let fromDate = this.props.fromDate;
+		let toDate =  this.props.toDate;
 
-		if (!this.props.fromDate || !this.props.toDate) {
+		if (!fromDate || !toDate) {
 			fromDate = getDefaultFromDate();
 			toDate = getDefaultToDate();
 		}

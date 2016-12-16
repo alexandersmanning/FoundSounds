@@ -32,7 +32,7 @@ class SignUpForm extends React.Component {
 				<h3 className="login-form-title">Sign Up</h3>
 				<form onSubmit={this.handleSubmit} className="signup-form-box">
 					<div className="login-form">
-						<label for="signup-email" hidden>Email</label>
+						<label htmlFor="signup-email" hidden>Email</label>
 							<input type="text" id="signup-email"
 								value={this.state.email}
 								onChange={this.update("email")}
@@ -42,7 +42,7 @@ class SignUpForm extends React.Component {
 							<span className="errors">
 								{this.renderErrors("email", this.props.errors.email)}
 							</span>
-						<label for="signup-password" hidden>Password </label>
+						<label htmlFor="signup-password" hidden>Password </label>
 						
 							<input type="password" id="signup-password"
 								value={this.state.password}
@@ -54,7 +54,7 @@ class SignUpForm extends React.Component {
 								<span className="errors">
 									{this.renderErrors("password", this.props.errors.password)}
 								</span>
-						<label for="signup-confirm" hidden>Confirm Password</label>
+						<label htmlFor="signup-confirm" hidden>Confirm Password</label>
 							<input type="password"
 								value={this.state.password_confirmation}
 								onChange={this.update("password_confirmation")}

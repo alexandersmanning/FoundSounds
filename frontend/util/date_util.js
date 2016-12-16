@@ -35,6 +35,7 @@ export const getDefaultPreviousDate = (toDate) => {
 }
 
 export const dateToString = (date) => {
+	// debugger
 	return date.toISOString().substring(0, 10);
 }
 
