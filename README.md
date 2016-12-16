@@ -2,7 +2,7 @@
 
 ## About
 [Found Sounds live][heroku]
-[heroku]: http://www.herokuapp.com
+[heroku]: http://www.foundsounds.live
 
 Found Sounds is a way of visualizing upcoming concerts in San Francisco, with the idea that users will be able to see local shows more regularly, and be able to keep track of all their upcoming concerts.
 
