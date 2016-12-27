@@ -2,6 +2,8 @@ import React from 'react';
 import dateFormat from 'dateformat';
 import ArtistInformation from '../shows_by_day/artist_information';
 import ShowInformation from '../shows_by_day/show_information';
+import VenueDescription from './venue_description';
+
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import { getDefaultToDate, getDefaultFromDate } from '../../util/date_util'
 
@@ -97,6 +99,11 @@ class Venue extends React.Component {
 						<span className="venue-address">
 							{`${this.props.Venue.address}, ${this.props.Venue.city}, ${this.props.Venue.state}`}
 						</span>
+						<VenueDescription
+							min={80}
+							ideal={100}
+							max={200}
+							text={this.props.Venue.description}/>
 					</section>
 						<h3 className="shows">Shows</h3>
 					<section className="show-information-container link-side-bar-box">

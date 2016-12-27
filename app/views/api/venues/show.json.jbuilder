@@ -6,6 +6,7 @@
   json.state @venue.state
   json.lat @venue.latitude
   json.lng @venue.longitude
+  json.description @venue.description
   json.Shows do
     @venue_shows.each do |show|
       billing_index = show.show_artists.where("billing_index = 1").pluck(:artist_id).first
