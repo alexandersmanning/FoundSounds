@@ -108,15 +108,17 @@ class VenueDescription extends React.Component {
 			<div className="display-text-group">
 				<span className="displayed-text">
 					{`${this.primaryText} ${this.secondaryText}`}
+				<div className="read-more-button" 
+						 onClick={this.setStatus.bind(this)}>read less</div> 
 				</span>
-				<div onClick={this.setStatus.bind(this)}>read less</div> 
 			</div>);
 		} else {
 			displayText = (<div className="display-text-group">
 				<span className="displayed-text">
-						{`${this.primaryText} ...`}
+						{`${this.primaryText}`}
+				<div className="read-more-button"
+						 onClick={this.setStatus.bind(this)}>read more</div>
 				</span>
-				<div onClick={this.setStatus.bind(this)}>read more</div>
 			</div>);
 		}
 
