@@ -21,12 +21,6 @@ class ShowsByDay extends React.Component {
 		this.state = { loaded: header , hasMore: true, height: window.innerHeight - 15 };
   }
 
-  // componentDidMount() {
-  // 	// if (this.props.filter.venueId) {
-  // 	// 	this.props.removeVenueFromFilter(this.props.filter.venueId)
-  // 	// }
-  // }
-
   componentWillReceiveProps(nextProps) {
   	if (!isEqual(this.props.ShowsByDay.ShowList.ShowsByDate, nextProps.ShowsByDay.ShowList.ShowsByDate)) {
   		let header = [this._getHeadComponent(), this._getShowTitle()]
@@ -117,7 +111,9 @@ class ShowsByDay extends React.Component {
 				showDisplay = <InfiniteScroll
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
-    			loader={<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />}
+    			loader={<div className="cssload-container">
+						<div className="cssload-double-torus"></div>
+						</div>}
     			height={this.state.height}
     			>
     			{this.state.loaded}</InfiniteScroll>

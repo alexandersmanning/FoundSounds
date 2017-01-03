@@ -39,10 +39,34 @@ class AboutModal extends React.Component {
 							</section>
 							<section className="about-section">
 								<h2>Alex Manning</h2>
-								<img className="user-pic" src="http://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,h_403/v1478745746/Manning_oegwmi.jpg"/>
 								<p className="about-text">
-									Alex is a former Industrial Engineering Manager who decided to pursue is true passion of programming and data analysis. Found Sounds was originally written as his capstone project for App Academy. He is currently looking for a Junior Developer position where he can apply his programming skills to any, and all, problems that can be thrown at him.
+									Alex is a former Industrial Engineering Manager who decided to pursue is true passion of programming and data analysis. Found Sounds was originally written as his capstone project for App Academy. He is currently looking for a Software Developer position where he can apply his programming skills to any, and all, problems that can be thrown at him.
 								</p>
+							</section>
+							<section>
+							<h2 className="contact-title">Let's work together</h2>
+								<div className="link-group">
+									<a className="contact-link" 
+										href="http://www.alexandersmanning.com" 
+										target="_blank">
+										<img className="contact-image" src="https://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_64/v1483404603/globe-icon-7894_qsnj9j.png" alt="Portfolio"/>
+									</a>
+									<a className="contact-link" 
+										href="https://github.com/alexandersmanning" 
+										target="_blank">
+										<img className="contact-image" src="https://res.cloudinary.com/ddvdi1pie/image/upload/v1481004816/github-logo_avulo9.png" alt="Github"/>
+									</a>
+									<a className="contact-link" 
+										href="https://angel.co/alexandersmanning" 
+										target="_blank">
+										<img className="contact-image" src="https://res.cloudinary.com/ddvdi1pie/image/upload/c_scale,w_64/v1481006209/69-angellist-128_hai6eu.png" alt="Angel List"/>
+									</a>
+									<a className="contact-link" 
+											href="https://www.linkedin.com/in/alexandersmanning/" 
+											target="_blank">
+											<img className="contact-image" src="https://res.cloudinary.com/ddvdi1pie/image/upload/v1481004820/linkedin-logo_ruddep.png" alt="LinkedIn"/>
+									</a>
+								</div>
 							</section>
 						</content>
 					</Modal>

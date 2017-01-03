@@ -1,0 +1,42 @@
+
+.about-container {
+	 display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+   height: inherit;
+}
+
+.about-footer {
+	cursor: pointer;
+	margin-right: 15px;
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.footer-text {
+	margin-left: 15px;
+	font-family: 'Sailec Regular', sans-serif;
+}
+
+.user-pic {
+	width: 30%;
+	margin: auto;
+}
+
+.about-text {
+	font-family: 'Sailec Regular', sans-serif;
+	font-size: $small-main;
+	margin: 5px;
+	padding: 5px;
+}
+
+.about-section {
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+.link-group {
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-around;
+}
