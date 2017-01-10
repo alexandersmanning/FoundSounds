@@ -1,7 +1,8 @@
 import { connect } from 'react-redux'
 import ShowsByDay from '../shows_by_day/shows_by_day'
 import { fetchShowsByDate } from '../../actions/shows_by_day_actions'
-import { updateDates, removeVenueFromFilter } from '../../actions/filter_actions'
+import { updateDates, removeVenueFromFilter } from '../../actions/filter_actions';
+import { selectMarker, deselectMarker } from '../../actions/marker_actions';
 
 import { getDefaultToDate,
 	getDefaultFromDate,
@@ -37,7 +38,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => {
 	return ({
 		updateDates: (fromDate, toDate) => dispatch(updateDates(fromDate, toDate)),
-		removeVenueFromFilter: (venueId) => dispatch(removeVenueFromFilter(venueId))
+		removeVenueFromFilter: (venueId) => dispatch(removeVenueFromFilter(venueId)),
+		selectMarker: (venueId) => dispatch(selectMarker(venueId)),
+		deselectMarker: (venueId) => dispatch(deselectMarker(venueId))
 	})
 }
 
