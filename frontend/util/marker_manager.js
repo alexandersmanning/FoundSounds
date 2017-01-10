@@ -55,7 +55,7 @@ export default class MarkerManager {
 		this.markers.splice(idx, 1);
 	}
 
-	updateMarkers(venues, currentVenue) {
+	updateMarkers(venues, currentVenue, hoveredMarker) {
 		this.venues = this._venuesToArray(venues.ShowList.ShowsByVenue)
 		let venuesToCreate = this._venuesToAdd ()
 		venuesToCreate.forEach( venue => this._createMarkerFromVenue(venue) )
@@ -66,6 +66,9 @@ export default class MarkerManager {
 			this.markers.forEach( marker => {
 				if (marker.venueId === currentVenue) {
 					marker.setIcon(selectedMarker)
+				}
+				else if (marker.venueId === hoveredMarker){
+					marker.setIcon(highlightedMarker)
 				}
 				else {
 					marker.setIcon(standardMarker)

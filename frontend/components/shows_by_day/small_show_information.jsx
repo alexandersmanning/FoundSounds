@@ -1,11 +1,12 @@
 import React from 'react'
 import { withRouter } from 'react-router'
 
-const updatePath = (showId, router) => {
-	let currentPath = router.location.pathname
+const updatePath = (show, router, deselectMarker) => {
+	deselectMarker(show.venueId);
+	let currentPath = router.location.pathname;
 	if (currentPath !== "/") { currentPath += "/"}
 	router.push({
-		pathname: `${currentPath}shows/${showId}`, query: router.location.query
+		pathname: `${currentPath}shows/${show.showId}`, query: router.location.query
 	})
 }
 
@@ -21,7 +22,12 @@ const SmallShows = (props) => {
 	return (
 		<li key={props.show.showId}
 				className="artist-small-show" 
-				onClick={updatePath.bind(this, props.show.showId, props.router)}>
+				onClick={
+					updatePath.bind(this, props.show, props.router, props.deselectMarker)
+				}
+				onMouseEnter={props.selectMarker.bind(this, props.show.venueId)}
+				onMouseLeave={props.deselectMarker.bind(this, props.show.venueId)}
+				>
 			<section className="artist-list-show-box">
 				<div className="artist-small-image-container">
 					<img className="artist-small-image" src={imgUrl} alt="artist-image"/>

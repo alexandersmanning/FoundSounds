@@ -6,7 +6,8 @@ const mapStateToProps = state => {
 	return ({
 		ShowsByVenue: state.ShowsByDay,
 		session: state.session,
-		filter: state.filter
+		filter: state.filter,
+		marker: state.marker
 	})
 };
 

@@ -5,6 +5,7 @@ import ShowReducer from './show_reducer';
 import FilterReducer from './filter_reducer';
 import VenueReducer from './venue_reducer';
 import UserShowsReducer from './user_shows_reducer';
+import MarkerReducer from './marker_reducer'
 
 const RootReducer = combineReducers({
 	session: SessionReducer,
@@ -12,7 +13,8 @@ const RootReducer = combineReducers({
 	Show: ShowReducer,
 	Venue: VenueReducer,
 	UserShows: UserShowsReducer,
-	filter: FilterReducer
+	filter: FilterReducer,
+	marker: MarkerReducer
 });
 
 export default RootReducer;

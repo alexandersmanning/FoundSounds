@@ -21,6 +21,7 @@ json.ShowList do
           json.Shows shows_by_date[date].each do |show|
               json.showId show.id
               json.venueName show.venue.name
+              json.venueId show.venue.id
               json.artists do
                 show.artists.each do |artist|
                   json.set! artist.id do

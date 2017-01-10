@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import ShowsByDay from './shows_by_day';
 import { fetchShowsByDate } from '../../actions/shows_by_day_actions';
+import { selectMarker, deselectMarker } from '../../actions/marker_actions';
 
 import { updateDates, 
 	removeVenueFromFilter } from '../../actions/filter_actions';
@@ -40,7 +41,9 @@ const mapDispatchToProps = dispatch => {
 	return ({
 		fetchShowsByDate: (filter) => dispatch(fetchShowsByDate(filter)),
 		updateDates: (fromDate, toDate) => dispatch(updateDates(fromDate, toDate)),
-		removeVenueFromFilter: (venueId) => dispatch(removeVenueFromFilter(venueId))
+		removeVenueFromFilter: (venueId) => dispatch(removeVenueFromFilter(venueId)),
+		selectMarker: (venueId) => dispatch(selectMarker(venueId)),
+		deselectMarker: (venueId) => dispatch(deselectMarker(venueId))
 	})
 }
 

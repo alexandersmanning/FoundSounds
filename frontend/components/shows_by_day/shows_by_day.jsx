@@ -71,7 +71,10 @@ class ShowsByDay extends React.Component {
 				<h4 className="show-date-list">{new_date}</h4>
 					<ShowsComponent 
 						shows={this.ShowsByDay[dateValue].Shows} 
-						date={dateValue}/>
+						date={dateValue}
+						selectMarker={this.props.selectMarker}
+						deselectMarker={this.props.deselectMarker}
+						/>
 			</li>
 		)
   }

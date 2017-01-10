@@ -41,7 +41,7 @@ class ConcertMap extends React.Component {
 	}
 
 	componentDidUpdate() {
-		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId)	
+		this.MarkerManager.updateMarkers(this.props.ShowsByVenue, this.props.filter.venueId, this.props.marker)
 	}
 
 	_handleClickEvent(selectedVenue) {
