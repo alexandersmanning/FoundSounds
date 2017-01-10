@@ -1,4 +1,5 @@
 @venue = @venue_shows.first.venue
+
   json.id @venue.id
   json.name @venue.name
   json.address @venue.address
