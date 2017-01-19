@@ -39,6 +39,7 @@ export default class MarkerManager {
 		marker['mapWindow'] = new google.maps.InfoWindow({
 			content: windowHTML,
 			maxWidth: 300,
+			disableAutoPan: true
 		});
 
 		marker.addListener('click', () => this.handleClick(venue));
