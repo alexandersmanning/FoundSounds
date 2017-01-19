@@ -31,18 +31,30 @@ export default class MarkerManager {
 			icon: standardMarker
 		});
 
+		const windowHTML = "<div class='map-window'>" +
+			`<h1 class='map-window-title'>${venue.name}</h1>` +
+			`<p class='map-window-address'>${venue.address}</p>` +
+			"</div>";
+
+		marker['mapWindow'] = new google.maps.InfoWindow({
+			content: windowHTML,
+			maxWidth: 300,
+		});
+
 		marker.addListener('click', () => this.handleClick(venue));
 
 		marker.addListener('mouseover', function() {
 				if (this.getIcon() !== selectedMarker)
 				{		
-					this.setIcon(highlightedMarker)
+					this['mapWindow'].open(this.map, marker)
+					this.setIcon(highlightedMarker);
 				}
 			})
 		marker.addListener('mouseout', function() {
+				this['mapWindow'].close(this.map, marker);
 				if (this.getIcon() !== selectedMarker)
 				{		
-					this.setIcon(standardMarker)
+					this.setIcon(standardMarker);
 				}
 		})
 
@@ -68,9 +80,11 @@ export default class MarkerManager {
 					marker.setIcon(selectedMarker)
 				}
 				else if (marker.venueId === hoveredMarker){
+					marker['mapWindow'].open(this.map, marker)
 					marker.setIcon(highlightedMarker)
 				}
 				else {
+					marker['mapWindow'].close(this.map, marker)
 					marker.setIcon(standardMarker)
 				}
 			})
