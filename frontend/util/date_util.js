@@ -35,8 +35,7 @@ export const getDefaultPreviousDate = (toDate) => {
 }
 
 export const dateToString = (date) => {
-	
-	return date.toISOString().substring(0, 10);
+	return new Date(+date - LOCAL_TIME).toISOString().substring(0, 10);
 }
 
 export const formatDate = (date) => {
