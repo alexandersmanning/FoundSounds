@@ -1,6 +1,7 @@
 import React from 'react';
 import dateFormat from 'dateformat';
 import ShowInformation from '../shows_by_day/show_information';
+import SingleShowInformation from "../shows_by_day/show_information_individual";
 import { withRouter } from 'react-router';
 import UserShowsContainer from '../user_shows/user_shows_container';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -102,7 +103,8 @@ class Show extends React.Component {
 						  <span>
 								<ul className="show-information">
 	        				{
-										<ShowInformation show={this.props.Show} 
+										<SingleShowInformation show={this.props.Show}
+										 	displayShow={true} 
 											className="side-bar-box"/>
 	        				}
 								</ul>
