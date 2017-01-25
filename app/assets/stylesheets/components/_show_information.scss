@@ -67,3 +67,14 @@
 .venue-nav .title {
 	margin:4%;
 }
+
+
+.song-kick-link {
+	font-family: 'Sailec Regular', sans-serif;
+	font-size: $small-main;
+	color: $light-purple;
+}
+
+.song-kick-link:hover {
+	color: $lightest-purple
+}

@@ -102,7 +102,8 @@ class Show extends React.Component {
 						  <span>
 								<ul className="show-information">
 	        				{
-										<ShowInformation show={this.props.Show} 
+										<ShowInformation show={this.props.Show}
+										 	displayShow={true} 
 											className="side-bar-box"/>
 	        				}
 								</ul>

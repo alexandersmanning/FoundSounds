@@ -29,6 +29,7 @@ const findModifiedPath = (router) => {
 	}
 
 const ShowInformation = props => {
+	debugger
 	let showDate = displayDate(props.show.date);
 
 	let img_artist
@@ -39,6 +40,11 @@ const ShowInformation = props => {
 	} else {
 		return null
 	}
+
+	let showLink;
+	if (props.displayShow) {
+		showLink =	<a className="song-kick-link" href={props.show.url} target="_blank">See more on SongKick</a>
+	} else { showLink = <div></div>}
 
 	let img_url = img_artist["img_url"]
 
@@ -59,6 +65,7 @@ const ShowInformation = props => {
 					)
 				}
 			</ul>
+			{showLink}
 		</li>
 		
 	)

@@ -1,3 +1,5 @@
+require 'byebug'
+
 namespace :data_pull do
   desc "TODO"
   task sf_show_data: :environment do
@@ -6,7 +8,6 @@ namespace :data_pull do
 
       break if show_list["resultsPage"]["results"]["event"].nil?
       show_list["resultsPage"]["results"]["event"].each do |event|
-
         venue = Venue.find_by_api_id(event["venue"]["id"])
         if venue.nil?
          venue_string = ERB::Util.url_encode("#{event['venue']['displayName'].split.join('+')}+SF+Bay+Area")
@@ -47,9 +48,13 @@ namespace :data_pull do
           show = Show.create(
                       venue: venue,
                       date: event["start"]["date"],
-                      api_id: event["id"]
+                      api_id: event["id"],
+                      url: event["uri"]
                       )
+        else
+          show.update_attributes(url: event["uri"])
         end
+
 
         ##Artist Portion
         event["performance"].each do |performance|
