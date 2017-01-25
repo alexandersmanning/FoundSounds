@@ -1,7 +1,8 @@
-import React from 'react'
-import dateFormat from 'dateformat'
-import ArtistInformation from './artist_information'
-import UserShowsContainer from '../user_shows/user_shows_container'
+import React from 'react';
+import dateFormat from 'dateformat';
+import ArtistInformation from './artist_information';
+import UserShowsContainer from '../user_shows/user_shows_container';
+import Slider from 'react-slick';
 import { withRouter } from 'react-router';
 import { displayDate } from '../../util/date_util';
 
@@ -10,7 +11,7 @@ const updatePath = (showId, router) => {
 	router.push({
 		pathname: `${modifiedRoute}shows/${showId}`, query: router.location.query
 	})
-}
+};
 
 const findModifiedPath = (router) => {
 		let currentRouteName = router.getCurrentLocation().pathname;
@@ -29,7 +30,6 @@ const findModifiedPath = (router) => {
 	}
 
 const ShowInformation = props => {
-	debugger
 	let showDate = displayDate(props.show.date);
 
 	let img_artist
