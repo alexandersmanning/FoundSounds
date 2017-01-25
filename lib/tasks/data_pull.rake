@@ -1,5 +1,3 @@
-require 'byebug'
-
 namespace :data_pull do
   desc "TODO"
   task sf_show_data: :environment do
