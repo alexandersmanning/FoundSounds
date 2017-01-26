@@ -6,12 +6,13 @@
 
  .signup-form-container {
  	width: 500px;
+  margin-bottom: 25px;
  }
 
  .session-form {
  	width: 500px;	
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-direction: column;
   height: 600px;
   text-align: center; 

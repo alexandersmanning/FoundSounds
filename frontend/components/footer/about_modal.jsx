@@ -28,6 +28,7 @@ class AboutModal extends React.Component {
 					<Modal 
 						isOpen={this.state.open} 
 						onRequestClose={this.closeModal}>
+						<span className="close-modal" onClick={this.closeModal}>X</span>	
 						<content className="about-container">
 							<section className="about-section">
 								<h2>About Found Sounds</h2>

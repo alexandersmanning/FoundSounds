@@ -50,6 +50,7 @@ class SessionLinks extends React.Component {
 									onClick={this.openModal}>Login/Signup</button>
 	    		<Modal isOpen={this.state.open} 
 	    					 onRequestClose={this.leaveModal}>
+						<span className="close-modal" onClick={this.closeModal}>X</span>	
 	    			<SessionFormContainer />
 	    		</Modal>
     		</nav>
