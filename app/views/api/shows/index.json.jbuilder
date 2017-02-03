@@ -1,12 +1,10 @@
 
 shows_by_date = Hash.new { |h, k| h[k] = [] }
-shows_by_venue = Hash.new { |h, k| h[k] = [] }
 show_venues = Hash.new
 
 @shows.each do |show|
   shows_by_date[show.date.to_date] << show
   show_venues[show.venue_id] = show.venue
-  # shows_by_venue[show.venue_id] << show
 end
 
 

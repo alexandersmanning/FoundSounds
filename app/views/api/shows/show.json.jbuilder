@@ -1,14 +1,3 @@
-
-
-# json.extract! @show do
-#   json.showId @show.id
-#   json.venueName @show.venue.name
-#   json.venueAddress @show.venue.address
-#   json.venueState @show.venue.state
-#   json.venueCity @show.venue.city
-#   json.artists @show.artists
-# end
-
 json.showId @show.id
 json.date @show.date
 json.venueId @show.venue.id

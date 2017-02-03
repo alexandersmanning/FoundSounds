@@ -34,6 +34,7 @@ class Show < ActiveRecord::Base
       from_date = Date.parse(from_date)
       to_date =  Date.parse(to_date)
     end
+
     if (user_id.nil?)
       Show.includes(:venue, :artists).where("(date BETWEEN ? AND ?) AND (venue_id = ?) ", from_date, to_date, venue_id)
     else
