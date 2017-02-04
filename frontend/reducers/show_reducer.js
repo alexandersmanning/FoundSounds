@@ -1,6 +1,6 @@
 import { RECEIVE_SHOW, CLEAR_SHOW } from '../actions/show_actions'
 
-const _nullShow = Object.freeze({})
+const _nullShow = {};
 
 const ShowReducer = (state = _nullShow, action) => {
 	Object.freeze(state)

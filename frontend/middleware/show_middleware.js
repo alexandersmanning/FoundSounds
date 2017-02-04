@@ -5,8 +5,8 @@ export default ({getState, dispatch}) => next => action => {
 	const successCallback = Show => dispatch(receiveShow(Show));
 	switch(action.type){
 		case FETCH_SHOW_BY_ID:
-			fetchShowById(action.id, successCallback)
-			return next(action);
+			return fetchShowById(action.id, successCallback)
+			// return next(action);
 		default: 
 			return next(action);
 	}
