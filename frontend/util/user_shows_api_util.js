@@ -1,10 +1,10 @@
 import merge from 'lodash/merge'
 
-export const fetchUserShows = (id, filters, success, error) => {
+export const fetchUserShowAPI	 = (id, success, error) => {
 	$.ajax({
 		type: "GET",
 		url: "api/user_shows",
-		data: merge({}, { userId: id }, filters),
+		data: { userId: id },
 		success,
 		error
 	});

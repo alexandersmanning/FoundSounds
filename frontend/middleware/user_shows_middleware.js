@@ -9,7 +9,7 @@ import {
 } from '../actions/user_shows_actions'
 
 import {
-	fetchUserShows,
+	fetchUserShowAPI,
 	createUserShows,
 	updateUserShows,
 	deleteUserShows
@@ -24,7 +24,7 @@ export default ({getState, dispatch}) => next => action => {
 
 	switch(action.type) {
 		case FETCH_USER_SHOWS:
-			fetchUserShows(action.userId, getState().filter, fetchUserShowsSuccess, (error) => console.log(error))
+			fetchUserShowAPI(action.userId, fetchUserShowsSuccess, (error) => console.log(error))
 			return next(action);
 		case ADD_USER_SHOW:
 			createUserShows(action.userId, action.showId, action.attending, AddUpdateSuccess);

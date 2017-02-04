@@ -16,11 +16,15 @@ export default({getState, dispatch}) => next => action => {
 			return next(action);
 		case UPDATE_BOUNDS:
 			next(action);
+			//get all shows within the bound and date range
 			dispatch(fetchShowsByDate(getState().filter));
 			break;
 		case UPDATE_DATES:
+			//update the filters with the new dates
 			next(action);
-			if ( currentUser ){ dispatch(fetchUserShows(currentUser.id, getState().filter)) }
+			//If there is a logged in user, pull their shows to add to the state. This state is used for individual shows to mark if the user is going or not
+			if (currentUser){ dispatch(fetchUserShows(currentUser.id)) }
+			//Get all shows within the bound and date range
 			dispatch(fetchShowsByDate(getState().filter));
 			break;
 		default: 

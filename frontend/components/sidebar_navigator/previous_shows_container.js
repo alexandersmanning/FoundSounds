@@ -17,7 +17,6 @@ const mapStateToProps = (state, ownProps) => {
 	let yesterday = getYesterday();
 	let fromDate = ownProps.location.query.fromDate;
 	let toDate = ownProps.location.query.toDate;
-	debugger
 	if  (!toDate || Date.parse(toDate) > Date.parse(yesterday) ) {
 		toDate = yesterday	
 	}

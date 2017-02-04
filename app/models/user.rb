@@ -38,15 +38,7 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
-  def find_user_shows(from_date, to_date, bounds)
-    to_date ||=  10.days.from_now
-    from_date ||= Date.today
-
-    if from_date.is_a?(String) || to_date.is_a?(String)
-      from_date = Date.parse(from_date)
-      to_date =  Date.parse(to_date)
-    end
-
+  def find_user_shows()
     Show.select("shows.*, user_shows.attending, user_shows.id as user_shows_id")
       .joins(:users)
       .where(
@@ -55,7 +47,6 @@ class User < ActiveRecord::Base
   end
 
   private
-
   def ensure_session_token
     self.session_token ||= new_session_token
   end

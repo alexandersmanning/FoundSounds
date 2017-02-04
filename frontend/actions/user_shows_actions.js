@@ -6,10 +6,9 @@ export const UPDATE_USER_SHOW = "UPDATE_USER_SHOW";
 export const DELETE_USER_SHOW = "DELETE_USER_SHOW";
 export const REMOVE_USER_SHOW = "REMOVE_USER_SHOW";
 
-export const fetchUserShows = (userId, filter) => ({
+export const fetchUserShows = (userId) => ({
 	type: FETCH_USER_SHOWS,
-	userId,
-	filter
+	userId
 });
 
 export const receiveUserShows = (userShows) => {

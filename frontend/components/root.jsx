@@ -14,7 +14,7 @@ import PreviousShowContainer from './sidebar_navigator/previous_shows_container'
 
 import { fetchShowById, clearShow } from '../actions/show_actions'
 import { fetchVenueById, clearVenue } from '../actions/venue_actions'
-import { addUserToFilter, removeUserFromFilter } from '../actions/filter_actions'
+import { addVenueToFilter, addUserToFilter, removeUserFromFilter } from '../actions/filter_actions'
 
 import { removeShowsByDay } from '../actions/shows_by_day_actions'
 
@@ -37,7 +37,6 @@ const Root = ( {store} ) => {
 
    const _fetchVenueById = (nextState, replace) => {
     store.dispatch(clearVenue());
-    debugger
     let venueId = nextState.params.venueId;
     store.dispatch(fetchVenueById(venueId, store.getState().filter ));
   }

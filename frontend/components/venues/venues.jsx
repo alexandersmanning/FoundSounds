@@ -22,13 +22,14 @@ class Venue extends React.Component {
 			fromDate = getDefaultFromDate();
 			toDate = getDefaultToDate();
 		}
-		this._updatePath(fromDate, toDate)
 
-		this.props.addVenueToFilter(this.props.Venue.id)
+		this._updatePath(fromDate, toDate)
+		this.props.addVenueToFilter(this.props.Venue.id) 
 	}
 
 	componentDidUpdate(prevProps, prevState) {
-		if (this.props.Venue.id && this.props.filter.venueId !== this.props.Venue.id) {
+		if (this.props.Venue.id && 
+		 this.props.filter.venueId !== this.props.Venue.id) {
 			this.props.addVenueToFilter(this.props.Venue.id)
 		}
 	}
