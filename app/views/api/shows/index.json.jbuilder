@@ -10,7 +10,6 @@ end
 
 json.ShowList do
   json.ShowsByDate do
-    #possibly remove the below
     if shows_by_date.keys.empty?
       json.null!
     else

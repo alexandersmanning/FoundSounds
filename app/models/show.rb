@@ -25,40 +25,38 @@ class Show < ActiveRecord::Base
     source: :user
 
 
- def self.find_shows_by_venue(venue_id, from_date = nil, to_date = nil, user_id = nil)
+ def self.find_shows_by_venue(venue_id, from_date, to_date, user_id = nil)
 
-    to_date ||=  10.days.from_now
-    from_date ||= Date.today
+    from_date = Show.modify_date(from_date) || Date.today
+    to_date = Show.modify_date(to_date) || 10.days.from_now
 
-    if from_date.is_a?(String) || to_date.is_a?(String)
-      from_date = Date.parse(from_date)
-      to_date =  Date.parse(to_date)
+
+    shows = Show.includes(:venue, :artists).where("(date BETWEEN ? AND ?) AND (venue_id = ?) ", from_date, to_date, venue_id)
+
+    if (user_id)
+      shows = shows.joins(:users).where("users.id = ?", user_id)
     end
 
-    if (user_id.nil?)
-      Show.includes(:venue, :artists).where("(date BETWEEN ? AND ?) AND (venue_id = ?) ", from_date, to_date, venue_id)
-    else
-      Show.includes(:venue, :users, :artists).joins(:users).where("(date BETWEEN ? AND ?) AND (venue_id = ?) AND (users.id = ?) ", from_date, to_date, venue_id, user_id)
-    end
-
+    return shows
   end
 
-  def self.find_shows_by_date(from_date = Date.today, to_date= 10.days.from_now, bounds = nil, user_id = nil)
+  def self.find_shows_by_date(from_date = Date.today, to_date= 100.days.from_now, bounds = nil, user_id = nil)
+
     bounds ||= {
        "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
       "southWest"=> {"lat"=>"37.74187", "lng"=>"-122.47791"}
       }
 
-    if from_date.is_a?(String) || to_date.is_a?(String)
-      from_date = Date.parse(from_date)
-      to_date =  Date.parse(to_date)
+    from_date = Show.modify_date(from_date)
+    to_date = Show.modify_date(to_date)
+
+    shows = Show.includes(:venue, :artists).where("(date BETWEEN ? AND ?) AND (venue_id in (?)) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id) ).order("shows.date")
+
+    if(user_id)
+      shows = shows.joins(:users).where("users.id = ?", user_id)
     end
 
-    if (user_id.nil?)
-      Show.includes(:venue, :artists).where("(date BETWEEN ? AND ?) AND (venue_id in (?)) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id) ).order("shows.date")
-    else
-     Show.includes(:venue, :users, :artists).joins(:users).where("(date BETWEEN ? AND ?) AND (venue_id in (?))  AND (users.id = ?) ", from_date, to_date, Venue.in_bounds(bounds).pluck(:id), user_id).order("shows.date")
-    end
+    shows
   end
 
 
@@ -67,5 +65,10 @@ class Show < ActiveRecord::Base
     self.artists.map do |artist|
       artist.name
     end
+  end
+
+  private
+  def self.modify_date(date)
+    date.is_a?(String) ? Date.parse(date) : date
   end
 end

@@ -15,8 +15,8 @@ class Venue extends React.Component {
 	}
 
 	componentDidMount() {
-		let fromDate = this.props.fromDate;
-		let toDate =  this.props.toDate;
+		let fromDate = this.props.filter.fromDate;
+		let toDate =  this.props.filter.toDate;
 
 		if (!fromDate || !toDate) {
 			fromDate = getDefaultFromDate();

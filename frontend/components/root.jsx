@@ -37,6 +37,7 @@ const Root = ( {store} ) => {
 
    const _fetchVenueById = (nextState, replace) => {
     store.dispatch(clearVenue());
+    debugger
     let venueId = nextState.params.venueId;
     store.dispatch(fetchVenueById(venueId, store.getState().filter ));
   }

@@ -8,9 +8,8 @@ const mapStateToProps = (state, ownProps) => {
 		ShowsByDay: state.ShowsByDay,
 		Venue: state.Venue,
 		filter: state.filter,
-		//the below probably isn't needed
-		toDate: ownProps.location.query.toDate,
-		fromDate: ownProps.location.query.fromDate
+		fromDate: ownProps.location.query.fromDate,
+		toDate: ownProps.location.query.toDate
 	})
 }
 
