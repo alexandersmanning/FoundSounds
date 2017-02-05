@@ -41,13 +41,15 @@ class ShowsByDay extends React.Component {
   	let loadLength = this.state.loaded.length - 2;
   	let newItems = [];
   	let hasMore = true;
+  	let dateKey = [];
+  	let countShows = 0;
 
   	if (loadLength  < dateList.length) {
- 			let dateKey = [dateList[loadLength]]
- 			if (this.ShowsByDay[dateKey[0]]["Shows"].length < 5 
- 				&& (loadLength + 1) !== dateList.length) {
- 				dateKey.push(dateList[loadLength + 1])
- 			}
+	  	while (countShows < 5 && (loadLength < dateList.length)) {
+	  		dateKey.push(dateList[loadLength])
+	  		countShows += this.ShowsByDay[dateKey[dateKey.length - 1]]["Shows"].length
+	  		loadLength += 1;
+	  	}
 
  			dateKey.forEach( dateValue => {
  				newItems.push(this._createShow(dateValue))
