@@ -8,12 +8,10 @@ export const fetchShows = (filters, success, error) => {
 	});
 }
 
-export const fetchShowById = (id, success, error) => {
-	$.ajax({
+export const fetchShowById = (id) => {
+	return $.ajax({
 		type: "GET",
 		url: `api/shows/${id}`,
-		success,
-		error
 	});
 }
 

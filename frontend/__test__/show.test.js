@@ -81,14 +81,12 @@ describe("Reducers", () => {
 describe("Middleware", () => {
 	let server;
 	let store, next, action;
-	let id = 1368;
-	let url = `api/shows/${1368}`;
-
-	const middleware = [thunk];
-	const mockStore = configureMockStore(middleware);
+	let id = 1;
+	let url = `api/shows/${1}`;
+	const mockStore = configureMockStore()
 
 	beforeEach(() => {
-		store = {};
+		store = mockStore({});
 		next = sinon.stub();
 		action = {
 			type: actions.FETCH_SHOW_BY_ID,
@@ -104,23 +102,20 @@ describe("Middleware", () => {
 	it ("calls next if the type is not part of the middleware", () => {
 		action = { type: 'not-CALL_API' };
 		showMiddleware(store)(next)(action);
-		expect(next.calledWith(action));
+		expect(next.calledWith(action)).toEqual(true);
 	})
 
-	it("calls server when FETCH_SHOW_BY_ID is called", () => {
-		const expectedActions = [
-			{type: actions.FETCH_SHOW_BY_ID, id }, 
-			{type: actions.RECEIVE_SHOW, show}];
+	it("calls server when FETCH_SHOW_BY_ID is called", (done) => {
+		const expectedAction = [{type: actions.RECEIVE_SHOW, show: JSON.stringify(show)}];
 
-		const store = mockStore({});
 		server.respondWith("GET", url, JSON.stringify(show));
-		// showMiddleware(store)(next)(action);
+		let promise = showMiddleware(store)(next)(action);
 		server.respond();
-		
-		console.log(store.dispatch(actions.fetchShowById(id)));
-			// .then(() => {
-			// 	expect(store.getActions()).toEqual(expectedActions)
-			// })
-		console.log(store.getActions());
-	})
+
+		promise.done(() => { 
+			expect(store.getActions().length).toEqual(1) 
+			expect(store.getActions()).toEqual(expectedAction);
+			done();
+		})		
+  })
 })
