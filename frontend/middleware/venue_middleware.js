@@ -5,8 +5,7 @@ export default ({getState, dispatch}) => (next) => (action) => {
 	const successCallback = venue => dispatch(receiveVenue(venue));
 	switch(action.type) {
 		case FETCH_VENUE_BY_ID:
-			fetchVenueById(action.id, action.filter, successCallback);
-			return next(action);
+			return fetchVenueById(action.id, action.filter).done(successCallback);
 		default: 
 			return next(action);
 	}

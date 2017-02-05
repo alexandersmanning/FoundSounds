@@ -15,12 +15,10 @@ export const fetchShowById = (id) => {
 	});
 }
 
-export const fetchVenueById = (id, filters, success, error) => {
-	$.ajax({
+export const fetchVenueById = (id, filters) => {
+	return $.ajax({
 		type: "GET",
 		url: `api/venues/${id}`,
-		data: filters,
-		success,
-		error
+		data: filters
 	});
 }
