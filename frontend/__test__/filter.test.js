@@ -79,7 +79,6 @@ describe("Shows by day middleware", () => {
 	});
 
 	it("updates the bounds and then calls the fetch shows API", () => {
-		url = /api\/shows\?.*bounds=boundObj.*/;
 		action = { 
 			type: actions.UPDATE_BOUNDS,
 			bounds: "boundObj"
@@ -87,16 +86,9 @@ describe("Shows by day middleware", () => {
 		let expectedResponse = [
 			{ type: 'FETCH_SHOWS_BY_DATE' }]
 
-		// server.respondWith("GET", url, "response");
 		ShowsByDayMiddleware(store)(next)(action);
-		// server.respond();
 
-		console.log(store.getActions());
-		console.log(store.getState());
-		// promise.done(() => {
-		// 	console.log(store.getActions());
-		// 	done();
-		// })
-
+		expect(store.getActions()).toEqual(expectedResponse);
+		expect(next.calledWith(action)).toEqual(true);
 	})
 })
