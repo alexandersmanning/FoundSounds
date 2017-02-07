@@ -10,4 +10,9 @@ class Artist < ActiveRecord::Base
   has_many :shows,
     through: :show_artists,
     source: :show
+
+  def self.find_like_names(artist_name)
+    return [] unless artist_name && artist_name.length > 0
+    Artist.where("name ILIKE ?", "%#{artist_name}%").take(20)
+  end
 end

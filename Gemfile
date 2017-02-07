@@ -51,6 +51,7 @@ group :development, :test do
   gem 'guard-livereload', require: false
   gem 'rack-livereload'
   gem 'rb-fsevent', require: false
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
