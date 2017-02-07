@@ -1,10 +1,8 @@
-export const fetchShows = (filters, success, error) => {
-	$.ajax({
+export const fetchShows = (filters) => {
+	return $.ajax({
 		type: "GET",
 		url: `api/shows`,
-		data: filters,
-		success,
-		error
+		data: filters
 	});
 }
 

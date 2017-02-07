@@ -46,6 +46,7 @@
     "react-modal": "^1.5.2",
     "react-redux": "^4.4.5",
     "react-router": "^3.0.0",
+    "react-select": "^1.0.0-rc.3",
     "react-slick": "^0.14.5",
     "react-tap-event-plugin": "^1.0.0",
     "read-more-react": "^1.0.3",
