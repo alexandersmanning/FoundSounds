@@ -20,3 +20,11 @@ export const fetchVenueById = (id, filters) => {
 		data: filters
 	});
 }
+
+export const fetchArtistsByName = (name) => {
+	return $.ajax({
+		type: "GET",
+		url: "api/artists",
+		data: {artistName: name}
+	});
+}
