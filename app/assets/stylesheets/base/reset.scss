@@ -48,6 +48,9 @@ input[type="submit"] {
   cursor: pointer;
 }
 
+input:focus {
+  outline: none !important;
+}
 /* Clearfix */
 
 .group:after {

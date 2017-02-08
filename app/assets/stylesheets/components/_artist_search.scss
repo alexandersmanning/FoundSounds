@@ -1,0 +1,22 @@
+.artist-search-container {
+	font-family: 'Sailec Regular', sans-serif;
+	font-size: $medium-main;
+	width: 55%;
+	max-width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 30px;
+	background-color: transparent;
+};
+
+.Select-control {
+	border: none !important;
+	border-bottom: 1px solid #414141 !important;
+	border-radius: 0 !important;
+	background-color: transparent !important;
+}
+
+
+.Select-arrow {
+	display: none !important;
+}

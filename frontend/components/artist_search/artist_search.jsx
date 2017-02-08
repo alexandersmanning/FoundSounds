@@ -16,10 +16,6 @@ class ArtistSearch extends React.Component {
 		this.addArtist(this.props.filter.artistId)
 	}
 
-	// componentWillReceiveProps() {
-	// 	this.addArtist(this.props.filter.artistId)
-	// }
-
 	searchForArtist(inputValue){
 		fetchArtistsByName(inputValue).done((data) => {
 			let formatedData = data.map(artistRecord => {

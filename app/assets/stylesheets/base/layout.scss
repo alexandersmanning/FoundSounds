@@ -477,6 +477,7 @@ h5 {
 .headroom--unfixed {
   position: relative;
   transform: translateY(0);
+  z-index: 150;
   // top: 70px;
 }
 .headroom--scrolled {
