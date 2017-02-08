@@ -14,6 +14,7 @@ class ShowsByDay extends React.Component {
 	constructor(props) {
 		super(props);
 		this._getMoreDates = this._getMoreDates.bind(this);
+		this._getNoShow = this._getNoShow.bind(this);
 		this._getShowTitle = this._getShowTitle.bind(this);
 		this._getHeadComponent = this._getHeadComponent.bind(this);
 		this._getInfiniteScrollParent = this._getInfiniteScrollParent.bind(this);
@@ -64,6 +65,21 @@ class ShowsByDay extends React.Component {
   	setTimeout(() => {
   		this.setState({loaded: newLoaded, hasMore: hasMore})
   	}, 500);
+  }
+
+  _getNoShow() {
+  	debugger
+  	let newLoaded = this.state.loaded.concat([
+				<li  key='no-shows' className="no-shows">
+					<h4>No shows to display</h4>
+					<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />
+				</li>
+			])
+
+  	setTimeout(() => {
+  		this.setState({loaded: newLoaded, hasMore: false})
+  	}, 500);
+			
   }
 
   _createShow(dateValue) {
@@ -123,7 +139,11 @@ class ShowsByDay extends React.Component {
 		let showDisplay;
 		if (this.ShowsByDay) {
 				if (this.state.loaded.length <= 2) { this._getMoreDates() }
-				showDisplay = <InfiniteScroll
+		} else {
+				if(this.state.hasMore) { this._getNoShow() }	
+		}
+
+		showDisplay = <InfiniteScroll
 					next={this._getMoreDates}
    				hasMore={this.state.hasMore}
     			loader={<div className="cssload-container">
@@ -132,14 +152,6 @@ class ShowsByDay extends React.Component {
     			height={this.state.height}
     			>
     			{this.state.loaded}</InfiniteScroll>
-		} else {
-			showDisplay = this.state.loaded.concat([
-				<li key="noshow" className="no-shows">
-					<h4>No shows to display</h4>
-					<img className="no-shows-image" src="http://res.cloudinary.com/ddvdi1pie/image/upload/v1478539473/jumproping_mixtape_d92nid.gif" />
-				</li>
-			])
-		}
 
 		return (
 			<ReactCSSTransitionGroup

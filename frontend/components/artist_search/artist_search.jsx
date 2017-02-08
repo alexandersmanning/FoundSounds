@@ -39,8 +39,8 @@ class ArtistSearch extends React.Component {
 
 	goToArtist(artistRecord) {
 		if (artistRecord) {
-			this.props.addArtistToFilter(artistRecord.value);
 			this.addArtist(artistRecord.value)
+			this.props.addArtistToFilter(artistRecord.value);
 		} else {
 			this.addArtist()
 			this.props.removeArtistFromFilter();
