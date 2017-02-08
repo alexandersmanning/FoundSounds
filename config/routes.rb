@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :shows, only: [:index, :show]
     resources :venues, only: [:show]
     resources :user_shows, only: [:index, :create, :update, :destroy]
-    resources :artists, only: [:index]
+    resources :artists, only: [:index, :show]
   end
 end

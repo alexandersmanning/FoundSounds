@@ -1,35 +1,35 @@
-import {
-				 UPDATE_BOUNDS,
-				 UPDATE_DATES,
-				 ADD_USER_TO_FILTER,
-				 REMOVE_USER_FROM_FILTER,
-				 ADD_VENUE_TO_FILTER,
-				 REMOVE_VENUE_FROM_FILTER
-				  } from '../actions/filter_actions';
+import * as actions from '../actions/filter_actions';
 import merge from 'lodash/merge';
 
 const FilterReducer = (state = {}, action) => {
 	Object.freeze(state)
 	let newState
 	switch (action.type) {
-		case UPDATE_BOUNDS:
+		case actions.UPDATE_BOUNDS:
 			return merge({}, state, {bounds: action.bounds});
-		case UPDATE_DATES:
+		case actions.UPDATE_DATES:
 			let dates = { "fromDate": action.fromDate, "toDate": action.toDate };
 			return merge({}, state, dates );
-		case ADD_USER_TO_FILTER:
+		case actions.ADD_USER_TO_FILTER:
 			let userId = { "userId": action.userId };
 			return merge({}, state, userId );
-		case REMOVE_USER_FROM_FILTER:
+		case actions.REMOVE_USER_FROM_FILTER:
 			newState = merge({}, state, {});
 			delete newState["userId"];
 			return newState;
-		case ADD_VENUE_TO_FILTER:
+		case actions.ADD_VENUE_TO_FILTER:
 			let venueId = { "venueId": action.venueId };
 			return merge({}, state, venueId);
-		case REMOVE_VENUE_FROM_FILTER:
+		case actions.REMOVE_VENUE_FROM_FILTER:
 			newState = merge({}, state, {});
 			delete newState["venueId"];
+			return newState;
+		case actions.ADD_ARTIST_TO_FILTER:
+			let artistEntry = { "artistId": action.artistId };
+			return merge({}, state, artistEntry);
+		case actions.REMOVE_ARTIST_FROM_FILTER:
+			newState = merge({}, state, {});
+			delete newState["artistId"];
 			return newState;
 		default:
 			return state;

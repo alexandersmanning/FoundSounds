@@ -4,7 +4,8 @@ class Api::VenuesController < ApplicationController
         params[:id],
         params[:fromDate],
         params[:toDate],
-        params[:userId]
+        params[:userId],
+        params[:artistId]
       )
   end
 end

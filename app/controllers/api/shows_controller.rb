@@ -4,7 +4,8 @@ class Api::ShowsController < ApplicationController
       params[:fromDate],
       params[:toDate],
       params[:bounds],
-      params[:userId]
+      params[:userId],
+      params[:artistId]
     )
   end
 

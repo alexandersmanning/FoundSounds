@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom'
 import ShowsComponent from './shows_component';
 import DatePickerForm from './date_picker_form';
-import ArtistSearch from '../artist_search/artist_search'
+import ArtistSearchContainer from '../artist_search/artist_search_container'
 import SearchContainer from '../search/search_container';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
@@ -112,7 +112,7 @@ class ShowsByDay extends React.Component {
 					/>
 				</section>
 				<section>
-					<ArtistSearch />
+					<ArtistSearchContainer />
 				</section>
 			</Headroom> )
   }

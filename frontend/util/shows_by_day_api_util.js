@@ -28,3 +28,10 @@ export const fetchArtistsByName = (name) => {
 		data: {artistName: name}
 	});
 }
+
+export const fetchArtistById = (id) => {
+	return $.ajax({
+		type: "GET",
+		url: `api/artists/${id}`
+	});
+}

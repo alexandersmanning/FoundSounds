@@ -25,7 +25,7 @@ class Show < ActiveRecord::Base
     source: :user
 
 
- def self.find_shows_by_venue(venue_id, from_date, to_date, user_id = nil)
+ def self.find_shows_by_venue(venue_id, from_date, to_date, user_id = nil, artist_id = nil)
 
     from_date = Show.modify_date(from_date) || Date.today
     to_date = Show.modify_date(to_date) || 10.days.from_now
@@ -37,10 +37,14 @@ class Show < ActiveRecord::Base
       shows = shows.joins(:users).where("users.id = ?", user_id)
     end
 
+    if (artist_id)
+      shows = shows.joins(:artists).where("artists.id = ?", artist_id)
+    end
+
     return shows
   end
 
-  def self.find_shows_by_date(from_date = Date.today, to_date= 100.days.from_now, bounds = nil, user_id = nil)
+  def self.find_shows_by_date(from_date = Date.today, to_date= 100.days.from_now, bounds = nil, user_id = nil, artist_id = nil)
 
     bounds ||= {
        "northEast"=> {"lat"=>"37.80971", "lng"=>"-122.39208"},
@@ -54,6 +58,10 @@ class Show < ActiveRecord::Base
 
     if(user_id)
       shows = shows.joins(:users).where("users.id = ?", user_id)
+    end
+
+    if (artist_id)
+      shows = shows.joins(:artists).where("artists.id = ?", artist_id)
     end
 
     shows

@@ -28,14 +28,17 @@ class DatePickerForm extends React.Component{
 		} 
 		else
 			{ 
-				this._updatePath() // only want to do this if show_list is empty
+				this._updatePath() 
 			}
 	}
 
 	handleChange(field) {
-		return date => this.setState({
-			[field]: date.toISOString().slice(0,10)
-		}, this._updatePath)
+			return date => {
+				if(date) {
+					this.setState({
+						[field]: date.toISOString().slice(0,10)
+					}, this._updatePath)}
+				}
 	}
 
 	_updatePath() {
