@@ -12,7 +12,7 @@ class ArtistSearch extends React.Component {
 	}
 
 	componentDidMount() {
-		this.addArtist(this.props.filter.artistId)
+		this.addArtist(this.props.filter.artistId, this.props.filter.artistName)
 	}
 
 	searchForArtist(inputValue){
@@ -26,14 +26,11 @@ class ArtistSearch extends React.Component {
 		})
 	}
 
-	addArtist(artistId){
-		//This checks if the fiter has an artistId, and if so, it will call the artist show api to pull the artist's name
-
-		//TODO: Store the artist's name as part of the filter, so this API call become unecessary
+	addArtist(artistId, artistName){
+		//This checks if the fiter has an artistId, and if so, it will set the state with the artist id and name
 		if (artistId) {
-			fetchArtistById(artistId).done(artistRecord => {
-				this.setState({artistList:[artistRecord], selectedArtist: artistId})
-			})
+			let artistRecord = { value: artistId, label: artistName }
+			this.setState({artistList:[artistRecord], selectedArtist: artistId})
 		} else {
 			this.setState({selectedArtist: null})
 		}
@@ -45,8 +42,8 @@ class ArtistSearch extends React.Component {
 
 		//Whenever an artist is cleared, the artist is removed from the local state and then removed from the filter, calling the api to display shows per the other filter variables
 		if (artistRecord) {
-			this.addArtist(artistRecord.value)
-			this.props.addArtistToFilter(artistRecord.value);
+			this.addArtist(artistRecord.value, artistRecord.label)
+			this.props.addArtistToFilter(artistRecord.value, artistRecord.label);
 		} else {
 			this.addArtist()
 			this.props.removeArtistFromFilter();

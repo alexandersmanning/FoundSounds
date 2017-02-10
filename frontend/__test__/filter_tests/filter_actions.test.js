@@ -18,15 +18,16 @@ describe("Filter Update Bounds and Update Dates", () => {
 
 describe("Filter Add Artist", () => {
 	let artistId = 1;
+	let artistName = "Ty Segal"
 
 	it("Creates an action to add artist without id", () => {
-		expectedAction = {type: actions.ADD_ARTIST_TO_FILTER, artistId: undefined}
+		expectedAction = {type: actions.ADD_ARTIST_TO_FILTER, artistId: undefined, artistName: undefined}
 		expect(actions.addArtistToFilter()).toEqual(expectedAction);
 	});
 
 	it("Creates an action to add artist with id", () => {
-		expectedAction = {type: actions.ADD_ARTIST_TO_FILTER, artistId}
-		expect(actions.addArtistToFilter(artistId)).toEqual(expectedAction);
+		expectedAction = {type: actions.ADD_ARTIST_TO_FILTER, artistId, artistName}
+		expect(actions.addArtistToFilter(artistId, artistName)).toEqual(expectedAction);
 	})
 })
 

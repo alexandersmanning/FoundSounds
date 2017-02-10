@@ -40,7 +40,7 @@ RSpec.describe Api::ArtistsController, :type => :controller do
       expect(response).to have_http_status(200)
     end
 
-    it "renders the index template" do
+    it "renders the show template for a specified artist" do
       get :show, id: 1
       expect(response).to render_template("show")
     end

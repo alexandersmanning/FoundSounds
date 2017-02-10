@@ -38,9 +38,10 @@ export const removeVenueFromFilter = (venueId) => ({
 	venueId
 });
 
-export const addArtistToFilter = (artistId) => ({
+export const addArtistToFilter = (artistId, artistName) => ({
 	type: ADD_ARTIST_TO_FILTER,
-	artistId
+	artistId,
+	artistName
 });
 
 export const removeArtistFromFilter = () => ({

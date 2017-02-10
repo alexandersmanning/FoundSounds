@@ -18,9 +18,9 @@ const FilterReducer = (state = {}, action) => {
 		case actions.REMOVE_VENUE_FROM_FILTER:
 			return removeFromStore(state, action, ["venueId"]);
 		case actions.ADD_ARTIST_TO_FILTER:
-			return addToStore(state, action, ["artistId"])
+			return addToStore(state, action, ["artistId", "artistName"])
 		case actions.REMOVE_ARTIST_FROM_FILTER:
-			return removeFromStore(state, action, ["artistId"]);
+			return removeFromStore(state, action, ["artistId", "artistName"]);
 		default:
 			return state;
 	}
