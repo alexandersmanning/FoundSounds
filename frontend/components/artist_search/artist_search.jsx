@@ -7,7 +7,6 @@ import 'react-select/dist/react-select.css';
 class ArtistSearch extends React.Component {
 	constructor(props) {
 		super(props);
-		//set selectedArtist to either the state variable or null, possible issues pulling record 
 		this.state = {artistList: [] }		
 		this.searchForArtist = this.searchForArtist.bind(this);
 	}
@@ -17,6 +16,7 @@ class ArtistSearch extends React.Component {
 	}
 
 	searchForArtist(inputValue){
+		//This makes an api call to the artist using a name to pull all similar artists to display to the user as a list to pick from
 		fetchArtistsByName(inputValue).done((data) => {
 			let formatedData = data.map(artistRecord => {
 				return { value: artistRecord.id, label: artistRecord.name }
@@ -27,6 +27,9 @@ class ArtistSearch extends React.Component {
 	}
 
 	addArtist(artistId){
+		//This checks if the fiter has an artistId, and if so, it will call the artist show api to pull the artist's name
+
+		//TODO: Store the artist's name as part of the filter, so this API call become unecessary
 		if (artistId) {
 			fetchArtistById(artistId).done(artistRecord => {
 				this.setState({artistList:[artistRecord], selectedArtist: artistId})
@@ -38,6 +41,9 @@ class ArtistSearch extends React.Component {
 	}
 
 	goToArtist(artistRecord) {
+		//whenever an artist is selected, we add the artist to the local state so that it can be displayed, and removed by the user. Next, the artist is added to the filter, so a an api call is made to display all related shows
+
+		//Whenever an artist is cleared, the artist is removed from the local state and then removed from the filter, calling the api to display shows per the other filter variables
 		if (artistRecord) {
 			this.addArtist(artistRecord.value)
 			this.props.addArtistToFilter(artistRecord.value);
@@ -65,18 +71,3 @@ class ArtistSearch extends React.Component {
 }
 
 export default ArtistSearch;
-
-
-// <form>
-// 					<input
-// 						placeholder="search by artist"
-// 						onChange={this.searchForArtist} 
-// 					></input>
-// 				</form>
-// 				<ul>
-// 				{
-// 					this.state.artistList.map((artistObject) => {
-// 						return <li key={artistObject.id}>{artistObject.name}</li>
-// 					})
-// 				}
-// 				</ul>

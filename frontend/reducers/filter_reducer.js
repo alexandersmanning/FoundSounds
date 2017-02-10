@@ -6,35 +6,39 @@ const FilterReducer = (state = {}, action) => {
 	let newState
 	switch (action.type) {
 		case actions.UPDATE_BOUNDS:
-			return merge({}, state, {bounds: action.bounds});
+			return addToStore(state, action, ["bounds"])
 		case actions.UPDATE_DATES:
-			let dates = { "fromDate": action.fromDate, "toDate": action.toDate };
-			return merge({}, state, dates );
+			return addToStore(state, action, ["fromDate", "toDate"])
 		case actions.ADD_USER_TO_FILTER:
-			let userId = { "userId": action.userId };
-			return merge({}, state, userId );
+			return addToStore(state, action, ["userId"])
 		case actions.REMOVE_USER_FROM_FILTER:
-			newState = merge({}, state, {});
-			delete newState["userId"];
-			return newState;
+			return removeFromStore(state, action, ["userId"]);
 		case actions.ADD_VENUE_TO_FILTER:
-			let venueId = { "venueId": action.venueId };
-			return merge({}, state, venueId);
+			return addToStore(state, action, ["venueId"])
 		case actions.REMOVE_VENUE_FROM_FILTER:
-			newState = merge({}, state, {});
-			delete newState["venueId"];
-			return newState;
+			return removeFromStore(state, action, ["venueId"]);
 		case actions.ADD_ARTIST_TO_FILTER:
-			let artistEntry = { "artistId": action.artistId };
-			return merge({}, state, artistEntry);
+			return addToStore(state, action, ["artistId"])
 		case actions.REMOVE_ARTIST_FROM_FILTER:
-			newState = merge({}, state, {});
-			delete newState["artistId"];
-			return newState;
+			return removeFromStore(state, action, ["artistId"]);
 		default:
 			return state;
 	}
 };
+
+const addToStore = (state, action, actionVariables = []) => {
+	//this adds new set of variables to an object and merges with the current state as a way of updating the state without changing the variable directly
+	let newStateVariable = {};
+	actionVariables.forEach(el => newStateVariable[el] = action[el])
+	return merge({}, state, newStateVariable);
+}
+
+const removeFromStore = (state, action, actionVariables = []) => {
+	//This creates a copy of the state, remove the specified variables from the copy, and then returns the copy, as a way of not changing the current state, and providing a new one
+	let newState = merge({}, state, {});
+	actionVariables.forEach(el => delete newState[el]);
+	return newState;
+}
 
 
 export default FilterReducer
