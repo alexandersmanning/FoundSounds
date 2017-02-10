@@ -12,7 +12,9 @@ const mapStateToProps = state =>( {
 
 //The below two actions are used to add and remove the artist from the filter, which then updates the show data in the middleware
 const mapDispatchToProps = dispatch => ({
-	addArtistToFilter: (artistId) => dispatch(addArtistToFilter(artistId)),
+	addArtistToFilter: (artistId, artistName) => {
+		return dispatch(addArtistToFilter(artistId, artistName)) 
+	},
 	removeArtistFromFilter: () => dispatch(removeArtistFromFilter())
 })
 

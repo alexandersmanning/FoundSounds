@@ -37,6 +37,11 @@ class ArtistSearch extends React.Component {
 
 	}
 
+	setArtist(artistId, artistName){
+		let artistRecord = { value: artistId, label: artistName }
+		this.setState({artistList:[artistRecord], selectedArtist: artistId})
+	}
+
 	goToArtist(artistRecord) {
 		//whenever an artist is selected, we add the artist to the local state so that it can be displayed, and removed by the user. Next, the artist is added to the filter, so a an api call is made to display all related shows
 
@@ -51,6 +56,9 @@ class ArtistSearch extends React.Component {
 	}
 
 	render() {
+		// if (this.state.selectedArtist && this.state.artistRecord === []) {
+		// 	this.setArtist(this.props.filter.artistId, this.props.filter.artistName)
+		// }
 		return(
 			<div className="artist-search-container">
 				<Select 
