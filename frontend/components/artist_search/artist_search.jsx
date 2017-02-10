@@ -56,9 +56,6 @@ class ArtistSearch extends React.Component {
 	}
 
 	render() {
-		// if (this.state.selectedArtist && this.state.artistRecord === []) {
-		// 	this.setArtist(this.props.filter.artistId, this.props.filter.artistName)
-		// }
 		return(
 			<div className="artist-search-container">
 				<Select 

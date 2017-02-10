@@ -33,7 +33,7 @@ const ShowInformation = props => {
 	let showDate = displayDate(props.show.date);
 
 	let img_artist
-	if (props.show.billing_index){
+	if (props.show.billing_index &&  props.show.artists[props.show.billing_index]){
 		img_artist = props.show.artists[props.show.billing_index]
 	} else if (props.show.artists) {
 		img_artist = props.show.artists[Object.keys(props.show.artists)[0]]

@@ -46,6 +46,8 @@ class ShowsByDay extends React.Component {
   	let dateKey = [];
   	let countShows = 0;
 
+  	//ensure that at least 5 shows are displayed (if available), since some days will only have 1 or 2 shows
+
   	if (loadLength  < dateList.length) {
 	  	while (countShows < 5 && (loadLength < dateList.length)) {
 	  		dateKey.push(dateList[loadLength])
@@ -62,13 +64,13 @@ class ShowsByDay extends React.Component {
   	}
 
   	let newLoaded = this.state.loaded.concat(newItems)
+  	//This was recommended per the InfiniteScroll package as a way to always show the loading bar
   	setTimeout(() => {
   		this.setState({loaded: newLoaded, hasMore: hasMore})
-  	}, 500);
+  	}, 0);
   }
 
   _getNoShow() {
-  	debugger
   	let newLoaded = this.state.loaded.concat([
 				<li  key='no-shows' className="no-shows">
 					<h4>No shows to display</h4>
@@ -78,7 +80,7 @@ class ShowsByDay extends React.Component {
 
   	setTimeout(() => {
   		this.setState({loaded: newLoaded, hasMore: false})
-  	}, 500);
+  	}, 0);
 			
   }
 
