@@ -25,18 +25,23 @@ namespace :data_pull do
 
           next if found_venue.nil?
 
-          venue = Venue.create(
-                name:found_venue["displayName"],
-                address:found_venue["street"],
-                city: found_venue["city"]["displayName"],
-                state:found_venue["city"]["state"]["displayName"],
-                zip_code:found_venue["zip"],
-                url:found_venue["website"],
-                latitude:found_venue["lat"],
-                longitude:found_venue["lng"],
-                api_id:found_venue["id"],
-                description: found_venue["description"]
-              )
+          # find if API changed it:
+          if ((venue = Venue.find_by({ name: found_venue["displayName"], city: found_venue["city"]["displayName"] })).nil?)
+            venue = Venue.create(
+                  name:found_venue["displayName"],
+                  address:found_venue["street"],
+                  city: found_venue["city"]["displayName"],
+                  state:found_venue["city"]["state"]["displayName"],
+                  zip_code:found_venue["zip"],
+                  url:found_venue["website"],
+                  latitude:found_venue["lat"],
+                  longitude:found_venue["lng"],
+                  api_id:found_venue["id"],
+                  description: found_venue["description"]
+                )
+          else
+            venue = venue.update({ api_id: found_venue["id"] })
+          end
         end
 
         next if venue[:id].nil?
