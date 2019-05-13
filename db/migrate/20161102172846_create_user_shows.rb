@@ -1,4 +1,4 @@
-class CreateUserShows < ActiveRecord::Migration
+class CreateUserShows < ActiveRecord::Migration[5.2]
   def change
     create_table :user_shows do |t|
       t.integer :show_id, null: false

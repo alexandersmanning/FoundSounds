@@ -1,4 +1,4 @@
-class CreateShowArtists < ActiveRecord::Migration
+class CreateShowArtists < ActiveRecord::Migration[5.2]
   def change
     create_table :show_artists do |t|
       t.integer :show_id, null: false
